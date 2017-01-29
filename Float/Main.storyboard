@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--LoginVC-->
         <scene sceneID="fHW-sD-zIV">
             <objects>
-                <viewController id="B9c-Ss-SKQ" sceneMemberID="viewController">
+                <viewController id="B9c-Ss-SKQ" customClass="LoginVC" customModule="Float" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yQn-ux-LgE"/>
                         <viewControllerLayoutGuide type="bottom" id="gsY-Xy-P2R"/>
@@ -30,7 +30,7 @@
                                 <color key="backgroundColor" red="0.12939649819999999" green="0.12942153219999999" blue="0.12939104439999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="zFb-if-jor">
-                                <rect key="frame" x="36" y="40" width="303" height="211"/>
+                                <rect key="frame" x="36" y="40" width="303" height="252.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nA6-Wr-lfC">
                                         <rect key="frame" x="118.5" y="0.0" width="66.5" height="25.5"/>
@@ -46,8 +46,8 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A new way to view pictures" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxp-hW-Dzd">
-                                        <rect key="frame" x="18.5" y="185.5" width="266" height="25.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                        <rect key="frame" x="33.5" y="185.5" width="236.5" height="67"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -70,6 +70,11 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" red="0.74111074210000005" green="0.74121862650000003" blue="0.74108701939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oHQ-tl-tgW">
                                         <rect key="frame" x="0.0" y="44" width="303" height="1"/>
@@ -86,6 +91,11 @@
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" red="0.74111074210000005" green="0.74121862650000003" blue="0.74108701939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S97-BI-Rrz">
                                         <rect key="frame" x="0.0" y="89" width="303" height="1"/>
@@ -108,8 +118,11 @@
                                         <state key="normal" title="Skip">
                                             <color key="titleColor" red="0.81137818100000003" green="0.84608370070000005" blue="0.86077272890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="skipButtonTapped:" destination="B9c-Ss-SKQ" eventType="touchUpInside" id="f2C-Hf-qJf"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZcV-pI-JDi">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZcV-pI-JDi" customClass="RoundedButton" customModule="Float" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="35" width="303" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="lec-Ai-923"/>
@@ -118,6 +131,9 @@
                                         <state key="normal" title="SIGN UP VIA FACEBOOK">
                                             <color key="titleColor" red="0.33073177929999997" green="0.73939108850000002" blue="0.83434110880000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="facebookButtonTapped:" destination="B9c-Ss-SKQ" eventType="touchUpInside" id="jG8-hY-18V"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you do not have an account, one will be created for you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYZ-wW-Aag">
                                         <rect key="frame" x="0.0" y="93" width="303" height="33.5"/>
@@ -157,6 +173,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="w8q-jz-oTr"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="JYR-lA-6o5" id="aGl-0x-onG"/>
+                        <outlet property="errorLabel" destination="aV0-NJ-XnO" id="HDp-fM-Aas"/>
+                        <outlet property="facebookButton" destination="ZcV-pI-JDi" id="naQ-ur-dUI"/>
+                        <outlet property="passwordTextField" destination="F6f-Rm-Klf" id="gwa-f7-Qud"/>
+                        <outlet property="skipButton" destination="Q3p-OB-VbE" id="qzX-gl-0HR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="563-W0-Oj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
