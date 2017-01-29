@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		0CC71A23E7429EFF5E0699A1 /* Pods_Float.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3344971BD2031DF07B540A5 /* Pods_Float.framework */; };
 		A8A852DD1E3E5EBE002A15E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A852DC1E3E5EBE002A15E1 /* AppDelegate.swift */; };
-		A8A852E21E3E5EBE002A15E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8A852E01E3E5EBE002A15E1 /* Main.storyboard */; };
 		A8A852E41E3E5EBE002A15E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8A852E31E3E5EBE002A15E1 /* Assets.xcassets */; };
 		A8A852E71E3E5EBE002A15E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8A852E51E3E5EBE002A15E1 /* LaunchScreen.storyboard */; };
 		A8A852F21E3E5EBF002A15E1 /* FloatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A852F11E3E5EBF002A15E1 /* FloatTests.swift */; };
 		A8A852FD1E3E5EBF002A15E1 /* FloatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A852FC1E3E5EBF002A15E1 /* FloatUITests.swift */; };
+		A8A853131E3E61ED002A15E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8A853121E3E61ED002A15E1 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,6 @@
 		16CA19C1A164298EAE9C9289 /* Pods-Float.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Float.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Float/Pods-Float.debug.xcconfig"; sourceTree = "<group>"; };
 		A8A852D91E3E5EBE002A15E1 /* Float.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Float.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8A852DC1E3E5EBE002A15E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A8A852E11E3E5EBE002A15E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A8A852E31E3E5EBE002A15E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A8A852E61E3E5EBE002A15E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A8A852E81E3E5EBE002A15E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,6 +47,7 @@
 		A8A852F81E3E5EBF002A15E1 /* FloatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FloatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8A852FC1E3E5EBF002A15E1 /* FloatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatUITests.swift; sourceTree = "<group>"; };
 		A8A852FE1E3E5EBF002A15E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A8A853121E3E61ED002A15E1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D3344971BD2031DF07B540A5 /* Pods_Float.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Float.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -117,7 +117,7 @@
 				A8A8530C1E3E5F51002A15E1 /* Contstants */,
 				A8A8530A1E3E5F34002A15E1 /* Services */,
 				A8A852DC1E3E5EBE002A15E1 /* AppDelegate.swift */,
-				A8A852E01E3E5EBE002A15E1 /* Main.storyboard */,
+				A8A853121E3E61ED002A15E1 /* Main.storyboard */,
 				A8A852E31E3E5EBE002A15E1 /* Assets.xcassets */,
 				A8A852E51E3E5EBE002A15E1 /* LaunchScreen.storyboard */,
 				A8A852E81E3E5EBE002A15E1 /* Info.plist */,
@@ -307,9 +307,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8A853131E3E61ED002A15E1 /* Main.storyboard in Resources */,
 				A8A852E71E3E5EBE002A15E1 /* LaunchScreen.storyboard in Resources */,
 				A8A852E41E3E5EBE002A15E1 /* Assets.xcassets in Resources */,
-				A8A852E21E3E5EBE002A15E1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,14 +418,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		A8A852E01E3E5EBE002A15E1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A8A852E11E3E5EBE002A15E1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A8A852E51E3E5EBE002A15E1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -635,6 +627,7 @@
 				A8A853031E3E5EBF002A15E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A8A853041E3E5EBF002A15E1 /* Build configuration list for PBXNativeTarget "FloatTests" */ = {
 			isa = XCConfigurationList;
@@ -643,6 +636,7 @@
 				A8A853061E3E5EBF002A15E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A8A853071E3E5EBF002A15E1 /* Build configuration list for PBXNativeTarget "FloatUITests" */ = {
 			isa = XCConfigurationList;
@@ -651,6 +645,7 @@
 				A8A853091E3E5EBF002A15E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
