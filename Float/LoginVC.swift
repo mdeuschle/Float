@@ -73,6 +73,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func facebookButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "FeedSegue", sender: self)
     }
 
 }

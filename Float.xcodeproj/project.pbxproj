@@ -17,6 +17,8 @@
 		A8A853151E3E9004002A15E1 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A853141E3E9004002A15E1 /* UIColor+Hex.swift */; };
 		A8A853171E3E96FB002A15E1 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A853161E3E96FB002A15E1 /* LoginVC.swift */; };
 		A8A853191E3E99E2002A15E1 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A853181E3E99E2002A15E1 /* RoundedButton.swift */; };
+		A8A8531B1E3EAB88002A15E1 /* MainFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A8531A1E3EAB88002A15E1 /* MainFeedVC.swift */; };
+		A8A8531E1E3EAFD7002A15E1 /* MainFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A8531D1E3EAFD7002A15E1 /* MainFeedCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		A8A853141E3E9004002A15E1 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		A8A853161E3E96FB002A15E1 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		A8A853181E3E99E2002A15E1 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		A8A8531A1E3EAB88002A15E1 /* MainFeedVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFeedVC.swift; sourceTree = "<group>"; };
+		A8A8531D1E3EAFD7002A15E1 /* MainFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFeedCell.swift; sourceTree = "<group>"; };
 		D3344971BD2031DF07B540A5 /* Pods_Float.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Float.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -175,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				A8A853161E3E96FB002A15E1 /* LoginVC.swift */,
+				A8A8531A1E3EAB88002A15E1 /* MainFeedVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				A8A853181E3E99E2002A15E1 /* RoundedButton.swift */,
+				A8A8531D1E3EAFD7002A15E1 /* MainFeedCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -393,7 +399,9 @@
 			files = (
 				A8A852DD1E3E5EBE002A15E1 /* AppDelegate.swift in Sources */,
 				A8A853151E3E9004002A15E1 /* UIColor+Hex.swift in Sources */,
+				A8A8531E1E3EAFD7002A15E1 /* MainFeedCell.swift in Sources */,
 				A8A853171E3E96FB002A15E1 /* LoginVC.swift in Sources */,
+				A8A8531B1E3EAB88002A15E1 /* MainFeedVC.swift in Sources */,
 				A8A853191E3E99E2002A15E1 /* RoundedButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
