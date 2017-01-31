@@ -303,64 +303,88 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uHI-Gg-ypY">
                                                     <rect key="frame" x="0.0" y="379" width="375" height="44"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="zYj-1a-LcF">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="zYj-1a-LcF">
                                                             <rect key="frame" x="20" y="12" width="335" height="20"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LdM-Qo-GWL">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="97.5" height="20"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="LdM-Qo-GWL">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="114" height="20"/>
                                                                     <subviews>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greySave" translatesAutoresizingMaskIntoConstraints="NO" id="PcD-xB-Trz">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                                        </imageView>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13435" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCH-x6-82t">
-                                                                            <rect key="frame" x="28" y="0.0" width="41.5" height="20"/>
+                                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hM8-WZ-fi7">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="44" height="20"/>
+                                                                            <state key="normal" image="whiteUpArrow"/>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="imageView.contentMode">
+                                                                                    <integer key="value" value="1"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </button>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="543" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCH-x6-82t">
+                                                                            <rect key="frame" x="44" y="0.0" width="26" height="20"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                            <color key="textColor" red="0.81137818100000003" green="0.84608370070000005" blue="0.86077272890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greySave" translatesAutoresizingMaskIntoConstraints="NO" id="uT7-eY-pX9">
-                                                                            <rect key="frame" x="77.5" y="0.0" width="20" height="20"/>
-                                                                        </imageView>
+                                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngB-Gx-UPQ">
+                                                                            <rect key="frame" x="70" y="0.0" width="44" height="20"/>
+                                                                            <state key="normal" image="whiteDownArrow"/>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="imageView.contentMode">
+                                                                                    <integer key="value" value="1"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </button>
                                                                     </subviews>
                                                                 </stackView>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sog-E6-4SN">
-                                                                    <rect key="frame" x="123.5" y="0.0" width="1" height="20"/>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <rect key="frame" x="137" y="0.0" width="1" height="20"/>
+                                                                    <color key="backgroundColor" red="0.81137818100000003" green="0.84608370070000005" blue="0.86077272890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="1" id="ha6-yc-oqS"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="20t-SC-xyd">
-                                                                    <rect key="frame" x="151" y="0.0" width="57.5" height="20"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="20t-SC-xyd">
+                                                                    <rect key="frame" x="160.5" y="0.0" width="53.5" height="20"/>
                                                                     <subviews>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greyComments" translatesAutoresizingMaskIntoConstraints="NO" id="Md8-lu-fHY">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="25" height="20"/>
-                                                                        </imageView>
+                                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uDK-Qb-mTj">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="19" height="20"/>
+                                                                            <state key="normal" image="smallWhiteComments"/>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="imageView.contentMode">
+                                                                                    <integer key="value" value="1"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </button>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="344" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COw-oP-YrI">
-                                                                            <rect key="frame" x="31" y="0.0" width="26.5" height="20"/>
+                                                                            <rect key="frame" x="27" y="0.0" width="26.5" height="20"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                            <color key="textColor" red="0.81137818100000003" green="0.84608370070000005" blue="0.86077272890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cSz-ud-UvF">
-                                                                    <rect key="frame" x="234.5" y="0.0" width="1" height="20"/>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <rect key="frame" x="237" y="0.0" width="1" height="20"/>
+                                                                    <color key="backgroundColor" red="0.81137818100000003" green="0.84608370070000005" blue="0.86077272890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="1" id="Oua-84-IxA"/>
                                                                     </constraints>
                                                                 </view>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Cp0-99-aMW">
-                                                                    <rect key="frame" x="261.5" y="0.0" width="73.5" height="20"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Cp0-99-aMW">
+                                                                    <rect key="frame" x="260.5" y="0.0" width="74.5" height="20"/>
                                                                     <subviews>
-                                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greyShare" translatesAutoresizingMaskIntoConstraints="NO" id="Ojh-Vd-HgT">
+                                                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfy-5J-HKL">
                                                                             <rect key="frame" x="0.0" y="0.0" width="31" height="20"/>
-                                                                        </imageView>
+                                                                            <state key="normal" image="whiteShare"/>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="imageView.contentMode">
+                                                                                    <integer key="value" value="1"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </button>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exh-Jv-4QP">
-                                                                            <rect key="frame" x="36" y="0.0" width="37.5" height="20"/>
+                                                                            <rect key="frame" x="37" y="0.0" width="37.5" height="20"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                            <color key="textColor" red="0.81137818100000003" green="0.84608370070000005" blue="0.86077272890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
@@ -421,9 +445,17 @@
                                                         <constraint firstAttribute="width" constant="2" id="mKt-5m-9qV"/>
                                                     </constraints>
                                                 </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteBadge" translatesAutoresizingMaskIntoConstraints="NO" id="RHP-mV-hbj">
+                                                    <rect key="frame" x="311" y="34" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="C59-WZ-YUX"/>
+                                                        <constraint firstAttribute="width" constant="30" id="Q3e-S6-5ry"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
+                                                <constraint firstItem="RHP-mV-hbj" firstAttribute="top" secondItem="cow-aD-0rL" secondAttribute="bottom" constant="12" id="141-Ks-sz1"/>
                                                 <constraint firstAttribute="trailing" secondItem="4lh-bZ-dtQ" secondAttribute="trailing" constant="20" id="1rg-It-vql"/>
                                                 <constraint firstItem="Jw2-OH-nuW" firstAttribute="centerY" secondItem="RQv-6B-Mey" secondAttribute="centerY" id="7Bv-wT-bBG"/>
                                                 <constraint firstItem="RQv-6B-Mey" firstAttribute="top" secondItem="VOR-9J-jMP" secondAttribute="top" constant="22" id="7az-rj-HE4"/>
@@ -434,6 +466,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="D7Q-OP-j0e" secondAttribute="trailing" constant="20" id="Flc-EV-wgn"/>
                                                 <constraint firstAttribute="trailing" secondItem="0Ab-PD-6Zn" secondAttribute="trailing" constant="20" id="Gkg-Tp-yCU"/>
                                                 <constraint firstItem="CL8-Ly-KaH" firstAttribute="height" secondItem="RQv-6B-Mey" secondAttribute="height" id="HxS-iT-Xsj"/>
+                                                <constraint firstItem="Jw2-OH-nuW" firstAttribute="leading" secondItem="RHP-mV-hbj" secondAttribute="trailing" constant="12" id="KTi-QV-002"/>
                                                 <constraint firstItem="D7Q-OP-j0e" firstAttribute="top" secondItem="RQv-6B-Mey" secondAttribute="bottom" id="LOK-rd-JyS"/>
                                                 <constraint firstItem="0Ab-PD-6Zn" firstAttribute="top" secondItem="5bu-aD-81q" secondAttribute="bottom" constant="20" id="Mqg-eF-Fza"/>
                                                 <constraint firstAttribute="trailing" secondItem="uHI-Gg-ypY" secondAttribute="trailing" id="Wzj-PZ-0Ug"/>
@@ -452,6 +485,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="imageView.contentMode">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="mainImage" destination="RQv-6B-Mey" id="aIJ-tD-tBz"/>
                                         </connections>
@@ -502,13 +540,14 @@
     <resources>
         <image name="Triangle" width="9" height="10"/>
         <image name="greyClock" width="22" height="22"/>
-        <image name="greyComments" width="25" height="27"/>
-        <image name="greySave" width="20" height="24"/>
-        <image name="greyShare" width="31" height="27"/>
         <image name="greyStar" width="25" height="24"/>
         <image name="imageBench" width="641" height="660"/>
         <image name="mountainTop" width="640" height="1136"/>
         <image name="profileImage6" width="118" height="118"/>
+        <image name="smallWhiteComments" width="19" height="20"/>
         <image name="whiteBadge" width="61" height="66"/>
+        <image name="whiteDownArrow" width="44" height="41"/>
+        <image name="whiteShare" width="31" height="27"/>
+        <image name="whiteUpArrow" width="44" height="41"/>
     </resources>
 </document>
