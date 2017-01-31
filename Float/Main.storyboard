@@ -297,6 +297,9 @@
                                                             <state key="normal" image="greyStar">
                                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="favoriteButtonTapped:" destination="abw-La-Umi" eventType="touchUpInside" id="RKb-91-x3Q"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -317,6 +320,9 @@
                                                                                     <integer key="value" value="1"/>
                                                                                 </userDefinedRuntimeAttribute>
                                                                             </userDefinedRuntimeAttributes>
+                                                                            <connections>
+                                                                                <action selector="upVoteTapped:" destination="abw-La-Umi" eventType="touchUpInside" id="6BG-aS-x6K"/>
+                                                                            </connections>
                                                                         </button>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="543" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCH-x6-82t">
                                                                             <rect key="frame" x="44" y="0.0" width="26" height="20"/>
@@ -332,6 +338,9 @@
                                                                                     <integer key="value" value="1"/>
                                                                                 </userDefinedRuntimeAttribute>
                                                                             </userDefinedRuntimeAttributes>
+                                                                            <connections>
+                                                                                <action selector="downVoteTapped:" destination="abw-La-Umi" eventType="touchUpInside" id="UVI-OT-MYI"/>
+                                                                            </connections>
                                                                         </button>
                                                                     </subviews>
                                                                 </stackView>
@@ -353,6 +362,9 @@
                                                                                     <integer key="value" value="1"/>
                                                                                 </userDefinedRuntimeAttribute>
                                                                             </userDefinedRuntimeAttributes>
+                                                                            <connections>
+                                                                                <action selector="commentsButtonTapped:" destination="abw-La-Umi" eventType="touchUpInside" id="PPu-5E-tj2"/>
+                                                                            </connections>
                                                                         </button>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="344" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COw-oP-YrI">
                                                                             <rect key="frame" x="27" y="0.0" width="26.5" height="20"/>
@@ -380,6 +392,9 @@
                                                                                     <integer key="value" value="1"/>
                                                                                 </userDefinedRuntimeAttribute>
                                                                             </userDefinedRuntimeAttributes>
+                                                                            <connections>
+                                                                                <action selector="shareButtonTapped:" destination="abw-La-Umi" eventType="touchUpInside" id="27g-X3-em1"/>
+                                                                            </connections>
                                                                         </button>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exh-Jv-4QP">
                                                                             <rect key="frame" x="37" y="0.0" width="37.5" height="20"/>
@@ -491,7 +506,18 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
+                                            <outlet property="badgeView" destination="RHP-mV-hbj" id="S0Q-2Y-1qQ"/>
+                                            <outlet property="commentsButton" destination="uDK-Qb-mTj" id="yC8-WT-XoG"/>
+                                            <outlet property="commentsCountLabel" destination="COw-oP-YrI" id="Vwc-ii-Njx"/>
+                                            <outlet property="downVoteButton" destination="ngB-Gx-UPQ" id="c5R-H2-lE6"/>
+                                            <outlet property="favoritesButton" destination="8SE-x3-UAc" id="u3W-LH-6Nn"/>
                                             <outlet property="mainImage" destination="RQv-6B-Mey" id="aIJ-tD-tBz"/>
+                                            <outlet property="postTitleLabel" destination="k5U-fL-p8A" id="vHU-R8-Rrx"/>
+                                            <outlet property="profileImage" destination="wE1-VI-irG" id="6Gx-Sn-iaa"/>
+                                            <outlet property="shareButton" destination="bfy-5J-HKL" id="bPd-ln-4Ua"/>
+                                            <outlet property="timeStampLabel" destination="hyD-Eo-NEu" id="tOd-id-M9a"/>
+                                            <outlet property="upVoteButton" destination="hM8-WZ-fi7" id="HMw-cc-ifX"/>
+                                            <outlet property="voteCountLabel" destination="dCH-x6-82t" id="EF1-fu-O2J"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

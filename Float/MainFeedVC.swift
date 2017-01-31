@@ -28,4 +28,24 @@ class MainFeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.configCell(postImage: img)
         return cell
     }
+    @IBAction func favoriteButtonTapped(_ sender: Any) {
+    }
+    @IBAction func upVoteTapped(_ sender: Any) {
+    }
+    @IBAction func downVoteTapped(_ sender: Any) {
+    }
+    @IBAction func commentsButtonTapped(_ sender: Any) {
+    }
+    @IBAction func shareButtonTapped(_ sender: Any) {
+    }
 }
+
+
+
+
+
+
+
+
+
+
