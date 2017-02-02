@@ -194,10 +194,10 @@
             </objects>
             <point key="canvasLocation" x="1383.2" y="295.50224887556226"/>
         </scene>
-        <!--Item 2-->
+        <!--Logout-->
         <scene sceneID="7cZ-eo-PqD">
             <objects>
-                <viewController id="jam-9E-LRg" sceneMemberID="viewController">
+                <viewController id="jam-9E-LRg" customClass="LogOutVC" customModule="Float" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ss7-3j-pqU"/>
                         <viewControllerLayoutGuide type="bottom" id="CRg-7J-Ox6"/>
@@ -207,11 +207,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="YBd-jh-EIq"/>
+                    <tabBarItem key="tabBarItem" title="Logout" id="YBd-jh-EIq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3z-VM-SZd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3146" y="624"/>
+            <point key="canvasLocation" x="3144.8000000000002" y="623.83808095952031"/>
         </scene>
         <!--Main FeedVC-->
         <scene sceneID="KO3-g8-2kf">

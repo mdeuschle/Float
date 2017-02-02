@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
+import Firebase
+import SwiftKeychainWrapper
 
 class LoginVC: UIViewController, UITextFieldDelegate {
 
@@ -69,11 +73,40 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         }
     }
 
-    @IBAction func skipButtonTapped(_ sender: Any) {
+    func fireBaseAuth(_ credential: FIRAuthCredential) {
+        FIRAuth.auth()?.signIn(with: credential, completion: { (user, error) in
+            if let fbUser = user {
+                if error != nil {
+                    // TODO Popups
+                    print("Not able to authenticate with Firebase \(error?.localizedDescription)")
+                } else {
+                    print("Successfully authenticated with Firebase \(fbUser.debugDescription)")
+                }
+            }
+        })
     }
-    
-    @IBAction func facebookButtonTapped(_ sender: Any) {
+
+    @IBAction func skipButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "FeedSegue", sender: self)
+    }
+
+    @IBAction func facebookButtonTapped(_ sender: Any) {
+        let fbLogin = FBSDKLoginManager()
+        fbLogin.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
+            if let res = result {
+                if error != nil {
+                    // TODO PopUps
+                    print("Not Able To Login To FB \(error?.localizedDescription)")
+                } else if result?.isCancelled == true {
+                    print("User cancelled FB auth \(res.debugDescription)")
+                } else {
+                    print("Successfully authenticated with FB \(res)")
+                    let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                    self.fireBaseAuth(credential)
+                    self.performSegue(withIdentifier: "FeedSegue", sender: self)
+                }
+            }
+        }
     }
 
 }
