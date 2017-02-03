@@ -29,6 +29,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         notifications()
     }
 
+
     func stylizeViews() {
         facebookButton.layer.borderWidth = 2.0
         facebookButton.layer.borderColor = UIColor.accentColor().cgColor
@@ -40,7 +41,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("*Textfield Return")
+        userLogin()
         return true
     }
 
@@ -70,6 +71,48 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             if view.frame.origin.y != 0{
                 view.frame.origin.y += keyboardSize.height
             }
+        }
+    }
+
+    func createUserDataDic(providerID: String) -> [String: String] {
+        return ["provider": providerID]
+    }
+
+    func userSignIn(id: String, userData: [String: String]) {
+        DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
+        KeychainWrapper.standard.set(id, forKey: Constants.KeyTypes.keyUID)
+        performSegue(withIdentifier: "FeedSegue", sender: nil)
+    }
+
+    func userLogin() {
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+                if error == nil {
+                    print("User email authenciated with Firebase")
+                    if let emailUser = user {
+                        let userData = self.createUserDataDic(providerID: emailUser.providerID)
+                        self.userSignIn(id: emailUser.uid, userData: userData)
+                    }
+                } else {
+                    FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
+                        if let emailUser = user {
+                            if error != nil {
+                                if let err = error {
+                                    self.errorLabel.text = err.localizedDescription
+                                }
+                            } else {
+                                print("New user created")
+                                let userData = self.createUserDataDic(providerID: emailUser.providerID)
+                                self.userSignIn(id: emailUser.uid, userData: userData)
+                            }
+                        } else {
+                            if let err = error {
+                                self.errorLabel.text = err.localizedDescription
+                            }
+                        }
+                    })
+                }
+            })
         }
     }
 

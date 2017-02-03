@@ -21,6 +21,8 @@
 		A8A8531E1E3EAFD7002A15E1 /* MainFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A8531D1E3EAFD7002A15E1 /* MainFeedCell.swift */; };
 		A8A853201E41A51A002A15E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8A8531F1E41A51A002A15E1 /* GoogleService-Info.plist */; };
 		A8A853261E42E185002A15E1 /* LogOutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A853251E42E185002A15E1 /* LogOutVC.swift */; };
+		A8A8532B1E44357D002A15E1 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A8532A1E44357D002A15E1 /* DataService.swift */; };
+		A8A8532F1E4435DB002A15E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A8532E1E4435DB002A15E1 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		A8A8531D1E3EAFD7002A15E1 /* MainFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFeedCell.swift; sourceTree = "<group>"; };
 		A8A8531F1E41A51A002A15E1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A8A853251E42E185002A15E1 /* LogOutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogOutVC.swift; sourceTree = "<group>"; };
+		A8A8532A1E44357D002A15E1 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		A8A8532E1E4435DB002A15E1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D3344971BD2031DF07B540A5 /* Pods_Float.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Float.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -127,15 +131,15 @@
 				A8A853111E3E5F9C002A15E1 /* Model */,
 				A8A853101E3E5F95002A15E1 /* View */,
 				A8A8530E1E3E5F6B002A15E1 /* Controller */,
+				A8A853291E44356F002A15E1 /* Services */,
 				A8A8530D1E3E5F5E002A15E1 /* Util */,
 				A8A8530C1E3E5F51002A15E1 /* Contstants */,
-				A8A8530A1E3E5F34002A15E1 /* Services */,
 				A8A852DC1E3E5EBE002A15E1 /* AppDelegate.swift */,
 				A8A853121E3E61ED002A15E1 /* Main.storyboard */,
 				A8A852E31E3E5EBE002A15E1 /* Assets.xcassets */,
 				A8A852E51E3E5EBE002A15E1 /* LaunchScreen.storyboard */,
-				A8A852E81E3E5EBE002A15E1 /* Info.plist */,
 				A8A8531F1E41A51A002A15E1 /* GoogleService-Info.plist */,
+				A8A852E81E3E5EBE002A15E1 /* Info.plist */,
 			);
 			path = Float;
 			sourceTree = "<group>";
@@ -158,16 +162,10 @@
 			path = FloatUITests;
 			sourceTree = "<group>";
 		};
-		A8A8530A1E3E5F34002A15E1 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Services;
-			sourceTree = "<group>";
-		};
 		A8A8530C1E3E5F51002A15E1 /* Contstants */ = {
 			isa = PBXGroup;
 			children = (
+				A8A8532E1E4435DB002A15E1 /* Constants.swift */,
 			);
 			name = Contstants;
 			sourceTree = "<group>";
@@ -204,6 +202,14 @@
 			children = (
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		A8A853291E44356F002A15E1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A8A8532A1E44357D002A15E1 /* DataService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		E66BDF7838231542D3CB68A3 /* Pods */ = {
@@ -411,6 +417,8 @@
 				A8A853261E42E185002A15E1 /* LogOutVC.swift in Sources */,
 				A8A8531B1E3EAB88002A15E1 /* MainFeedVC.swift in Sources */,
 				A8A853191E3E99E2002A15E1 /* RoundedButton.swift in Sources */,
+				A8A8532B1E44357D002A15E1 /* DataService.swift in Sources */,
+				A8A8532F1E4435DB002A15E1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
