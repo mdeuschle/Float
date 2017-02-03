@@ -120,7 +120,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="SwW-sp-5oI"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Skip">
                                             <color key="titleColor" red="0.81137818100000003" green="0.84608370070000005" blue="0.86077272890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>

@@ -24,15 +24,28 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         stylizeViews()
         notifications()
+        stylizeErrorLabel(text: Constants.ErrorMessages.password)
     }
-
 
     func stylizeViews() {
         facebookButton.layer.borderWidth = 2.0
         facebookButton.layer.borderColor = UIColor.accentColor().cgColor
+    }
+
+    func stylizeErrorLabel(text: String) {
+        errorLabel.text = text
+        if text == Constants.ErrorMessages.password {
+            errorLabel.textColor = .dividerColor()
+        } else {
+            errorLabel.textColor = .magenta
+        }
+    }
+
+    func clearTextFields() {
+        emailTextField.text = ""
+        passwordTextField.text = ""
     }
 
     func notifications() {
@@ -50,6 +63,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         appTaglineLabel.isHidden = false
         skipButton.isHidden = false
         view.endEditing(true)
+        stylizeErrorLabel(text: Constants.ErrorMessages.password)
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -82,6 +96,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
         KeychainWrapper.standard.set(id, forKey: Constants.KeyTypes.keyUID)
         performSegue(withIdentifier: "FeedSegue", sender: nil)
+        clearTextFields()
     }
 
     func userLogin() {
@@ -98,7 +113,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                         if let emailUser = user {
                             if error != nil {
                                 if let err = error {
-                                    self.errorLabel.text = err.localizedDescription
+                                    self.stylizeErrorLabel(text: err.localizedDescription)
                                 }
                             } else {
                                 print("New user created")
@@ -107,7 +122,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                             }
                         } else {
                             if let err = error {
-                                self.errorLabel.text = err.localizedDescription
+                                self.stylizeErrorLabel(text: err.localizedDescription)
                             }
                         }
                     })

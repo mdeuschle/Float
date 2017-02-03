@@ -12,5 +12,8 @@ struct Constants {
     struct KeyTypes {
         static let keyUID = "uid"
     }
+    struct ErrorMessages {
+        static let password = "6 or more characters"
+    }
 }
 
