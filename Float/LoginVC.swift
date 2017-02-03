@@ -32,6 +32,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     func stylizeViews() {
         facebookButton.layer.borderWidth = 2.0
         facebookButton.layer.borderColor = UIColor.accentColor().cgColor
+        facebookButton.setTitle("SIGN UP VIA FACEBOOK", for: .normal)
     }
 
     func stylizeErrorLabel(text: String) {
@@ -64,12 +65,14 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         skipButton.isHidden = false
         view.endEditing(true)
         stylizeErrorLabel(text: Constants.ErrorMessages.password)
+        facebookButton.setTitle("SIGN UP VIA FACEBOOK", for: .normal)
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         appLogoImage.isHidden = true
         appTaglineLabel.isHidden = true
         skipButton.isHidden = true
+        facebookButton.setTitle("LOGIN", for: .normal)
     }
 
     func keyboardWillShow(notification: NSNotification) {
@@ -95,8 +98,12 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     func userSignIn(id: String, userData: [String: String]) {
         DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
         KeychainWrapper.standard.set(id, forKey: Constants.KeyTypes.keyUID)
-        performSegue(withIdentifier: "FeedSegue", sender: nil)
         clearTextFields()
+        appLogoImage.isHidden = false
+        appTaglineLabel.isHidden = false
+        facebookButton.setTitle("SIGN UP VIA FACEBOOK", for: .normal)
+        performSegue(withIdentifier: "FeedSegue", sender: nil)
+
     }
 
     func userLogin() {
@@ -149,21 +156,25 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func facebookButtonTapped(_ sender: Any) {
-        let fbLogin = FBSDKLoginManager()
-        fbLogin.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
-            if let res = result {
-                if error != nil {
-                    // TODO PopUps
-                    print("Not Able To Login To FB \(error?.localizedDescription)")
-                } else if result?.isCancelled == true {
-                    print("User cancelled FB auth \(res.debugDescription)")
-                } else {
-                    print("Successfully authenticated with FB \(res)")
-                    let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-                    self.fireBaseAuth(credential)
-                    self.performSegue(withIdentifier: "FeedSegue", sender: self)
+        if facebookButton.titleLabel?.text == "SIGN UP VIA FACEBOOK" {
+            let fbLogin = FBSDKLoginManager()
+            fbLogin.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
+                if let res = result {
+                    if error != nil {
+                        // TODO PopUps
+                        print("Not Able To Login To FB \(error?.localizedDescription)")
+                    } else if result?.isCancelled == true {
+                        print("User cancelled FB auth \(res.debugDescription)")
+                    } else {
+                        print("Successfully authenticated with FB \(res)")
+                        let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                        self.fireBaseAuth(credential)
+                        self.performSegue(withIdentifier: "FeedSegue", sender: self)
+                    }
                 }
             }
+        } else {
+            userLogin()
         }
     }
 
