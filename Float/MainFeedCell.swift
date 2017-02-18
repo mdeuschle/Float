@@ -25,7 +25,6 @@ class MainFeedCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
     }
 
     func configCell(postImage: UIImage) {

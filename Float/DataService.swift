@@ -10,47 +10,45 @@ import Foundation
 import Firebase
 import SwiftKeychainWrapper
 
-let DB_BASE = FIRDatabase.database().reference()
-let STORAGE_BASE = FIRStorage.storage().reference()
+let dbBase = FIRDatabase.database().reference()
+let storageBase = FIRStorage.storage().reference()
 
 class DataService {
 
     static let ds = DataService()
 
-    // DB Refs
-    private var _REF_BASE = DB_BASE
-    private var _REF_POSTS = DB_BASE.child("posts")
-    private var _REF_USERS = DB_BASE.child("users")
+    private var _refBase = dbBase
+    private var _refPosts = dbBase.child("posts")
+    private var _refUsers = dbBase.child("users")
 
-    // Storage Refs
-    private var _REF_POSTS_IMAGES = STORAGE_BASE.child("postPics")
+    private var _refPostsImages = storageBase.child("postPics")
 
-    var REF_BASE: FIRDatabaseReference {
-        return _REF_BASE
+    var refBase: FIRDatabaseReference {
+        return _refBase
     }
 
-    var REF_POSTS: FIRDatabaseReference {
-        return _REF_POSTS
+    var refPosts: FIRDatabaseReference {
+        return _refPosts
     }
 
-    var REF_USERS: FIRDatabaseReference {
-        return _REF_USERS
+    var refUsers: FIRDatabaseReference {
+        return _refUsers
     }
 
-    var REF_USER_CURRENT: FIRDatabaseReference {
+    var refUserCurrent: FIRDatabaseReference {
         guard let uid = KeychainWrapper.standard.string(forKey: Constants.KeyTypes.keyUID) else {
-            let noUser = REF_USERS.child("")
+            let noUser = refUsers.child("")
             return noUser
         }
-        let user = REF_USERS.child(uid)
+        let user = refUsers.child(uid)
         return user
     }
 
-    var REF_POSTS_IMAGES: FIRStorageReference {
-        return _REF_POSTS_IMAGES
+    var refPostsImages: FIRStorageReference {
+        return _refPostsImages
     }
 
     func createFirebaseDBUser(uid: String, userData: [String: String]) {
-        REF_USERS.child(uid).updateChildValues(userData)
+        refUsers.child(uid).updateChildValues(userData)
     }
 }

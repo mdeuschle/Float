@@ -8,26 +8,15 @@
 
 import UIKit
 
-class MainFeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainFeedVC: UIViewController {
 
     let img = #imageLiteral(resourceName: "imageBench")
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell") as? MainFeedCell else {
-            return UITableViewCell()
-        }
-        cell.configCell(postImage: img)
-        return cell
-    }
     @IBAction func favoriteButtonTapped(_ sender: Any) {
     }
     @IBAction func upVoteTapped(_ sender: Any) {
@@ -40,7 +29,21 @@ class MainFeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+extension MainFeedVC: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+}
 
+extension MainFeedVC: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell") as? MainFeedCell else {
+            return UITableViewCell()
+        }
+        cell.configCell(postImage: img)
+        return cell
+    }
+}
 
 
 

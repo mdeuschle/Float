@@ -103,7 +103,6 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         appTaglineLabel.isHidden = false
         facebookButton.setTitle("SIGN UP VIA FACEBOOK", for: .normal)
         performSegue(withIdentifier: "FeedSegue", sender: nil)
-
     }
 
     func userLogin() {
