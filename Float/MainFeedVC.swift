@@ -29,12 +29,14 @@ class MainFeedVC: UIViewController {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension MainFeedVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
 }
 
+// MARK: - UITableViewDataSource
 extension MainFeedVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell") as? MainFeedCell else {

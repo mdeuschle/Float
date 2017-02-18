@@ -15,12 +15,11 @@ let storageBase = FIRStorage.storage().reference()
 
 class DataService {
 
+// MARK: - Properties
     static let ds = DataService()
-
     private var _refBase = dbBase
     private var _refPosts = dbBase.child("posts")
     private var _refUsers = dbBase.child("users")
-
     private var _refPostsImages = storageBase.child("postPics")
 
     var refBase: FIRDatabaseReference {
@@ -48,6 +47,7 @@ class DataService {
         return _refPostsImages
     }
 
+// MARK: - Functions
     func createFirebaseDBUser(uid: String, userData: [String: String]) {
         refUsers.child(uid).updateChildValues(userData)
     }
