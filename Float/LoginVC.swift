@@ -26,7 +26,14 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         stylizeViews()
         notifications()
-        stylizeErrorLabel(text: Constants.ErrorMessages.password)
+        stylizeErrorLabel(text: Constant.ErrorMessage.password)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        if let _ = KeychainWrapper.standard.string(forKey: Constant.KeyType.keyUID) {
+            Constant().segueToMainFeed(vc: self)
+        }
     }
 
     func stylizeViews() {
@@ -37,7 +44,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 
     func stylizeErrorLabel(text: String) {
         errorLabel.text = text
-        if text == Constants.ErrorMessages.password {
+        if text == Constant.ErrorMessage.password {
             errorLabel.textColor = .dividerColor()
         } else {
             errorLabel.textColor = .magenta
@@ -64,7 +71,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         appTaglineLabel.isHidden = false
         skipButton.isHidden = false
         view.endEditing(true)
-        stylizeErrorLabel(text: Constants.ErrorMessages.password)
+        stylizeErrorLabel(text: Constant.ErrorMessage.password)
         facebookButton.setTitle("SIGN UP VIA FACEBOOK", for: .normal)
     }
 
@@ -91,18 +98,14 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         }
     }
 
-    func createUserDataDic(providerID: String) -> [String: String] {
-        return ["provider": providerID]
-    }
-
     func userSignIn(id: String, userData: [String: String]) {
         DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
-        KeychainWrapper.standard.set(id, forKey: Constants.KeyTypes.keyUID)
+        KeychainWrapper.standard.set(id, forKey: Constant.KeyType.keyUID)
         clearTextFields()
         appLogoImage.isHidden = false
         appTaglineLabel.isHidden = false
         facebookButton.setTitle("SIGN UP VIA FACEBOOK", for: .normal)
-        performSegue(withIdentifier: "FeedSegue", sender: nil)
+        Constant().segueToMainFeed(vc: self)
     }
 
     func userLogin() {
@@ -111,7 +114,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 if error == nil {
                     print("User email authenciated with Firebase")
                     if let emailUser = user {
-                        let userData = self.createUserDataDic(providerID: emailUser.providerID)
+                        let userData = [Constant.KeyType.provider: emailUser.providerID]
                         self.userSignIn(id: emailUser.uid, userData: userData)
                     }
                 } else {
@@ -123,7 +126,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                                 }
                             } else {
                                 print("New user created")
-                                let userData = self.createUserDataDic(providerID: emailUser.providerID)
+                                let userData = [Constant.KeyType.provider: emailUser.providerID]
                                 self.userSignIn(id: emailUser.uid, userData: userData)
                             }
                         } else {
@@ -145,13 +148,15 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     print("Not able to authenticate with Firebase \(error?.localizedDescription)")
                 } else {
                     print("Successfully authenticated with Firebase \(fbUser.debugDescription)")
+                    let userData = [Constant.KeyType.provider: credential.provider]
+                    self.userSignIn(id: fbUser.uid, userData: userData)
                 }
             }
         })
     }
 
     @IBAction func skipButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "FeedSegue", sender: self)
+        Constant().segueToMainFeed(vc: self)
     }
 
     @IBAction func facebookButtonTapped(_ sender: Any) {
@@ -168,7 +173,6 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                         print("Successfully authenticated with FB \(res)")
                         let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
                         self.fireBaseAuth(credential)
-                        self.performSegue(withIdentifier: "FeedSegue", sender: self)
                     }
                 }
             }
@@ -176,5 +180,4 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             userLogin()
         }
     }
-
 }

@@ -14,6 +14,9 @@ class MainFeedVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        DataService.ds.refPosts.observe(.value, with: { (snapshot) in
+            print("*Snapshot: \(snapshot.value!)")
+        })
     }
 
 

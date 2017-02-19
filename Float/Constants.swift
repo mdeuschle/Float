@@ -7,13 +7,18 @@
 //
 
 import Foundation
+import UIKit
 
-struct Constants {
-    struct KeyTypes {
+struct Constant {
+    struct KeyType {
         static let keyUID = "uid"
+        static let provider = "provider"
     }
-    struct ErrorMessages {
+    struct ErrorMessage {
         static let password = "6 or more characters"
+    }
+    func segueToMainFeed(vc: UIViewController) {
+        vc.performSegue(withIdentifier: "FeedSegue", sender: nil)
     }
 }
 

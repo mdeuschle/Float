@@ -35,7 +35,7 @@ class DataService {
     }
 
     var refUserCurrent: FIRDatabaseReference {
-        guard let uid = KeychainWrapper.standard.string(forKey: Constants.KeyTypes.keyUID) else {
+        guard let uid = KeychainWrapper.standard.string(forKey: Constant.KeyType.keyUID) else {
             let noUser = refUsers.child("")
             return noUser
         }
