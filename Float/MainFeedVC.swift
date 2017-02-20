@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import SwiftKeychainWrapper
 
 class MainFeedVC: UIViewController {
 
@@ -14,11 +16,15 @@ class MainFeedVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        DataService.ds.refPosts.observe(.value, with: { (snapshot) in
-            print("*Snapshot: \(snapshot.value!)")
+
+        DataService.ds.refPosts.observe(.value, with: { (snapshots) in
+            if let snapshots = snapshots.children.allObjects as? [FIRDataSnapshot] {
+                for snap in snapshots {
+                    print("SNAP: \(snap)")
+                }
+            }
         })
     }
-
 
     @IBAction func favoriteButtonTapped(_ sender: Any) {
     }
