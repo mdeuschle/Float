@@ -22,9 +22,11 @@ class MainFeedCell: UITableViewCell {
     @IBOutlet var commentsCountLabel: UILabel!
     @IBOutlet var shareButton: UIButton!
     @IBOutlet var cityLabel: UILabel!
+    @IBOutlet var stateLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
     }
 
     func configCell(postImage: UIImage) {

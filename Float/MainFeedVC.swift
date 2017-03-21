@@ -26,6 +26,11 @@ class MainFeedVC: UIViewController {
         })
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        navigationController?.hidesBarsOnSwipe = true
+    }
+
     @IBAction func favoriteButtonTapped(_ sender: Any) {
     }
     @IBAction func upVoteTapped(_ sender: Any) {
