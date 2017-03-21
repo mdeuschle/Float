@@ -21,7 +21,7 @@ class MainFeedCell: UITableViewCell {
     @IBOutlet var commentsButton: UIButton!
     @IBOutlet var commentsCountLabel: UILabel!
     @IBOutlet var shareButton: UIButton!
-    @IBOutlet var badgeView: UIImageView!
+    @IBOutlet var cityLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
