@@ -24,13 +24,16 @@ class MainFeedCell: UITableViewCell {
     @IBOutlet var cityLabel: UILabel!
     @IBOutlet var stateLabel: UILabel!
 
+    let postImage: UIImage = #imageLiteral(resourceName: "imageBench")
+    var post: Post!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
     }
-
-    func configCell(postImage: UIImage) {
+    func configCell(post: Post) {
+        self.post = post
         self.mainImage.image = postImage
+        self.voteCountLabel.text = "\(post.upVotes)"
     }
-
 }

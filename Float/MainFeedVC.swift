@@ -12,7 +12,6 @@ import SwiftKeychainWrapper
 
 class MainFeedVC: UIViewController {
     @IBOutlet var feedTableView: UITableView!
-    let img = #imageLiteral(resourceName: "imageBench")
     var posts: [Post] = []
 
     override func viewDidLoad() {
@@ -59,12 +58,11 @@ extension MainFeedVC: UITableViewDelegate {
 // MARK: - UITableViewDataSource
 extension MainFeedVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let post = posts[indexPath.row]
-        print("====> Post: \(post.caption)")
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell") as? MainFeedCell else {
             return UITableViewCell()
         }
-        cell.configCell(postImage: img)
+        let post = posts[indexPath.row]
+        cell.configCell(post: post)
         return cell
     }
 }
