@@ -534,6 +534,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Float" id="F2J-sV-xLE"/>
+                    <connections>
+                        <outlet property="feedTableView" destination="p9T-Sn-PlP" id="aV0-fd-d4B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u7Y-tW-cn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

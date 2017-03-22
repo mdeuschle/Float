@@ -11,18 +11,24 @@ import Firebase
 import SwiftKeychainWrapper
 
 class MainFeedVC: UIViewController {
-
+    @IBOutlet var feedTableView: UITableView!
     let img = #imageLiteral(resourceName: "imageBench")
+    var posts: [Post] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         DataService.ds.refPosts.observe(.value, with: { (snapshots) in
             if let snapshots = snapshots.children.allObjects as? [FIRDataSnapshot] {
                 for snap in snapshots {
                     print("SNAP: \(snap)")
+                    if let postDic = snap.value as? [String: AnyObject] {
+                        let key = snap.key
+                        let post = Post(postKey: key, postData: postDic)
+                        self.posts.append(post)
+                    }
                 }
             }
+            self.feedTableView.reloadData()
         })
     }
 
@@ -46,13 +52,15 @@ class MainFeedVC: UIViewController {
 // MARK: - UITableViewDelegate
 extension MainFeedVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return posts.count
     }
 }
 
 // MARK: - UITableViewDataSource
 extension MainFeedVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let post = posts[indexPath.row]
+        print("====> Post: \(post.caption)")
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell") as? MainFeedCell else {
             return UITableViewCell()
         }
