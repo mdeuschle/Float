@@ -16,6 +16,16 @@ class MainFeedVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Merica"
+        appendPosts()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        navigationController?.hidesBarsOnSwipe = true
+    }
+
+    func appendPosts() {
         DataService.ds.refPosts.observe(.value, with: { (snapshots) in
             if let snapshots = snapshots.children.allObjects as? [FIRDataSnapshot] {
                 for snap in snapshots {
@@ -31,11 +41,6 @@ class MainFeedVC: UIViewController {
         })
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        navigationController?.hidesBarsOnSwipe = true
-    }
-
     @IBAction func favoriteButtonTapped(_ sender: Any) {
     }
     @IBAction func upVoteTapped(_ sender: Any) {
@@ -46,6 +51,21 @@ class MainFeedVC: UIViewController {
     }
     @IBAction func shareButtonTapped(_ sender: Any) {
     }
+    @IBAction func logOutTapped(_ sender: Any) {
+        let keychainResult = KeychainWrapper.standard.removeObject(forKey: Constant.KeyType.keyUID)
+        print("*Removed keychain: \(keychainResult)")
+        do {
+            try FIRAuth.auth()?.signOut()
+            self.dismiss(animated: true, completion: nil)
+        } catch {
+            print("Unable to sign out \(error)")
+        }
+    }
+    @IBAction func pictureTapped(_ sender: Any) {
+    }
+
+
+
 }
 
 // MARK: - UITableViewDelegate

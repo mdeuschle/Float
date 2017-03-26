@@ -187,33 +187,14 @@
                         <outlet property="facebookButton" destination="ZcV-pI-JDi" id="naQ-ur-dUI"/>
                         <outlet property="passwordTextField" destination="F6f-Rm-Klf" id="gwa-f7-Qud"/>
                         <outlet property="skipButton" destination="Q3p-OB-VbE" id="qzX-gl-0HR"/>
-                        <segue destination="lRv-HJ-Qtf" kind="show" identifier="FeedSegue" id="der-rp-mmx"/>
+                        <segue destination="2Ah-k1-Mil" kind="show" identifier="FeedSegue" id="6au-Zn-f7Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="563-W0-Oj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1383.2" y="295.50224887556226"/>
         </scene>
-        <!--Logout-->
-        <scene sceneID="7cZ-eo-PqD">
-            <objects>
-                <viewController id="jam-9E-LRg" customClass="LogOutVC" customModule="Float" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ss7-3j-pqU"/>
-                        <viewControllerLayoutGuide type="bottom" id="CRg-7J-Ox6"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="GJB-81-sM4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Logout" id="YBd-jh-EIq"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="c3z-VM-SZd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3144.8000000000002" y="623.83808095952031"/>
-        </scene>
-        <!--Float-->
+        <!--Main FeedVC-->
         <scene sceneID="KO3-g8-2kf">
             <objects>
                 <viewController id="abw-La-Umi" customClass="MainFeedVC" customModule="Float" customModuleProvider="target" sceneMemberID="viewController">
@@ -226,8 +207,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="423" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p9T-Sn-PlP">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
-                                <color key="backgroundColor" red="0.27085623149999999" green="0.35180997850000001" blue="0.3922303915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="676"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedCell" rowHeight="422" id="N8T-U7-Qpc" customClass="MainFeedCell" customModule="Float" customModuleProvider="target">
@@ -524,41 +505,79 @@
                                     <outlet property="delegate" destination="abw-La-Umi" id="zqW-oV-5eg"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d0A-2b-1PR" customClass="ShadowView" customModule="Float" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="676" width="414" height="60"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6jW-tp-0tg">
+                                        <rect key="frame" x="8" y="20" width="398" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZD-lm-IPW">
+                                                <rect key="frame" x="0.0" y="0.0" width="63.666666666666671" height="30"/>
+                                                <state key="normal" title="Home">
+                                                    <color key="titleColor" red="0.27085623149999999" green="0.35180997850000001" blue="0.3922303915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IfP-Ke-iAC">
+                                                <rect key="frame" x="83.666666666666657" y="0.0" width="63.666666666666657" height="30"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" red="0.27085623149999999" green="0.35180997850000001" blue="0.3922303915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zh9-sX-g2X">
+                                                <rect key="frame" x="167.33333333333334" y="0.0" width="63.333333333333314" height="30"/>
+                                                <state key="normal" title="Picture">
+                                                    <color key="titleColor" red="0.27085623149999999" green="0.35180997850000001" blue="0.3922303915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="pictureTapped:" destination="abw-La-Umi" eventType="touchUpInside" id="Nih-MR-hJ0"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqb-nA-mgC">
+                                                <rect key="frame" x="250.66666666666669" y="0.0" width="63.666666666666629" height="30"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" red="0.27085623149999999" green="0.35180997850000001" blue="0.3922303915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o6W-K5-cGR">
+                                                <rect key="frame" x="334.33333333333326" y="0.0" width="63.666666666666686" height="30"/>
+                                                <state key="normal" title="Logout">
+                                                    <color key="titleColor" red="0.27085623149999999" green="0.35180997850000001" blue="0.3922303915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="logOutTapped:" destination="abw-La-Umi" eventType="touchUpInside" id="hfl-Uk-a3O"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.81137818100000003" green="0.84608370070000005" blue="0.86077272890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="HHy-3S-erg"/>
+                                    <constraint firstItem="6jW-tp-0tg" firstAttribute="top" secondItem="d0A-2b-1PR" secondAttribute="top" constant="20" id="I8Q-ap-keK"/>
+                                    <constraint firstAttribute="trailing" secondItem="6jW-tp-0tg" secondAttribute="trailing" constant="8" id="Rfe-kS-mi5"/>
+                                    <constraint firstItem="6jW-tp-0tg" firstAttribute="leading" secondItem="d0A-2b-1PR" secondAttribute="leading" constant="8" id="YTW-tw-2X1"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.27085623149999999" green="0.35180997850000001" blue="0.3922303915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="p9T-Sn-PlP" firstAttribute="top" secondItem="t6o-L6-u9j" secondAttribute="top" id="MAR-3O-jyU"/>
-                            <constraint firstItem="7Cr-Gx-mrS" firstAttribute="top" secondItem="p9T-Sn-PlP" secondAttribute="bottom" id="StY-cR-l80"/>
+                            <constraint firstItem="d0A-2b-1PR" firstAttribute="top" secondItem="p9T-Sn-PlP" secondAttribute="bottom" id="T0G-0g-Xfi"/>
+                            <constraint firstAttribute="trailing" secondItem="d0A-2b-1PR" secondAttribute="trailing" id="bDw-wF-uKw"/>
                             <constraint firstItem="p9T-Sn-PlP" firstAttribute="leading" secondItem="t6o-L6-u9j" secondAttribute="leading" id="gKc-sy-9iM"/>
+                            <constraint firstItem="d0A-2b-1PR" firstAttribute="leading" secondItem="t6o-L6-u9j" secondAttribute="leading" id="iz3-el-agz"/>
                             <constraint firstAttribute="trailing" secondItem="p9T-Sn-PlP" secondAttribute="trailing" id="msx-FT-HZY"/>
+                            <constraint firstItem="7Cr-Gx-mrS" firstAttribute="top" secondItem="d0A-2b-1PR" secondAttribute="bottom" id="yIj-88-sg3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Float" id="F2J-sV-xLE"/>
+                    <navigationItem key="navigationItem" id="F2J-sV-xLE"/>
                     <connections>
                         <outlet property="feedTableView" destination="p9T-Sn-PlP" id="aV0-fd-d4B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u7Y-tW-cn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4084" y="-33.733133433283363"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="yhb-vm-9Wj">
-            <objects>
-                <tabBarController id="lRv-HJ-Qtf" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="chD-Ev-TaG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="2Ah-k1-Mil" kind="relationship" relationship="viewControllers" id="Amq-Kp-Vjg"/>
-                        <segue destination="jam-9E-LRg" kind="relationship" relationship="viewControllers" id="iDz-ej-m5w"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OqJ-ZY-lGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2194" y="296"/>
+            <point key="canvasLocation" x="2915.9420289855075" y="293.47826086956525"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bIu-Ts-sdj">
@@ -581,7 +600,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BuG-5n-PrI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3144.8000000000002" y="-33.733133433283363"/>
+            <point key="canvasLocation" x="2151" y="295"/>
         </scene>
     </scenes>
     <resources>
