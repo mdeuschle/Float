@@ -13,16 +13,25 @@ import SwiftKeychainWrapper
 class MainFeedVC: UIViewController {
     @IBOutlet var feedTableView: UITableView!
     var posts: [Post] = []
+    var imagePicker: UIImagePickerController!
+    static var imageCache = NSCache<NSString, UIImage>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Merica"
         appendPosts()
+        setUpImagePicker()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         navigationController?.hidesBarsOnSwipe = true
+    }
+
+    func setUpImagePicker() {
+        imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
     }
 
     func appendPosts() {
@@ -62,10 +71,8 @@ class MainFeedVC: UIViewController {
         }
     }
     @IBAction func pictureTapped(_ sender: Any) {
+        present(imagePicker, animated: true, completion: nil)
     }
-
-
-
 }
 
 // MARK: - UITableViewDelegate
@@ -79,12 +86,29 @@ extension MainFeedVC: UITableViewDelegate {
 extension MainFeedVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell") as? MainFeedCell else {
-            return UITableViewCell()
+            return MainFeedCell()
         }
         let post = posts[indexPath.row]
-        cell.configCell(post: post)
-        return cell
+        if let img = MainFeedVC.imageCache.object(forKey: post.imageURL as NSString) {
+            cell.configCell(post: post, img: img)
+            return cell
+        } else {
+            cell.configCell(post: post)
+            return cell
+        }
     }
+}
+
+// MARK: - UIImagePickerControllerDelegate
+extension MainFeedVC: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
+}
+
+// MARK = UINavigationControllerDelegate
+extension MainFeedVC: UINavigationControllerDelegate {
+
 }
 
 
