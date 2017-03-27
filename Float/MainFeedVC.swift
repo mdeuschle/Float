@@ -14,6 +14,7 @@ class MainFeedVC: UIViewController {
     @IBOutlet var feedTableView: UITableView!
     var posts: [Post] = []
     var imagePicker: UIImagePickerController!
+    var selectedImage: UIImage?
     static var imageCache = NSCache<NSString, UIImage>()
 
     override func viewDidLoad() {
@@ -50,6 +51,14 @@ class MainFeedVC: UIViewController {
         })
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constant.SegueIDs.selectPicSegue {
+            if let dvc = segue.destination as? SelectPicVC {
+                dvc.postImage = selectedImage
+            }
+        }
+    }
+
     @IBAction func favoriteButtonTapped(_ sender: Any) {
     }
     @IBAction func upVoteTapped(_ sender: Any) {
@@ -75,17 +84,15 @@ class MainFeedVC: UIViewController {
     }
 }
 
-// MARK: - UITableViewDelegate
-extension MainFeedVC: UITableViewDelegate {
+// MARK: - UITableViewDataSource
+extension MainFeedVC: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return posts.count
     }
-}
 
-// MARK: - UITableViewDataSource
-extension MainFeedVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedCell") as? MainFeedCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.ReusableCellIDs.feedCell) as? MainFeedCell else {
             return MainFeedCell()
         }
         let post = posts[indexPath.row]
@@ -102,7 +109,14 @@ extension MainFeedVC: UITableViewDataSource {
 // MARK: - UIImagePickerControllerDelegate
 extension MainFeedVC: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        imagePicker.dismiss(animated: true, completion: nil)
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            selectedImage = image
+        } else {
+            print("Image not found")
+        }
+        imagePicker.dismiss(animated: true) {
+            self.performSegue(withIdentifier: Constant.SegueIDs.selectPicSegue, sender: self)
+        }
     }
 }
 

@@ -32,7 +32,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         if let _ = KeychainWrapper.standard.string(forKey: Constant.KeyType.keyUID) {
-            Constant().segueToMainFeed(vc: self)
+            performSegue(withIdentifier: Constant.SegueIDs.feedSegue, sender: nil)
         }
     }
 
@@ -105,7 +105,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         appLogoImage.isHidden = false
         appTaglineLabel.isHidden = false
         facebookButton.setTitle("SIGN UP VIA FACEBOOK", for: .normal)
-        Constant().segueToMainFeed(vc: self)
+        performSegue(withIdentifier: Constant.SegueIDs.feedSegue, sender: nil)
     }
 
     func userLogin() {
@@ -156,7 +156,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func skipButtonTapped(_ sender: Any) {
-        Constant().segueToMainFeed(vc: self)
+        performSegue(withIdentifier: Constant.SegueIDs.feedSegue, sender: nil)
     }
 
     @IBAction func facebookButtonTapped(_ sender: Any) {

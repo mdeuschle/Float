@@ -17,8 +17,15 @@ struct Constant {
     struct ErrorMessage {
         static let password = "6 or more characters"
     }
-    func segueToMainFeed(vc: UIViewController) {
-        vc.performSegue(withIdentifier: "FeedSegue", sender: nil)
+    struct ReusableCellIDs {
+        static let feedCell = "FeedCell"
+        static let postTextCell = "PostTextCell"
+        static let postImageCell = "PostImageCell"
+        
+    }
+    struct SegueIDs {
+        static let feedSegue = "FeedSegue"
+        static let selectPicSegue = "SelectPicSegue"
     }
 }
 
