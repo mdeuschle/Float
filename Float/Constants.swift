@@ -21,11 +21,16 @@ struct Constant {
         static let feedCell = "FeedCell"
         static let postTextCell = "PostTextCell"
         static let postImageCell = "PostImageCell"
-        
+
     }
     struct SegueIDs {
         static let feedSegue = "FeedSegue"
         static let selectPicSegue = "SelectPicSegue"
+    }
+    struct FontHelper {
+        static func americanTypewriter(size: CGFloat) -> UIFont {
+            return UIFont(name: "AmericanTypewriter", size: size)!
+        }
     }
 }
 

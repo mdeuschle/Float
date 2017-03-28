@@ -114,7 +114,7 @@ extension MainFeedVC: UIImagePickerControllerDelegate {
         } else {
             print("Image not found")
         }
-        imagePicker.dismiss(animated: true) {
+        imagePicker.dismiss(animated: false) {
             self.performSegue(withIdentifier: Constant.SegueIDs.selectPicSegue, sender: self)
         }
     }

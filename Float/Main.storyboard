@@ -613,8 +613,8 @@
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Say something about your photo..." translatesAutoresizingMaskIntoConstraints="NO" id="4nD-QM-Uav">
                                                     <rect key="frame" x="16" y="16" width="343" height="90"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="textColor" red="0.81137818100000003" green="0.84608370070000005" blue="0.86077272890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.27085623149999999" green="0.35180997850000001" blue="0.3922303915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                             </subviews>
@@ -667,14 +667,22 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ndV-RQ-fOc">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="LJD-xi-m7n">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" style="plain" id="LJD-xi-m7n">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="cancelButtonTapped:" destination="21x-i8-W0J" id="Rpe-ad-kv2"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="POST" id="tGD-O6-oqs">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="postButtonTapped:" destination="21x-i8-W0J" id="BzP-7G-ToD"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancelButton" destination="LJD-xi-m7n" id="eJL-fR-Ugp"/>
+                        <outlet property="postButton" destination="tGD-O6-oqs" id="fUc-fc-Ldk"/>
                         <outlet property="selectPicTableview" destination="j7w-G9-ufC" id="daF-XO-B4Z"/>
                     </connections>
                 </viewController>
@@ -688,12 +696,12 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Ah-k1-Mil" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="mostViewed" id="3p8-ez-MgM"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4j3-NU-pJH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4j3-NU-pJH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.27085623149999999" green="0.35180997850000001" blue="0.3922303915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="24"/>
+                            <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="21"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
