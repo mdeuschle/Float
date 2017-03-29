@@ -19,7 +19,6 @@ struct Constant {
     }
     struct ReusableCellIDs {
         static let feedCell = "FeedCell"
-        static let postTextCell = "PostTextCell"
         static let postImageCell = "PostImageCell"
 
     }

@@ -11,7 +11,7 @@ import Firebase
 import SwiftKeychainWrapper
 
 class MainFeedVC: UIViewController {
-    @IBOutlet var feedTableView: UITableView!
+    @IBOutlet var feedTableView: UITableView!    
     var posts: [Post] = []
     var imagePicker: UIImagePickerController!
     var selectedImage: UIImage?
