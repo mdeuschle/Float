@@ -24,6 +24,7 @@
 		A8A853201E41A51A002A15E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8A8531F1E41A51A002A15E1 /* GoogleService-Info.plist */; };
 		A8A8532B1E44357D002A15E1 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A8532A1E44357D002A15E1 /* DataService.swift */; };
 		A8A8532F1E4435DB002A15E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A8532E1E4435DB002A15E1 /* Constants.swift */; };
+		A8D346801E90C483005E0193 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D3467F1E90C483005E0193 /* FavoritesViewController.swift */; };
 		A8EBC1821E8884F000B23B4A /* SelectPicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EBC1811E8884F000B23B4A /* SelectPicVC.swift */; };
 		A8EBC1C41E8B790B00B23B4A /* PostPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EBC1C31E8B790B00B23B4A /* PostPhotoCell.swift */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		A8A8531F1E41A51A002A15E1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A8A8532A1E44357D002A15E1 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		A8A8532E1E4435DB002A15E1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A8D3467F1E90C483005E0193 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		A8EBC1811E8884F000B23B4A /* SelectPicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPicVC.swift; sourceTree = "<group>"; };
 		A8EBC1C31E8B790B00B23B4A /* PostPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPhotoCell.swift; sourceTree = "<group>"; };
 		D3344971BD2031DF07B540A5 /* Pods_Float.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Float.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,6 +192,7 @@
 				A8A853161E3E96FB002A15E1 /* LoginVC.swift */,
 				A8A8531A1E3EAB88002A15E1 /* MainFeedVC.swift */,
 				A8EBC1811E8884F000B23B4A /* SelectPicVC.swift */,
+				A8D3467F1E90C483005E0193 /* FavoritesViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8D346801E90C483005E0193 /* FavoritesViewController.swift in Sources */,
 				A8EBC1821E8884F000B23B4A /* SelectPicVC.swift in Sources */,
 				A8A852DD1E3E5EBE002A15E1 /* AppDelegate.swift in Sources */,
 				A8EBC1C41E8B790B00B23B4A /* PostPhotoCell.swift in Sources */,

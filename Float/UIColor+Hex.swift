@@ -30,7 +30,7 @@ extension UIColor {
     class func accentColor() -> UIColor {
         return colorWithRGBHex(hex24: 0x54BDD5)
     }
-    class func pimaryTextColor() -> UIColor {
+    class func primaryTextColor() -> UIColor {
         return colorWithRGBHex(hex24: 0x212121)
     }
     class func secondaryTextColor() -> UIColor {

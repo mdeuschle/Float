@@ -82,6 +82,8 @@ class MainFeedVC: UIViewController {
     @IBAction func pictureTapped(_ sender: Any) {
         present(imagePicker, animated: true, completion: nil)
     }
+    @IBAction func favoritesTabTapped(_ sender: Any) {
+    }
 }
 
 // MARK: - UITableViewDataSource
