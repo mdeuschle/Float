@@ -15,6 +15,7 @@ class SelectPicVC: UIViewController {
     @IBOutlet var cancelButton: UIBarButtonItem!
     @IBOutlet var postButton: UIBarButtonItem!
     var postImage: UIImage?
+    var isImageSelected = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,14 +51,30 @@ class SelectPicVC: UIViewController {
                     print("Unable to upload to Firebase")
                 } else {
                     print("Uploaded to FB Storage")
-                    let downloadURL = metaData?.downloadURL()?.absoluteString
+                    if let downloadURL = metaData?.downloadURL()?.absoluteString {
+                        self.postToFireBase(imageURL: downloadURL)
+                    }
                 }
             }
         }
-
-
     }
 
+    func postToFireBase(imageURL: String) {
+        guard let cell = selectPicTableview.dequeueReusableCell(withIdentifier: Constant.ReusableCellIDs.postImageCell) as? PostPhotoCell else {
+            return
+        }
+        let post: [String: Any] = [
+            "caption": cell.postTitleTextView.text,
+            "imageURL": imageURL,
+            "upVotes": 0
+        ]
+        let fireBasePost = DataService.ds.refPosts.childByAutoId()
+        fireBasePost.setValue(post)
+        cell.postTitleTextView.text = ""
+        isImageSelected = true
+        postImage = UIImage()
+        selectPicTableview.reloadData()
+    }
 }
 
 // MARK: - UITableViewDelegate
