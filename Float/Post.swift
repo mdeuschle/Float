@@ -43,7 +43,7 @@ class Post {
         if let upVotes = postData["upVotes"] as? Int {
             self._upVotes = upVotes
         }
-        _postRef = DataService.ds.refPosts.child(_postKey)
+        _postRef = DataService.shared.refPosts.child(_postKey)
     }
 
 // MARK: - Funcs

@@ -287,9 +287,6 @@
                                                                                     <integer key="value" value="1"/>
                                                                                 </userDefinedRuntimeAttribute>
                                                                             </userDefinedRuntimeAttributes>
-                                                                            <connections>
-                                                                                <action selector="upVoteTapped:" destination="abw-La-Umi" eventType="touchUpInside" id="6BG-aS-x6K"/>
-                                                                            </connections>
                                                                         </button>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="543" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCH-x6-82t">
                                                                             <rect key="frame" x="44" y="0.0" width="27" height="20"/>
@@ -837,7 +834,7 @@
                                                                     <rect key="frame" x="160" y="0.0" width="54" height="20"/>
                                                                     <subviews>
                                                                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T6z-EU-TMz">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="19" height="20"/>
+                                                                            <rect key="frame" x="1" y="0.0" width="19" height="20"/>
                                                                             <state key="normal" image="smallWhiteComments"/>
                                                                             <userDefinedRuntimeAttributes>
                                                                                 <userDefinedRuntimeAttribute type="number" keyPath="imageView.contentMode">
@@ -849,7 +846,7 @@
                                                                             </connections>
                                                                         </button>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="344" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvw-UJ-j0k">
-                                                                            <rect key="frame" x="27" y="0.0" width="27" height="20"/>
+                                                                            <rect key="frame" x="28" y="0.0" width="27" height="20"/>
                                                                             <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="14"/>
                                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                             <nil key="highlightedColor"/>

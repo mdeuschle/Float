@@ -46,7 +46,7 @@ class SelectPicVC: UIViewController {
             let metaData = FIRStorageMetadata()
             metaData.contentType = "image/jpeg"
 
-            DataService.ds.refPostsImages.child(imageUID).put(imageData, metadata: metaData) { (metaData, error) in
+            DataService.shared.refPostsImages.child(imageUID).put(imageData, metadata: metaData) { (metaData, error) in
                 if error != nil {
                     print("Unable to upload to Firebase")
                 } else {
@@ -56,6 +56,9 @@ class SelectPicVC: UIViewController {
                     }
                 }
             }
+        }
+        if let navigation = navigationController {
+            navigation.popViewController(animated: true)
         }
     }
 
@@ -68,7 +71,7 @@ class SelectPicVC: UIViewController {
             "imageURL": imageURL,
             "upVotes": 0
         ]
-        let fireBasePost = DataService.ds.refPosts.childByAutoId()
+        let fireBasePost = DataService.shared.refPosts.childByAutoId()
         fireBasePost.setValue(post)
         cell.postTitleTextView.text = ""
         isImageSelected = true

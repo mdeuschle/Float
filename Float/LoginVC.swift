@@ -99,7 +99,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
 
     func userSignIn(id: String, userData: [String: String]) {
-        DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
+        DataService.shared.createFirebaseDBUser(uid: id, userData: userData)
         KeychainWrapper.standard.set(id, forKey: Constant.KeyType.keyUID)
         clearTextFields()
         appLogoImage.isHidden = false

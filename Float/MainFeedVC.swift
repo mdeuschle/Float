@@ -16,6 +16,8 @@ class MainFeedVC: UIViewController {
     var imagePicker: UIImagePickerController!
     var selectedImage: UIImage?
     static var imageCache = NSCache<NSString, UIImage>()
+    var post: Post!
+    var likesRef: FIRDatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,7 @@ class MainFeedVC: UIViewController {
     }
 
     func appendPosts() {
-        DataService.ds.refPosts.observe(.value, with: { (snapshots) in
+        DataService.shared.refPosts.observe(.value, with: { (snapshots) in
             if let snapshots = snapshots.children.allObjects as? [FIRDataSnapshot] {
                 for snap in snapshots {
                     print("SNAP: \(snap)")
@@ -60,8 +62,6 @@ class MainFeedVC: UIViewController {
     }
 
     @IBAction func favoriteButtonTapped(_ sender: Any) {
-    }
-    @IBAction func upVoteTapped(_ sender: Any) {
     }
     @IBAction func downVoteTapped(_ sender: Any) {
     }

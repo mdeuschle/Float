@@ -25,17 +25,17 @@ class MainFeedCell: UITableViewCell {
     @IBOutlet var cityLabel: UILabel!
     @IBOutlet var stateLabel: UILabel!
 
-    //    let postImage: UIImage = #imageLiteral(resourceName: "imageBench")
     var post: Post!
+    let likesRef = DataService.shared.refUserCurrent.child("upVotes")
 
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
+        upVoteButton.addTarget(self, action: #selector(MainFeedCell.upVoteTapped), for: .touchUpInside)
     }
     func configCell(post: Post, img: UIImage? = nil) {
         self.post = post
         self.voteCountLabel.text = "\(post.upVotes)"
-
         if img != nil {
             self.mainImage.image = img
         } else {
@@ -54,6 +54,26 @@ class MainFeedCell: UITableViewCell {
                 }
             })
         }
+        likesRef.observe(.value, with: { (upVote) in
+            if let _ = upVote.value as? NSNull {
+                self.upVoteButton.setImage(#imageLiteral(resourceName: "whiteUpArrow"), for: .normal)
+            } else {
+                self.upVoteButton.setImage(#imageLiteral(resourceName: "cyanUpArrow"), for: .normal)
+            }
+        })
+    }
+    func upVoteTapped() {
+        likesRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let _ = snapshot.value as? NSNull {
+                self.upVoteButton.setImage(#imageLiteral(resourceName: "cyanUpArrow"), for: .normal)
+                self.post.adjustUpVotes(isUpvoated: true)
+                self.likesRef.setValue(true)
+            } else {
+                self.upVoteButton.setImage(#imageLiteral(resourceName: "whiteUpArrow"), for: .normal)
+                self.post.adjustUpVotes(isUpvoated: false)
+                self.likesRef.removeValue()
+            }
+        })
     }
 }
 
