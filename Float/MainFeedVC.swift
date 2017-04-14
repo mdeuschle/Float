@@ -39,6 +39,7 @@ class MainFeedVC: UIViewController {
 
     func appendPosts() {
         DataService.shared.refPosts.observe(.value, with: { (snapshots) in
+            self.posts = []
             if let snapshots = snapshots.children.allObjects as? [FIRDataSnapshot] {
                 for snap in snapshots {
                     print("SNAP: \(snap)")
@@ -62,6 +63,9 @@ class MainFeedVC: UIViewController {
     }
 
     @IBAction func favoriteButtonTapped(_ sender: Any) {
+    }
+    @IBAction func upVoteTapped(_ sender: Any) {
+
     }
     @IBAction func downVoteTapped(_ sender: Any) {
     }
@@ -100,11 +104,10 @@ extension MainFeedVC: UITableViewDataSource {
         let post = posts[indexPath.row]
         if let img = MainFeedVC.imageCache.object(forKey: post.imageURL as NSString) {
             cell.configCell(post: post, img: img)
-            return cell
         } else {
             cell.configCell(post: post)
-            return cell
         }
+        return cell
     }
 }
 

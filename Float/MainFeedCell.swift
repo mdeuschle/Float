@@ -26,7 +26,7 @@ class MainFeedCell: UITableViewCell {
     @IBOutlet var stateLabel: UILabel!
 
     var post: Post!
-    let likesRef = DataService.shared.refUserCurrent.child("upVotes")
+    var likesRef: FIRDatabaseReference!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,6 +35,8 @@ class MainFeedCell: UITableViewCell {
     }
     func configCell(post: Post, img: UIImage? = nil) {
         self.post = post
+        likesRef = DataService.shared.refUserCurrent.child("upVotes").child(post.postKey)
+
         self.voteCountLabel.text = "\(post.upVotes)"
         if img != nil {
             self.mainImage.image = img
