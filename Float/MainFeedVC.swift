@@ -65,7 +65,6 @@ class MainFeedVC: UIViewController {
     @IBAction func favoriteButtonTapped(_ sender: Any) {
     }
     @IBAction func upVoteTapped(_ sender: Any) {
-
     }
     @IBAction func downVoteTapped(_ sender: Any) {
     }
@@ -73,6 +72,7 @@ class MainFeedVC: UIViewController {
     }
     @IBAction func shareButtonTapped(_ sender: Any) {
     }
+
     @IBAction func logOutTapped(_ sender: Any) {
         let keychainResult = KeychainWrapper.standard.removeObject(forKey: Constant.KeyType.keyUID)
         print("*Removed keychain: \(keychainResult)")
@@ -83,6 +83,7 @@ class MainFeedVC: UIViewController {
             print("Unable to sign out \(error)")
         }
     }
+
     @IBAction func pictureTapped(_ sender: Any) {
         present(imagePicker, animated: true, completion: nil)
     }

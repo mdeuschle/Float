@@ -25,6 +25,7 @@
 		A8A8532B1E44357D002A15E1 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A8532A1E44357D002A15E1 /* DataService.swift */; };
 		A8A8532F1E4435DB002A15E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A8532E1E4435DB002A15E1 /* Constants.swift */; };
 		A8D346801E90C483005E0193 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D3467F1E90C483005E0193 /* FavoritesViewController.swift */; };
+		A8D4BBBB1EA29521004C10C9 /* MotionEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4BBBA1EA29521004C10C9 /* MotionEffect.swift */; };
 		A8EBC1821E8884F000B23B4A /* SelectPicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EBC1811E8884F000B23B4A /* SelectPicVC.swift */; };
 		A8EBC1C41E8B790B00B23B4A /* PostPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EBC1C31E8B790B00B23B4A /* PostPhotoCell.swift */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,7 @@
 		A8A8532A1E44357D002A15E1 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		A8A8532E1E4435DB002A15E1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A8D3467F1E90C483005E0193 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		A8D4BBBA1EA29521004C10C9 /* MotionEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionEffect.swift; sourceTree = "<group>"; };
 		A8EBC1811E8884F000B23B4A /* SelectPicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPicVC.swift; sourceTree = "<group>"; };
 		A8EBC1C31E8B790B00B23B4A /* PostPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostPhotoCell.swift; sourceTree = "<group>"; };
 		D3344971BD2031DF07B540A5 /* Pods_Float.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Float.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				A8A853141E3E9004002A15E1 /* UIColor+Hex.swift */,
+				A8D4BBBA1EA29521004C10C9 /* MotionEffect.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8D4BBBB1EA29521004C10C9 /* MotionEffect.swift in Sources */,
 				A8D346801E90C483005E0193 /* FavoritesViewController.swift in Sources */,
 				A8EBC1821E8884F000B23B4A /* SelectPicVC.swift in Sources */,
 				A8A852DD1E3E5EBE002A15E1 /* AppDelegate.swift in Sources */,

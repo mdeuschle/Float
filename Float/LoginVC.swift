@@ -145,7 +145,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             if let fbUser = user {
                 if error != nil {
                     // TODO Popups
-                    print("Not able to authenticate with Firebase \(error?.localizedDescription)")
+                    print("Not able to authenticate with Firebase \(String(describing: error?.localizedDescription))")
                 } else {
                     print("Successfully authenticated with Firebase \(fbUser.debugDescription)")
                     let userData = [Constant.KeyType.provider: credential.provider]
@@ -166,7 +166,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 if let res = result {
                     if error != nil {
                         // TODO PopUps
-                        print("Not Able To Login To FB \(error?.localizedDescription)")
+                        print("Not Able To Login To FB \(String(describing: error?.localizedDescription))")
                     } else if result?.isCancelled == true {
                         print("User cancelled FB auth \(res.debugDescription)")
                     } else {

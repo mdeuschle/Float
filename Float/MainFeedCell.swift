@@ -40,15 +40,17 @@ class MainFeedCell: UITableViewCell {
         self.voteCountLabel.text = "\(post.upVotes)"
         if img != nil {
             self.mainImage.image = img
+            self.mainImage.addMotionEffect(UIMotionEffect.addMotion(amount: 8))
         } else {
             let ref = FIRStorage.storage().reference(forURL: post.imageURL)
             ref.data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) in
                 if error != nil {
-                    print("Error downloading image to FB Storage \(error)")
+                    print("Error downloading image to FB Storage \(String(describing: error))")
                 } else {
                     if let imageData = data {
                         if let img = UIImage(data: imageData) {
                             self.mainImage.image = img
+                            self.mainImage.addMotionEffect(UIMotionEffect.addMotion(amount: 8))
                             MainFeedVC.imageCache.setObject(img, forKey: post.imageURL as NSString)
                         }
                     }
