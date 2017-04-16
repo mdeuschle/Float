@@ -61,6 +61,22 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(LoginVC.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if view.frame.origin.y == 0{
+                view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if view.frame.origin.y != 0{
+                view.frame.origin.y += keyboardSize.height
+            }
+        }
+    }
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         userLogin()
         return true
@@ -80,22 +96,6 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         appTaglineLabel.isHidden = true
         skipButton.isHidden = true
         facebookButton.setTitle("LOGIN", for: .normal)
-    }
-
-    func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if view.frame.origin.y == 0{
-                view.frame.origin.y -= keyboardSize.height
-            }
-        }
-    }
-
-    func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if view.frame.origin.y != 0{
-                view.frame.origin.y += keyboardSize.height
-            }
-        }
     }
 
     func userSignIn(id: String, userData: [String: String]) {

@@ -614,23 +614,26 @@
                                     <constraint firstAttribute="height" constant="220" id="af5-TB-B4R"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hNU-4K-t8p">
-                                <rect key="frame" x="16" y="294" width="343" height="363"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="An interesting title for your photo..." translatesAutoresizingMaskIntoConstraints="NO" id="hNU-4K-t8p">
+                                <rect key="frame" x="16" y="294" width="343" height="353"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.45878100399999999" green="0.45885068179999999" blue="0.45876574520000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="rkM-65-re9" id="z2w-oH-gXp"/>
+                                </connections>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hNU-4K-t8p" firstAttribute="leading" secondItem="GnX-6A-OiJ" secondAttribute="leadingMargin" id="5EL-hR-H7y"/>
                             <constraint firstItem="MEK-mh-hAA" firstAttribute="top" secondItem="fWb-i6-xo9" secondAttribute="bottom" id="5QN-IZ-ixw"/>
-                            <constraint firstItem="Sok-3w-b22" firstAttribute="top" secondItem="hNU-4K-t8p" secondAttribute="bottom" constant="10" id="5fq-6X-ofL"/>
                             <constraint firstAttribute="trailing" secondItem="MEK-mh-hAA" secondAttribute="trailing" id="NNp-s2-Zlr"/>
-                            <constraint firstItem="hNU-4K-t8p" firstAttribute="trailing" secondItem="GnX-6A-OiJ" secondAttribute="trailingMargin" id="U89-sl-OAr"/>
                             <constraint firstItem="MEK-mh-hAA" firstAttribute="leading" secondItem="GnX-6A-OiJ" secondAttribute="leading" id="he7-31-Li6"/>
-                            <constraint firstItem="hNU-4K-t8p" firstAttribute="top" secondItem="MEK-mh-hAA" secondAttribute="bottom" constant="10" id="lnP-D0-eOo"/>
+                            <constraint firstItem="hNU-4K-t8p" firstAttribute="trailing" secondItem="GnX-6A-OiJ" secondAttribute="trailingMargin" id="kSC-E3-ee6"/>
+                            <constraint firstItem="Sok-3w-b22" firstAttribute="top" secondItem="hNU-4K-t8p" secondAttribute="bottom" constant="20" id="obK-76-Nsv"/>
+                            <constraint firstItem="hNU-4K-t8p" firstAttribute="leading" secondItem="GnX-6A-OiJ" secondAttribute="leadingMargin" id="tlz-Nc-0sx"/>
+                            <constraint firstItem="hNU-4K-t8p" firstAttribute="top" secondItem="MEK-mh-hAA" secondAttribute="bottom" constant="10" id="xcr-EA-ki5"/>
                         </constraints>
                     </view>
                     <connections>
@@ -648,7 +651,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Ah-k1-Mil" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="mostViewed" id="3p8-ez-MgM"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4j3-NU-pJH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4j3-NU-pJH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

@@ -20,9 +20,31 @@ class SelectPicVC: UIViewController {
         super.viewDidLoad()
         self.title = "Post Image"
         navigationController?.hidesBarsOnSwipe = false
+        notifications()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "POST", style: .plain, target: self, action: #selector(SelectPicVC.postButtonTapped))
         if let img = postImage {
             selectPicImageView.image = img
+        }
+    }
+
+    func notifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(SelectPicVC.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(SelectPicVC.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if view.frame.origin.y == 0{
+                view.frame.origin.y -= keyboardSize.height - 144
+            }
+        }
+    }
+
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if view.frame.origin.y != 0{
+                view.frame.origin.y += keyboardSize.height
+            }
         }
     }
 
