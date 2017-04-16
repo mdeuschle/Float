@@ -9,9 +9,9 @@
 import UIKit
 
 class RoundedButton: UIButton {
-
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = 22
     }
 }
+
