@@ -73,17 +73,30 @@ class SelectPicVC: UIViewController {
         }
     }
 
+//    func postToFireBase(imageURL: String) {
+//        let post: [String: Any] = [
+//            "caption": selectPicTextView.text,
+//            "imageURL": imageURL,
+//            "upVotes": 0
+//        ]
+//        let fireBasePost = DataService.shared.refPosts.childByAutoId()
+//        fireBasePost.setValue(post)
+//        selectPicTextView.text = ""
+//        isImageSelected = true
+//        postImage = UIImage()
+//    }
+
     func postToFireBase(imageURL: String) {
-        let post: [String: Any] = [
-            "caption": selectPicTextView.text,
-            "imageURL": imageURL,
-            "upVotes": 0
-        ]
-        let fireBasePost = DataService.shared.refPosts.childByAutoId()
-        fireBasePost.setValue(post)
-        selectPicTextView.text = ""
-        isImageSelected = true
-        postImage = UIImage()
+        if let captionText = selectPicTextView.text {
+            let postDic: [String: AnyObject] = [
+                "imageURL": imageURL as AnyObject,
+                "caption": captionText as AnyObject,
+                "upVotes": 0 as AnyObject
+            ]
+            DataService.shared.refPosts.childByAutoId().setValue(postDic)
+            selectPicTextView.text = ""
+            isImageSelected = false
+        }
     }
 }
 
@@ -93,7 +106,18 @@ extension SelectPicVC: UITextViewDelegate {
         textView.text = ""
         textView.textColor = .primaryTextColor()
     }
+
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            postButtonTapped()
+            view.endEditing(true)
+            return false
+        } else {
+            return true
+        }
+    }
 }
+
 
 
 

@@ -64,8 +64,6 @@ class MainFeedVC: UIViewController {
 
     @IBAction func favoriteButtonTapped(_ sender: Any) {
     }
-    @IBAction func upVoteTapped(_ sender: Any) {
-    }
     @IBAction func downVoteTapped(_ sender: Any) {
     }
     @IBAction func commentsButtonTapped(_ sender: Any) {
