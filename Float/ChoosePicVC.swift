@@ -36,10 +36,14 @@ class ChoosePicVC: UIViewController, UINavigationControllerDelegate
     }
 
     @IBAction func cameraButtonTapped(_ sender: Any) {
-
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePicker.sourceType = .camera
+            present(imagePicker, animated: true, completion: nil)
+        }
     }
 
     @IBAction func choosePhotoButtonTapped(_ sender: Any) {
+        imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
     }
 }

@@ -62,7 +62,6 @@ class MainFeedVC: UIViewController {
 
     @IBAction func pictureTapped(_ sender: Any) {
         performSegue(withIdentifier: Constant.SegueIDs.selectPicSegue, sender: self)
-//        present(imagePicker, animated: true, completion: nil)
     }
 
     @IBAction func favoritesTabTapped(_ sender: Any) {
