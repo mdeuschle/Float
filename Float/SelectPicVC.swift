@@ -19,12 +19,18 @@ class SelectPicVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Post Image"
-        navigationController?.hidesBarsOnSwipe = false
         notifications()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "POST", style: .plain, target: self, action: #selector(SelectPicVC.postButtonTapped))
         if let img = postImage {
             selectPicImageView.image = img
         }
+    }
+
+    func stylizeNavController() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.view.backgroundColor = .clear
     }
 
     func notifications() {
@@ -68,23 +74,43 @@ class SelectPicVC: UIViewController {
                 }
             }
         }
-        if let navigation = navigationController {
-            navigation.popViewController(animated: true)
+
+        if let navController = navigationController {
+            var isPushed = false
+            if let viewControllers = navigationController?.viewControllers {
+                for viewController in viewControllers {
+                    if let mainFeedVC = viewController as? MainFeedVC {
+                        navController.popToViewController(mainFeedVC, animated: true)
+                        isPushed = true
+                        break
+                    }
+                }
+            }
+            if !isPushed {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                if let dvc = storyboard.instantiateViewController(withIdentifier: "MainFeedVC") as? MainFeedVC {
+                    navController.pushViewController(dvc, animated: true)
+                }
+            }
         }
+
+        //        if let navigation = navigationController {
+        //            navigation.popViewController(animated: true)
+        //        }
     }
 
-//    func postToFireBase(imageURL: String) {
-//        let post: [String: Any] = [
-//            "caption": selectPicTextView.text,
-//            "imageURL": imageURL,
-//            "upVotes": 0
-//        ]
-//        let fireBasePost = DataService.shared.refPosts.childByAutoId()
-//        fireBasePost.setValue(post)
-//        selectPicTextView.text = ""
-//        isImageSelected = true
-//        postImage = UIImage()
-//    }
+    //    func postToFireBase(imageURL: String) {
+    //        let post: [String: Any] = [
+    //            "caption": selectPicTextView.text,
+    //            "imageURL": imageURL,
+    //            "upVotes": 0
+    //        ]
+    //        let fireBasePost = DataService.shared.refPosts.childByAutoId()
+    //        fireBasePost.setValue(post)
+    //        selectPicTextView.text = ""
+    //        isImageSelected = true
+    //        postImage = UIImage()
+    //    }
 
     func postToFireBase(imageURL: String) {
         if let captionText = selectPicTextView.text {

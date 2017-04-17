@@ -25,6 +25,7 @@ struct Constant {
     struct SegueIDs {
         static let feedSegue = "FeedSegue"
         static let selectPicSegue = "SelectPicSegue"
+        static let selectPhotosSegue = "SelectPhotosSegue"
     }
     struct FontHelper {
         static func americanTypewriter(size: CGFloat) -> UIFont {

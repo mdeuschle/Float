@@ -23,7 +23,6 @@ class MainFeedCell: UITableViewCell {
     @IBOutlet var commentsCountLabel: UILabel!
     @IBOutlet var shareButton: UIButton!
     @IBOutlet var cityLabel: UILabel!
-    @IBOutlet var stateLabel: UILabel!
 
     var post: Post!
     var likesRef: FIRDatabaseReference!

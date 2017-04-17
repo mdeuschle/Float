@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0CC71A23E7429EFF5E0699A1 /* Pods_Float.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3344971BD2031DF07B540A5 /* Pods_Float.framework */; };
 		A84AFC041E5A89C900A16BC0 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84AFC031E5A89C900A16BC0 /* Post.swift */; };
+		A855F76A1EA3EEE5004C18B2 /* ChoosePicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855F7691EA3EEE5004C18B2 /* ChoosePicVC.swift */; };
+		A855F76C1EA45C22004C18B2 /* NavigationControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855F76B1EA45C22004C18B2 /* NavigationControllerHelper.swift */; };
 		A8855BEC1E876D36001535CA /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8855BEB1E876D36001535CA /* ShadowView.swift */; };
 		A8A852DD1E3E5EBE002A15E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A852DC1E3E5EBE002A15E1 /* AppDelegate.swift */; };
 		A8A852E41E3E5EBE002A15E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8A852E31E3E5EBE002A15E1 /* Assets.xcassets */; };
@@ -24,7 +26,6 @@
 		A8A853201E41A51A002A15E1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8A8531F1E41A51A002A15E1 /* GoogleService-Info.plist */; };
 		A8A8532B1E44357D002A15E1 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A8532A1E44357D002A15E1 /* DataService.swift */; };
 		A8A8532F1E4435DB002A15E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A8532E1E4435DB002A15E1 /* Constants.swift */; };
-		A8D346801E90C483005E0193 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D3467F1E90C483005E0193 /* FavoritesViewController.swift */; };
 		A8D4BBBB1EA29521004C10C9 /* MotionEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4BBBA1EA29521004C10C9 /* MotionEffect.swift */; };
 		A8EBC1821E8884F000B23B4A /* SelectPicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EBC1811E8884F000B23B4A /* SelectPicVC.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +51,8 @@
 		00B5746871C122CEE4AC1B1D /* Pods-Float.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Float.release.xcconfig"; path = "Pods/Target Support Files/Pods-Float/Pods-Float.release.xcconfig"; sourceTree = "<group>"; };
 		16CA19C1A164298EAE9C9289 /* Pods-Float.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Float.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Float/Pods-Float.debug.xcconfig"; sourceTree = "<group>"; };
 		A84AFC031E5A89C900A16BC0 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		A855F7691EA3EEE5004C18B2 /* ChoosePicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoosePicVC.swift; sourceTree = "<group>"; };
+		A855F76B1EA45C22004C18B2 /* NavigationControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerHelper.swift; sourceTree = "<group>"; };
 		A8855BEB1E876D36001535CA /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		A8A852D91E3E5EBE002A15E1 /* Float.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Float.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8A852DC1E3E5EBE002A15E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,7 +74,6 @@
 		A8A8531F1E41A51A002A15E1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A8A8532A1E44357D002A15E1 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		A8A8532E1E4435DB002A15E1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		A8D3467F1E90C483005E0193 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		A8D4BBBA1EA29521004C10C9 /* MotionEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionEffect.swift; sourceTree = "<group>"; };
 		A8EBC1811E8884F000B23B4A /* SelectPicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPicVC.swift; sourceTree = "<group>"; };
 		D3344971BD2031DF07B540A5 /* Pods_Float.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Float.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +185,7 @@
 			children = (
 				A8A853141E3E9004002A15E1 /* UIColor+Hex.swift */,
 				A8D4BBBA1EA29521004C10C9 /* MotionEffect.swift */,
+				A855F76B1EA45C22004C18B2 /* NavigationControllerHelper.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -192,8 +195,8 @@
 			children = (
 				A8A853161E3E96FB002A15E1 /* LoginVC.swift */,
 				A8A8531A1E3EAB88002A15E1 /* MainFeedVC.swift */,
+				A855F7691EA3EEE5004C18B2 /* ChoosePicVC.swift */,
 				A8EBC1811E8884F000B23B4A /* SelectPicVC.swift */,
-				A8D3467F1E90C483005E0193 /* FavoritesViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -423,11 +426,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8D4BBBB1EA29521004C10C9 /* MotionEffect.swift in Sources */,
-				A8D346801E90C483005E0193 /* FavoritesViewController.swift in Sources */,
 				A8EBC1821E8884F000B23B4A /* SelectPicVC.swift in Sources */,
 				A8A852DD1E3E5EBE002A15E1 /* AppDelegate.swift in Sources */,
 				A8855BEC1E876D36001535CA /* ShadowView.swift in Sources */,
+				A855F76C1EA45C22004C18B2 /* NavigationControllerHelper.swift in Sources */,
 				A8A853151E3E9004002A15E1 /* UIColor+Hex.swift in Sources */,
+				A855F76A1EA3EEE5004C18B2 /* ChoosePicVC.swift in Sources */,
 				A8A8531E1E3EAFD7002A15E1 /* MainFeedCell.swift in Sources */,
 				A8A853171E3E96FB002A15E1 /* LoginVC.swift in Sources */,
 				A8A8531B1E3EAB88002A15E1 /* MainFeedVC.swift in Sources */,

@@ -13,28 +13,14 @@ import SwiftKeychainWrapper
 class MainFeedVC: UIViewController {
     @IBOutlet var feedTableView: UITableView!    
     var posts: [Post] = []
-    var imagePicker: UIImagePickerController!
-    var selectedImage: UIImage?
     static var imageCache = NSCache<NSString, UIImage>()
     var post: Post!
     var likesRef: FIRDatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Merica"
+        navigationController?.hideNavBar()
         appendPosts()
-        setUpImagePicker()
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        navigationController?.hidesBarsOnSwipe = true
-    }
-
-    func setUpImagePicker() {
-        imagePicker = UIImagePickerController()
-        imagePicker.allowsEditing = true
-        imagePicker.delegate = self
     }
 
     func appendPosts() {
@@ -52,14 +38,6 @@ class MainFeedVC: UIViewController {
             }
             self.feedTableView.reloadData()
         })
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constant.SegueIDs.selectPicSegue {
-            if let dvc = segue.destination as? SelectPicVC {
-                dvc.postImage = selectedImage
-            }
-        }
     }
 
     @IBAction func favoriteButtonTapped(_ sender: Any) {
@@ -83,8 +61,10 @@ class MainFeedVC: UIViewController {
     }
 
     @IBAction func pictureTapped(_ sender: Any) {
-        present(imagePicker, animated: true, completion: nil)
+        performSegue(withIdentifier: Constant.SegueIDs.selectPicSegue, sender: self)
+//        present(imagePicker, animated: true, completion: nil)
     }
+
     @IBAction func favoritesTabTapped(_ sender: Any) {
     }
 }
@@ -107,20 +87,6 @@ extension MainFeedVC: UITableViewDataSource {
             cell.configCell(post: post)
         }
         return cell
-    }
-}
-
-// MARK: - UIImagePickerControllerDelegate
-extension MainFeedVC: UIImagePickerControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
-            selectedImage = image
-        } else {
-            print("Image not found")
-        }
-        imagePicker.dismiss(animated: false) {
-            self.performSegue(withIdentifier: Constant.SegueIDs.selectPicSegue, sender: self)
-        }
     }
 }
 
