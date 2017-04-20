@@ -11,6 +11,7 @@
 		A84AFC041E5A89C900A16BC0 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84AFC031E5A89C900A16BC0 /* Post.swift */; };
 		A855F76A1EA3EEE5004C18B2 /* ChoosePicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855F7691EA3EEE5004C18B2 /* ChoosePicVC.swift */; };
 		A855F76C1EA45C22004C18B2 /* NavigationControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855F76B1EA45C22004C18B2 /* NavigationControllerHelper.swift */; };
+		A855F7701EA86106004C18B2 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855F76F1EA86106004C18B2 /* ProfileVC.swift */; };
 		A8855BEC1E876D36001535CA /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8855BEB1E876D36001535CA /* ShadowView.swift */; };
 		A8A852DD1E3E5EBE002A15E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A852DC1E3E5EBE002A15E1 /* AppDelegate.swift */; };
 		A8A852E41E3E5EBE002A15E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A8A852E31E3E5EBE002A15E1 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		A84AFC031E5A89C900A16BC0 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		A855F7691EA3EEE5004C18B2 /* ChoosePicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoosePicVC.swift; sourceTree = "<group>"; };
 		A855F76B1EA45C22004C18B2 /* NavigationControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerHelper.swift; sourceTree = "<group>"; };
+		A855F76F1EA86106004C18B2 /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		A8855BEB1E876D36001535CA /* ShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
 		A8A852D91E3E5EBE002A15E1 /* Float.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Float.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8A852DC1E3E5EBE002A15E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -183,9 +185,9 @@
 		A8A8530D1E3E5F5E002A15E1 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				A8A853141E3E9004002A15E1 /* UIColor+Hex.swift */,
 				A8D4BBBA1EA29521004C10C9 /* MotionEffect.swift */,
 				A855F76B1EA45C22004C18B2 /* NavigationControllerHelper.swift */,
+				A8A853141E3E9004002A15E1 /* UIColor+Hex.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -193,9 +195,10 @@
 		A8A8530E1E3E5F6B002A15E1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A855F7691EA3EEE5004C18B2 /* ChoosePicVC.swift */,
 				A8A853161E3E96FB002A15E1 /* LoginVC.swift */,
 				A8A8531A1E3EAB88002A15E1 /* MainFeedVC.swift */,
-				A855F7691EA3EEE5004C18B2 /* ChoosePicVC.swift */,
+				A855F76F1EA86106004C18B2 /* ProfileVC.swift */,
 				A8EBC1811E8884F000B23B4A /* SelectPicVC.swift */,
 			);
 			name = Controller;
@@ -204,8 +207,8 @@
 		A8A853101E3E5F95002A15E1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A8A853181E3E99E2002A15E1 /* RoundedButton.swift */,
 				A8A8531D1E3EAFD7002A15E1 /* MainFeedCell.swift */,
+				A8A853181E3E99E2002A15E1 /* RoundedButton.swift */,
 				A8855BEB1E876D36001535CA /* ShadowView.swift */,
 			);
 			name = View;
@@ -425,6 +428,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A855F7701EA86106004C18B2 /* ProfileVC.swift in Sources */,
 				A8D4BBBB1EA29521004C10C9 /* MotionEffect.swift in Sources */,
 				A8EBC1821E8884F000B23B4A /* SelectPicVC.swift in Sources */,
 				A8A852DD1E3E5EBE002A15E1 /* AppDelegate.swift in Sources */,

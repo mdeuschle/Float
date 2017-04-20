@@ -26,13 +26,13 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         stylizeViews()
         notifications()
-        stylizeErrorLabel(text: Constant.ErrorMessage.password)
+        stylizeErrorLabel(text: Constant.ErrorMessage.password.rawValue)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        if let _ = KeychainWrapper.standard.string(forKey: Constant.KeyType.keyUID) {
-            performSegue(withIdentifier: Constant.SegueIDs.feedSegue, sender: nil)
+        if let _ = KeychainWrapper.standard.string(forKey: Constant.KeyType.keyUID.rawValue) {
+            performSegue(withIdentifier: Constant.SegueIDs.feedSegue.rawValue, sender: nil)
         }
     }
 
@@ -44,7 +44,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 
     func stylizeErrorLabel(text: String) {
         errorLabel.text = text
-        if text == Constant.ErrorMessage.password {
+        if text == Constant.ErrorMessage.password.rawValue {
             errorLabel.textColor = .dividerColor()
         } else {
             errorLabel.textColor = .magenta
@@ -87,7 +87,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         appTaglineLabel.isHidden = false
         skipButton.isHidden = false
         view.endEditing(true)
-        stylizeErrorLabel(text: Constant.ErrorMessage.password)
+        stylizeErrorLabel(text: Constant.ErrorMessage.password.rawValue)
         facebookButton.setTitle("SIGN UP VIA FACEBOOK", for: .normal)
     }
 
@@ -100,12 +100,12 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 
     func userSignIn(id: String, userData: [String: String]) {
         DataService.shared.createFirebaseDBUser(uid: id, userData: userData)
-        KeychainWrapper.standard.set(id, forKey: Constant.KeyType.keyUID)
+        KeychainWrapper.standard.set(id, forKey: Constant.KeyType.keyUID.rawValue)
         clearTextFields()
         appLogoImage.isHidden = false
         appTaglineLabel.isHidden = false
         facebookButton.setTitle("SIGN UP VIA FACEBOOK", for: .normal)
-        performSegue(withIdentifier: Constant.SegueIDs.feedSegue, sender: nil)
+        performSegue(withIdentifier: Constant.SegueIDs.feedSegue.rawValue, sender: nil)
     }
 
     func userLogin() {
@@ -114,7 +114,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 if error == nil {
                     print("User email authenciated with Firebase")
                     if let emailUser = user {
-                        let userData = [Constant.KeyType.provider: emailUser.providerID]
+                        let userData = [Constant.KeyType.provider.rawValue: emailUser.providerID]
                         self.userSignIn(id: emailUser.uid, userData: userData)
                     }
                 } else {
@@ -126,7 +126,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                                 }
                             } else {
                                 print("New user created")
-                                let userData = [Constant.KeyType.provider: emailUser.providerID]
+                                let userData = [Constant.KeyType.provider.rawValue: emailUser.providerID]
                                 self.userSignIn(id: emailUser.uid, userData: userData)
                             }
                         } else {
@@ -148,7 +148,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     print("Not able to authenticate with Firebase \(String(describing: error?.localizedDescription))")
                 } else {
                     print("Successfully authenticated with Firebase \(fbUser.debugDescription)")
-                    let userData = [Constant.KeyType.provider: credential.provider]
+                    let userData = [Constant.KeyType.provider.rawValue: credential.provider]
                     self.userSignIn(id: fbUser.uid, userData: userData)
                 }
             }
@@ -156,7 +156,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func skipButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: Constant.SegueIDs.feedSegue, sender: nil)
+        performSegue(withIdentifier: Constant.SegueIDs.feedSegue.rawValue, sender: nil)
     }
 
     @IBAction func facebookButtonTapped(_ sender: Any) {

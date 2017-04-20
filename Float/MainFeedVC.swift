@@ -50,7 +50,7 @@ class MainFeedVC: UIViewController {
     }
 
     @IBAction func logOutTapped(_ sender: Any) {
-        let keychainResult = KeychainWrapper.standard.removeObject(forKey: Constant.KeyType.keyUID)
+        let keychainResult = KeychainWrapper.standard.removeObject(forKey: Constant.KeyType.keyUID.rawValue)
         print("*Removed keychain: \(keychainResult)")
         do {
             try FIRAuth.auth()?.signOut()
@@ -61,7 +61,7 @@ class MainFeedVC: UIViewController {
     }
 
     @IBAction func pictureTapped(_ sender: Any) {
-        performSegue(withIdentifier: Constant.SegueIDs.selectPicSegue, sender: self)
+        performSegue(withIdentifier: Constant.SegueIDs.selectPicSegue.rawValue, sender: self)
     }
 
     @IBAction func favoritesTabTapped(_ sender: Any) {
@@ -76,7 +76,7 @@ extension MainFeedVC: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.ReusableCellIDs.feedCell) as? MainFeedCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.ReusableCellIDs.feedCell.rawValue) as? MainFeedCell else {
             return MainFeedCell()
         }
         let post = posts[indexPath.row]

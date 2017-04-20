@@ -10,22 +10,23 @@ import Foundation
 import UIKit
 
 struct Constant {
-    struct KeyType {
-        static let keyUID = "uid"
-        static let provider = "provider"
-    }
-    struct ErrorMessage {
-        static let password = "6 or more characters"
-    }
-    struct ReusableCellIDs {
-        static let feedCell = "FeedCell"
-        static let postImageCell = "PostImageCell"
 
+    enum KeyType: String {
+        case keyUID = "uid"
+        case provider = "provider"
     }
-    struct SegueIDs {
-        static let feedSegue = "FeedSegue"
-        static let selectPicSegue = "SelectPicSegue"
-        static let selectPhotosSegue = "SelectPhotosSegue"
+    enum ErrorMessage: String {
+        case password = "6 or more characters"
+    }
+    enum ReusableCellIDs: String {
+        case feedCell = "FeedCell"
+        case postImageCell = "PostImageCell"
+    }
+    enum SegueIDs: String {
+        case feedSegue = "FeedSegue"
+        case selectPicSegue = "SelectPicSegue"
+        case selectPhotosSegue = "SelectPhotosSegue"
+        case profileSegue = "ProfileSegue"
     }
     struct FontHelper {
         static func americanTypewriter(size: CGFloat) -> UIFont {
