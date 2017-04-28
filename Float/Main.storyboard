@@ -650,7 +650,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dNb-0U-Ane" id="UvK-oh-lOY">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -678,10 +678,15 @@
                             <constraint firstAttribute="trailing" secondItem="aTR-3B-XzD" secondAttribute="trailing" id="tLf-1O-uAr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="profileImageView" destination="lqZ-Rm-3XB" id="0qk-CV-9YZ"/>
+                        <outlet property="profileNameLabel" destination="mPp-aY-HOf" id="ujQ-DG-AKy"/>
+                        <outlet property="profileTableView" destination="aTR-3B-XzD" id="lqm-ff-0k5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oPb-9N-Tnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3260" y="675.11244377811101"/>
+            <point key="canvasLocation" x="3260" y="675"/>
         </scene>
         <!--Choose PicVC-->
         <scene sceneID="NNM-5h-HcG">
