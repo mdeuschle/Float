@@ -150,6 +150,18 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     print("Successfully authenticated with Firebase \(fbUser.debugDescription)")
                     let userData = [Constant.KeyType.provider.rawValue: credential.provider]
                     self.userSignIn(id: fbUser.uid, userData: userData)
+
+                    if let profilePic = FBSDKGraphRequest(graphPath: "me/picture", parameters: ["height": 300, "width": 300, "redirect": false], httpMethod: "GET") {
+                        profilePic.start(completionHandler: { (connection, result, error) in
+                            if error == nil {
+                                print("JSON: \(String(describing: result))")
+                            }
+                        })
+                    }
+
+
+
+
                 }
             }
         })

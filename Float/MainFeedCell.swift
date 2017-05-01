@@ -37,6 +37,9 @@ class MainFeedCell: UITableViewCell {
         likesRef = DataService.shared.refUserCurrent.child("upVotes").child(post.postKey)
         postTitleLabel.text = post.caption
         self.voteCountLabel.text = "\(post.upVotes)"
+
+
+
         if img != nil {
             self.mainImage.image = img
         } else {
