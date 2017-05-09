@@ -19,7 +19,6 @@ class MainFeedVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.hideNavBar()
         appendPosts()
     }
 
