@@ -15,6 +15,7 @@ class Post {
     private var _caption: String!
     private var _imageURL: String!
     private var _upVotes: Int!
+    private var _downVotes: Int!
     private var _postKey: String!
     private var _postRef: FIRDatabaseReference!
 
@@ -26,6 +27,9 @@ class Post {
     }
     var upVotes: Int {
         return _upVotes
+    }
+    var downVotes: Int {
+        return _downVotes
     }
     var postKey: String {
         return _postKey
@@ -43,16 +47,36 @@ class Post {
         if let upVotes = postData["upVotes"] as? Int {
             self._upVotes = upVotes
         }
+        if let downVotes = postData["downVotes"] as? Int {
+            self._downVotes = downVotes
+        }
         _postRef = DataService.shared.refPosts.child(_postKey)
     }
 
 // MARK: - Funcs
-    func adjustUpVotes(isUpvoated: Bool) {
-        if isUpvoated {
+    func adjustUpVotes(isUpVoated: Bool) {
+        if isUpVoated {
             _upVotes = _upVotes + 1
         } else {
             _upVotes = upVotes - 1
         }
         _postRef.child("upVotes").setValue(_upVotes)
     }
+
+    func adjustDownVotes(isDownVoted: Bool) {
+        if isDownVoted {
+            _downVotes = _downVotes + 1
+        } else {
+            _downVotes = downVotes - 1
+        }
+        _postRef.child("downVotes").setValue(_downVotes)
+    }
 }
+
+
+
+
+
+
+
+

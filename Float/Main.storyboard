@@ -189,7 +189,7 @@
             </objects>
             <point key="canvasLocation" x="815" y="296"/>
         </scene>
-        <!--Main FeedVC-->
+        <!--'Merica-->
         <scene sceneID="KO3-g8-2kf">
             <objects>
                 <viewController storyboardIdentifier="MainFeedVC" id="abw-La-Umi" customClass="MainFeedVC" customModule="Float" customModuleProvider="target" sceneMemberID="viewController">
@@ -548,7 +548,7 @@
                             <constraint firstItem="7Cr-Gx-mrS" firstAttribute="top" secondItem="d0A-2b-1PR" secondAttribute="bottom" id="yIj-88-sg3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="F2J-sV-xLE">
+                    <navigationItem key="navigationItem" title="'Merica" id="F2J-sV-xLE">
                         <barButtonItem key="backBarButtonItem" title=" " id="vYa-qr-Ycx"/>
                     </navigationItem>
                     <connections>
@@ -821,13 +821,13 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2Ah-k1-Mil" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="mostViewed" id="3p8-ez-MgM"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4j3-NU-pJH">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="4j3-NU-pJH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" red="0.27085623149999999" green="0.35180997850000001" blue="0.3922303915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="21"/>
+                            <fontDescription key="fontDescription" name="AmericanTypewriter-Semibold" family="American Typewriter" pointSize="21"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>

@@ -15,7 +15,6 @@ class MainFeedVC: UIViewController {
     var posts: [Post] = []
     static var imageCache = NSCache<NSString, UIImage>()
     var post: Post!
-    var likesRef: FIRDatabaseReference!
 
     override func viewDidLoad() {
         super.viewDidLoad()

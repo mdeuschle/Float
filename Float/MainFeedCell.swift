@@ -25,21 +25,22 @@ class MainFeedCell: UITableViewCell {
     @IBOutlet var cityLabel: UILabel!
 
     var post: Post!
-    var likesRef: FIRDatabaseReference!
+    var upVoteRef: FIRDatabaseReference!
+    var downVoteRef: FIRDatabaseReference!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
         upVoteButton.addTarget(self, action: #selector(MainFeedCell.upVoteTapped), for: .touchUpInside)
+        downVoteButton.addTarget(self, action: #selector(MainFeedCell.downVoteTapped), for: .touchUpInside)
     }
+    
     func configCell(post: Post, img: UIImage? = nil) {
         self.post = post
-        likesRef = DataService.shared.refUserCurrent.child("upVotes").child(post.postKey)
+        upVoteRef = DataService.shared.refUserCurrent.child("upVotes").child(post.postKey)
+        downVoteRef = DataService.shared.refUserCurrent.child("downVotes").child(post.postKey)
         postTitleLabel.text = post.caption
         self.voteCountLabel.text = "\(post.upVotes)"
-
-
-
         if img != nil {
             self.mainImage.image = img
         } else {
@@ -58,24 +59,47 @@ class MainFeedCell: UITableViewCell {
                 }
             })
         }
-        likesRef.observe(.value, with: { (upVote) in
+        upVoteRef.observe(.value, with: { (upVote) in
             if let _ = upVote.value as? NSNull {
                 self.upVoteButton.setImage(#imageLiteral(resourceName: "whiteUpArrow"), for: .normal)
             } else {
                 self.upVoteButton.setImage(#imageLiteral(resourceName: "cyanUpArrow"), for: .normal)
             }
         })
+        downVoteRef.observe(.value, with: { (downVote) in
+            if let _ = downVote.value as? NSNull {
+                self.downVoteButton.setImage(#imageLiteral(resourceName: "whiteDownArrow"), for: .normal)
+            } else {
+                self.downVoteButton.setImage(#imageLiteral(resourceName: "cyanDownArrow"), for: .normal)
+            }
+        })
+
     }
+
     func upVoteTapped() {
-        likesRef.observeSingleEvent(of: .value, with: { (snapshot) in
+        upVoteRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let _ = snapshot.value as? NSNull {
                 self.upVoteButton.setImage(#imageLiteral(resourceName: "cyanUpArrow"), for: .normal)
-                self.post.adjustUpVotes(isUpvoated: true)
-                self.likesRef.setValue(true)
+                self.post.adjustUpVotes(isUpVoated: true)
+                self.upVoteRef.setValue(true)
             } else {
                 self.upVoteButton.setImage(#imageLiteral(resourceName: "whiteUpArrow"), for: .normal)
-                self.post.adjustUpVotes(isUpvoated: false)
-                self.likesRef.removeValue()
+                self.post.adjustUpVotes(isUpVoated: false)
+                self.upVoteRef.removeValue()
+            }
+        })
+    }
+
+    func downVoteTapped() {
+        downVoteRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let _ = snapshot.value as? NSNull {
+                self.downVoteButton.setImage(#imageLiteral(resourceName: "cyanDownArrow"), for: .normal)
+                self.post.adjustDownVotes(isDownVoted: true)
+                self.downVoteRef.setValue(true)
+            } else {
+                self.downVoteButton.setImage(#imageLiteral(resourceName: "whiteDownArrow"), for: .normal)
+                self.post.adjustDownVotes(isDownVoted: false)
+                self.downVoteRef.removeValue()
             }
         })
     }
