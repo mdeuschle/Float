@@ -40,7 +40,8 @@ class MainFeedCell: UITableViewCell {
         upVoteRef = DataService.shared.refUserCurrent.child("upVotes").child(post.postKey)
         downVoteRef = DataService.shared.refUserCurrent.child("downVotes").child(post.postKey)
         postTitleLabel.text = post.caption
-        self.voteCountLabel.text = "\(post.upVotes)"
+        let totalVotes = post.upVotes - post.downVotes
+        self.voteCountLabel.text = "\(totalVotes)"
         if img != nil {
             self.mainImage.image = img
         } else {
