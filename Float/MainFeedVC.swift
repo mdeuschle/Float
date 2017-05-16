@@ -21,6 +21,10 @@ class MainFeedVC: UIViewController {
         appendPosts()
     }
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     func appendPosts() {
         DataService.shared.refPosts.observe(.value, with: { (snapshots) in
             self.posts = []

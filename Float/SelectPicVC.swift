@@ -74,43 +74,8 @@ class SelectPicVC: UIViewController {
                 }
             }
         }
-
-        if let navController = navigationController {
-            var isPushed = false
-            if let viewControllers = navigationController?.viewControllers {
-                for viewController in viewControllers {
-                    if let mainFeedVC = viewController as? MainFeedVC {
-                        navController.popToViewController(mainFeedVC, animated: true)
-                        isPushed = true
-                        break
-                    }
-                }
-            }
-            if !isPushed {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                if let dvc = storyboard.instantiateViewController(withIdentifier: "MainFeedVC") as? MainFeedVC {
-                    navController.pushViewController(dvc, animated: true)
-                }
-            }
-        }
-
-        //        if let navigation = navigationController {
-        //            navigation.popViewController(animated: true)
-        //        }
+        tabBarController?.selectedIndex = 0
     }
-
-    //    func postToFireBase(imageURL: String) {
-    //        let post: [String: Any] = [
-    //            "caption": selectPicTextView.text,
-    //            "imageURL": imageURL,
-    //            "upVotes": 0
-    //        ]
-    //        let fireBasePost = DataService.shared.refPosts.childByAutoId()
-    //        fireBasePost.setValue(post)
-    //        selectPicTextView.text = ""
-    //        isImageSelected = true
-    //        postImage = UIImage()
-    //    }
 
     func postToFireBase(imageURL: String) {
         if let captionText = selectPicTextView.text {
