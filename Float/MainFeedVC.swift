@@ -91,12 +91,6 @@ extension MainFeedVC: UITableViewDataSource {
     }
 }
 
-// MARK = UINavigationControllerDelegate
-extension MainFeedVC: UINavigationControllerDelegate {
-
-}
-
-
 
 
 

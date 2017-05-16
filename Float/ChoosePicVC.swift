@@ -8,8 +8,7 @@
 
 import UIKit
 
-class ChoosePicVC: UIViewController, UINavigationControllerDelegate
-{
+class ChoosePicVC: UIViewController, UINavigationControllerDelegate {
 
     @IBOutlet var cameraButton: UIButton!
     @IBOutlet var choosePhotoButton: UIButton!
@@ -18,7 +17,15 @@ class ChoosePicVC: UIViewController, UINavigationControllerDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        stylizeNavController()
         setUpImagePicker()
+    }
+
+    func stylizeNavController() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.view.backgroundColor = .clear
     }
 
     func setUpImagePicker() {

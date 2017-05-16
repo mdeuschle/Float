@@ -195,11 +195,11 @@
 		A8A8530E1E3E5F6B002A15E1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A855F7691EA3EEE5004C18B2 /* ChoosePicVC.swift */,
 				A8A853161E3E96FB002A15E1 /* LoginVC.swift */,
 				A8A8531A1E3EAB88002A15E1 /* MainFeedVC.swift */,
-				A855F76F1EA86106004C18B2 /* ProfileVC.swift */,
+				A855F7691EA3EEE5004C18B2 /* ChoosePicVC.swift */,
 				A8EBC1811E8884F000B23B4A /* SelectPicVC.swift */,
+				A855F76F1EA86106004C18B2 /* ProfileVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
