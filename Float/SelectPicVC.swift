@@ -15,11 +15,19 @@ class SelectPicVC: UIViewController {
     @IBOutlet var selectPicTextView: UITextView!
     var postImage: UIImage?
     var isImageSelected = false
+    var currentUserName = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Post Image"
         notifications()
+        DataService.shared.refUserCurrent.observe(.value, with: { snapShot in
+            let value = snapShot.value as? NSDictionary
+            let currentUser = value?["userName"] as? String ?? ""
+            print("USER: \(currentUser)")
+            self.currentUserName = currentUser
+        })
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "POST", style: .plain, target: self, action: #selector(SelectPicVC.postButtonTapped))
         if let img = postImage {
             selectPicImageView.image = img
@@ -67,6 +75,9 @@ class SelectPicVC: UIViewController {
                 }
             }
         }
+        if let navigation = navigationController {
+            navigation.popViewController(animated: true)
+        }
         tabBarController?.selectedIndex = 0
     }
 
@@ -76,7 +87,8 @@ class SelectPicVC: UIViewController {
                 "imageURL": imageURL as AnyObject,
                 "caption": captionText as AnyObject,
                 "upVotes": 0 as AnyObject,
-                "downVotes": 0 as AnyObject
+                "downVotes": 0 as AnyObject,
+                "currentUser": currentUserName as AnyObject
             ]
             DataService.shared.refPosts.childByAutoId().setValue(postDic)
             selectPicTextView.text = ""

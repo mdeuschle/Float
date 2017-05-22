@@ -42,15 +42,6 @@ class MainFeedVC: UIViewController {
         })
     }
 
-    @IBAction func favoriteButtonTapped(_ sender: Any) {
-    }
-    @IBAction func downVoteTapped(_ sender: Any) {
-    }
-    @IBAction func commentsButtonTapped(_ sender: Any) {
-    }
-    @IBAction func shareButtonTapped(_ sender: Any) {
-    }
-
     @IBAction func logOutTapped(_ sender: Any) {
         let keychainResult = KeychainWrapper.standard.removeObject(forKey: Constant.KeyType.keyUID.rawValue)
         print("*Removed keychain: \(keychainResult)")
@@ -60,13 +51,6 @@ class MainFeedVC: UIViewController {
         } catch {
             print("Unable to sign out \(error)")
         }
-    }
-
-    @IBAction func pictureTapped(_ sender: Any) {
-        performSegue(withIdentifier: Constant.SegueIDs.selectPicSegue.rawValue, sender: self)
-    }
-
-    @IBAction func favoritesTabTapped(_ sender: Any) {
     }
 }
 

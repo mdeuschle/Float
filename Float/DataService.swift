@@ -20,8 +20,6 @@ class DataService {
     private var _refBase = dbBase
     private var _refPosts = dbBase.child("posts")
     private var _refUsers = dbBase.child("users")
-
-    // TODO: - Set up Profile Images
     private var _refPostsImages = storageBase.child("post-pics")
 
     var refBase: FIRDatabaseReference {

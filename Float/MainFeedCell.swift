@@ -74,7 +74,6 @@ class MainFeedCell: UITableViewCell {
                 self.downVoteButton.setImage(#imageLiteral(resourceName: "cyanDownArrow"), for: .normal)
             }
         })
-
     }
 
     func upVoteTapped() {

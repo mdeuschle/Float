@@ -17,6 +17,7 @@ class Post {
     private var _upVotes: Int!
     private var _downVotes: Int!
     private var _postKey: String!
+    private var _userName: String!
     private var _postRef: FIRDatabaseReference!
 
     var caption: String {
@@ -34,6 +35,9 @@ class Post {
     var postKey: String {
         return _postKey
     }
+    var userName: String {
+        return _userName
+    }
 
 // MARK: - Inits
     init(postKey: String, postData: [String: AnyObject]) {
@@ -49,6 +53,11 @@ class Post {
         }
         if let downVotes = postData["downVotes"] as? Int {
             self._downVotes = downVotes
+        }
+        if let userName = postData["userName"] as? String {
+            self._userName = userName
+        } else {
+            self._userName = ""
         }
         _postRef = DataService.shared.refPosts.child(_postKey)
     }
