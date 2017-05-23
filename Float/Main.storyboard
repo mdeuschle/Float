@@ -192,14 +192,14 @@
         <!--Tab Bar Controller-->
         <scene sceneID="qdr-g4-13Q">
             <objects>
-                <tabBarController id="phi-re-v57" sceneMemberID="viewController">
+                <tabBarController id="phi-re-v57" customClass="TabBarController" customModule="Float" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="j6p-Li-E8M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="abw-La-Umi" kind="relationship" relationship="viewControllers" id="bmO-k0-yTh"/>
+                        <segue destination="P8E-9L-9mz" kind="relationship" relationship="viewControllers" id="bmO-k0-yTh"/>
                         <segue destination="HTI-or-ujf" kind="relationship" relationship="viewControllers" id="VZM-se-StJ"/>
                         <segue destination="lKt-pZ-b02" kind="relationship" relationship="viewControllers" id="ht7-aA-9Qq"/>
                     </connections>
@@ -221,7 +221,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="423" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p9T-Sn-PlP">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -492,36 +492,15 @@
                                     <outlet property="delegate" destination="abw-La-Umi" id="zqW-oV-5eg"/>
                                 </connections>
                             </tableView>
-                            <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="avE-zZ-rLt">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Merica" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLc-pE-vou">
-                                        <rect key="frame" x="152" y="29" width="71" height="25"/>
-                                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="21"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.27085623149999999" green="0.35180997850000001" blue="0.3922303915" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="BLc-pE-vou" firstAttribute="centerX" secondItem="avE-zZ-rLt" secondAttribute="centerX" id="7y3-RV-bQk"/>
-                                    <constraint firstAttribute="height" constant="64" id="kkW-vv-YxQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="BLc-pE-vou" secondAttribute="bottom" constant="10" id="v1k-k8-dhz"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="p9T-Sn-PlP" firstAttribute="top" secondItem="avE-zZ-rLt" secondAttribute="bottom" id="0E4-sa-8J4"/>
-                            <constraint firstItem="avE-zZ-rLt" firstAttribute="leading" secondItem="t6o-L6-u9j" secondAttribute="leading" id="BWy-bE-WbO"/>
-                            <constraint firstItem="avE-zZ-rLt" firstAttribute="top" secondItem="t6o-L6-u9j" secondAttribute="top" id="VY5-x3-z6e"/>
+                            <constraint firstItem="p9T-Sn-PlP" firstAttribute="top" secondItem="t6o-L6-u9j" secondAttribute="top" id="g0y-zr-Hcr"/>
                             <constraint firstItem="p9T-Sn-PlP" firstAttribute="leading" secondItem="t6o-L6-u9j" secondAttribute="leading" id="gKc-sy-9iM"/>
                             <constraint firstItem="7Cr-Gx-mrS" firstAttribute="top" secondItem="p9T-Sn-PlP" secondAttribute="bottom" id="maC-BL-ytV"/>
                             <constraint firstAttribute="trailing" secondItem="p9T-Sn-PlP" secondAttribute="trailing" id="msx-FT-HZY"/>
-                            <constraint firstAttribute="trailing" secondItem="avE-zZ-rLt" secondAttribute="trailing" id="n8f-4e-RPZ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="mxg-Ko-evN"/>
                     <navigationItem key="navigationItem" title="'Merica" id="F2J-sV-xLE">
                         <barButtonItem key="backBarButtonItem" title=" " id="vYa-qr-Ycx"/>
                     </navigationItem>
@@ -531,7 +510,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u7Y-tW-cn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2736.8000000000002" y="287.40629685157421"/>
+            <point key="canvasLocation" x="3676" y="287.40629685157421"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Bmq-UJ-XlK">
@@ -759,6 +738,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6rU-ZF-bux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2736.8000000000002" y="-519.49025487256381"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="8zN-Nu-fA5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="P8E-9L-9mz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" id="mxg-Ko-evN"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6hL-OJ-2Mg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="abw-La-Umi" kind="relationship" relationship="rootViewController" id="aqH-oK-R12"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cl1-rL-xN0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2736.8000000000002" y="287.40629685157421"/>
         </scene>
     </scenes>
     <resources>

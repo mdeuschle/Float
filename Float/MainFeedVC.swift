@@ -11,18 +11,35 @@ import Firebase
 import SwiftKeychainWrapper
 
 class MainFeedVC: UIViewController {
-    @IBOutlet var feedTableView: UITableView!    
+
+    @IBOutlet var feedTableView: UITableView!
+    
     var posts: [Post] = []
     static var imageCache = NSCache<NSString, UIImage>()
     var post: Post!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        observeTabSelected()
         appendPosts()
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        navigationController?.hidesBarsOnSwipe = true
+    }
+
+    func observeTabSelected() {
+        let notification = NSNotification.Name(rawValue: Constant.Notification.tabSelected.rawValue)
+        NotificationCenter.default.addObserver(self, selector: #selector(MainFeedVC.tabSelected), name: notification, object: nil)
+    }
+
+    func tabSelected() {
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.isNavigationBarHidden = false
     }
 
     func appendPosts() {
@@ -74,6 +91,8 @@ extension MainFeedVC: UITableViewDataSource {
         return cell
     }
 }
+
+
 
 
 

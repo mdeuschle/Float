@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 struct Constant {
-
     enum KeyType: String {
         case keyUID = "uid"
         case provider = "provider"
@@ -28,6 +27,10 @@ struct Constant {
         case selectPhotosSegue = "SelectPhotosSegue"
         case profileSegue = "ProfileSegue"
     }
+    enum Notification: String {
+        case tabSelected = "TabSelected"
+    }
+
     struct FontHelper {
         static func americanTypewriter(size: CGFloat) -> UIFont {
             return UIFont(name: "AmericanTypewriter", size: size)!
