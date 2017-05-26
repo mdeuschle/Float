@@ -14,7 +14,7 @@
         <!--LoginVC-->
         <scene sceneID="fHW-sD-zIV">
             <objects>
-                <viewController id="B9c-Ss-SKQ" customClass="LoginVC" customModule="Float" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="B9c-Ss-SKQ" customClass="LoginVC" customModule="Float" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yQn-ux-LgE"/>
                         <viewControllerLayoutGuide type="bottom" id="gsY-Xy-P2R"/>

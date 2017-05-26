@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import SwiftKeychainWrapper
 
 class ProfileVC: UIViewController {
 
@@ -45,7 +47,17 @@ extension ProfileVC: UITableViewDelegate {
         switch indexPath.row {
         case 0:
             Alert.init(viewController: self).addAlertWithAction(alertMessage: "Logout", message: "Are you sure you would like to logout?", actionButton: "Logout", handler: { logout in
-                print("LOGOUT!")
+                let keychainResult = KeychainWrapper.standard.removeObject(forKey: Constant.KeyType.keyUID.rawValue)
+                print("*Removed keychain: \(keychainResult)")
+                do {
+                    try FIRAuth.auth()?.signOut()
+                    print("Successfully signed out")
+                    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                    let viewController = storyBoard.instantiateViewController(withIdentifier: "LoginVC")
+                    self.present(viewController, animated: true, completion: nil)
+                } catch {
+                    print("Unable to sign out \(error)")
+                }
             })
         default:
             Alert.init(viewController: self).addAlertWithCancel(alertMessage: "AlertTwo", message: "Hey Two")
