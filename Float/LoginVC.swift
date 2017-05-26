@@ -148,9 +148,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     print("Not able to authenticate with Firebase \(String(describing: error?.localizedDescription))")
                 } else {
                     print("Successfully authenticated with Firebase \(fbUser.debugDescription)")
-                    let userData = [Constant.KeyType.provider.rawValue: credential.provider]
-                    self.userSignIn(id: fbUser.uid, userData: userData)
-
+                    let userData = [Constant.KeyType.provider.rawValue: credential.provider, Constant.KeyType.email.rawValue: fbUser.email, Constant.KeyType.userName.rawValue: fbUser.displayName]
+                    self.userSignIn(id: fbUser.uid, userData: userData as! [String : String])
                     //                    if let profilePic = FBSDKGraphRequest(graphPath: "me/picture", parameters: ["height": 300, "width": 300, "redirect": false], httpMethod: "GET") {
                     //                        profilePic.start(completionHandler: { (connection, result, error) in
                     //                            if error == nil {
