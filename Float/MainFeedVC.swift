@@ -22,6 +22,7 @@ class MainFeedVC: UIViewController {
         super.viewDidLoad()
         observeTabSelected()
         appendPosts()
+        print("CURRENT USER: \(String(describing: FIRAuth.auth()?.currentUser?.email))")
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

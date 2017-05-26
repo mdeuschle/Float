@@ -114,7 +114,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 if error == nil {
                     print("User email authenciated with Firebase")
                     if let emailUser = user {
-                        let userData = [Constant.KeyType.provider.rawValue: emailUser.providerID]
+                        let userData = [Constant.KeyType.provider.rawValue: emailUser.providerID, Constant.KeyType.email.rawValue: email, Constant.KeyType.userName.rawValue: email]
                         self.userSignIn(id: emailUser.uid, userData: userData)
                     }
                 } else {
@@ -126,7 +126,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                                 }
                             } else {
                                 print("New user created")
-                                let userData = [Constant.KeyType.provider.rawValue: emailUser.providerID]
+                                let userData = [Constant.KeyType.provider.rawValue: emailUser.providerID, Constant.KeyType.email.rawValue: email, Constant.KeyType.userName.rawValue: email]
                                 self.userSignIn(id: emailUser.uid, userData: userData)
                             }
                         } else {
@@ -151,21 +151,21 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     let userData = [Constant.KeyType.provider.rawValue: credential.provider]
                     self.userSignIn(id: fbUser.uid, userData: userData)
 
-//                    if let profilePic = FBSDKGraphRequest(graphPath: "me/picture", parameters: ["height": 300, "width": 300, "redirect": false], httpMethod: "GET") {
-//                        profilePic.start(completionHandler: { (connection, result, error) in
-//                            if error == nil {
-//                                if let dic = result as? [String: Any] {
-//                                    if let data = dic["data"] as? [String: Any] {
-//                                        if let urlString = data["url"] as? String, let url = URL(string: urlString)  {
-//                                            let imageData = try? Data(contentsOf: url)
-//                                            let profilePicRef = storageBase.child(fbUser.uid+"/profilePic.jpg")
-//
-//                                        }
-//                                    }
-//                                }
-//                            }
-//                        })
-//                    }
+                    //                    if let profilePic = FBSDKGraphRequest(graphPath: "me/picture", parameters: ["height": 300, "width": 300, "redirect": false], httpMethod: "GET") {
+                    //                        profilePic.start(completionHandler: { (connection, result, error) in
+                    //                            if error == nil {
+                    //                                if let dic = result as? [String: Any] {
+                    //                                    if let data = dic["data"] as? [String: Any] {
+                    //                                        if let urlString = data["url"] as? String, let url = URL(string: urlString)  {
+                    //                                            let imageData = try? Data(contentsOf: url)
+                    //                                            let profilePicRef = storageBase.child(fbUser.uid+"/profilePic.jpg")
+                    //
+                    //                                        }
+                    //                                    }
+                    //                                }
+                    //                            }
+                    //                        })
+                    //                    }
                 }
             }
         })

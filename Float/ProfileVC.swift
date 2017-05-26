@@ -19,6 +19,11 @@ class ProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        DataService.shared.refUserCurrent.observe(.value, with: { snapShot in
+            let value = snapShot.value as? NSDictionary
+            let currentUser = value?["userName"] as? String ?? ""
+            self.profileNameLabel.text = currentUser
+        })
     }
 }
 

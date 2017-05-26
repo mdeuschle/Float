@@ -20,14 +20,7 @@ class SelectPicVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Post Image"
-        notifications()
-        DataService.shared.refUserCurrent.observe(.value, with: { snapShot in
-            let value = snapShot.value as? NSDictionary
-            let currentUser = value?["userName"] as? String ?? ""
-            print("USER: \(currentUser)")
-            self.currentUserName = currentUser
-        })
-        
+        notifications()        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "POST", style: .plain, target: self, action: #selector(SelectPicVC.postButtonTapped))
         if let img = postImage {
             selectPicImageView.image = img

@@ -13,6 +13,8 @@ struct Constant {
     enum KeyType: String {
         case keyUID = "uid"
         case provider = "provider"
+        case email = "email"
+        case userName = "userName"
     }
     enum ErrorMessage: String {
         case password = "6 or more characters"
