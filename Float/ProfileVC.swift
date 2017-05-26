@@ -23,13 +23,20 @@ class ProfileVC: UIViewController {
 extension ProfileVC: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "ProfileCell")
+        cell.accessoryType = .disclosureIndicator
+        switch indexPath.row {
+        case 0:
+            cell.textLabel?.text = "Logout"
+        default:
+            cell.textLabel?.text = "Hey"
+        }
+        return cell
     }
-
 }
 
 extension ProfileVC: UITableViewDelegate {
