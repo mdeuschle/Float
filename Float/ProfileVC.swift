@@ -41,7 +41,16 @@ extension ProfileVC: UITableViewDataSource {
 
 extension ProfileVC: UITableViewDelegate {
 
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            Alert.init(viewController: self).addAlertWithAction(alertMessage: "Logout", message: "Are you sure you would like to logout?", actionButton: "Logout", handler: { logout in
+                print("LOGOUT!")
+            })
+        default:
+            Alert.init(viewController: self).addAlertWithCancel(alertMessage: "AlertTwo", message: "Hey Two")
+        }
+    }
 }
 
 
