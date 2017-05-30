@@ -15,6 +15,7 @@ struct Constant {
         case provider = "provider"
         case email = "email"
         case userName = "userName"
+        case profileImage = "profileImage"
     }
     enum ErrorMessage: String {
         case password = "6 or more characters"

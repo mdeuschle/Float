@@ -21,7 +21,15 @@ class ProfileVC: UIViewController {
 
         DataService.shared.refUserCurrent.observe(.value, with: { snapShot in
             let value = snapShot.value as? NSDictionary
-            let currentUser = value?["userName"] as? String ?? ""
+            let currentUser = value?[Constant.KeyType.userName.rawValue] as? String ?? ""
+            let profileUrlString = value?[Constant.KeyType.profileImage.rawValue] as? String ?? ""
+
+            let url = URL(string: profileUrlString)
+            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+            self.profileImageView.image = UIImage(data: data!)
+
+            
+
             self.profileNameLabel.text = currentUser
         })
     }

@@ -114,7 +114,10 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 if error == nil {
                     print("User email authenciated with Firebase")
                     if let emailUser = user {
-                        let userData = [Constant.KeyType.provider.rawValue: emailUser.providerID, Constant.KeyType.email.rawValue: email, Constant.KeyType.userName.rawValue: email]
+                        let userData = [Constant.KeyType.provider.rawValue: emailUser.providerID,
+                                        Constant.KeyType.email.rawValue: email,
+                                        Constant.KeyType.userName.rawValue: email,
+                                        Constant.KeyType.profileImage.rawValue: ""]
                         self.userSignIn(id: emailUser.uid, userData: userData)
                     }
                 } else {
@@ -126,7 +129,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                                 }
                             } else {
                                 print("New user created")
-                                let userData = [Constant.KeyType.provider.rawValue: emailUser.providerID, Constant.KeyType.email.rawValue: email, Constant.KeyType.userName.rawValue: email]
+                                let userData = [Constant.KeyType.provider.rawValue: emailUser.providerID, Constant.KeyType.email.rawValue: email, Constant.KeyType.userName.rawValue: email,
+                                                Constant.KeyType.profileImage.rawValue: ""]
                                 self.userSignIn(id: emailUser.uid, userData: userData)
                             }
                         } else {
@@ -148,8 +152,15 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     print("Not able to authenticate with Firebase \(String(describing: error?.localizedDescription))")
                 } else {
                     print("Successfully authenticated with Firebase \(fbUser.debugDescription)")
-                    let userData = [Constant.KeyType.provider.rawValue: credential.provider, Constant.KeyType.email.rawValue: fbUser.email, Constant.KeyType.userName.rawValue: fbUser.displayName]
-                    self.userSignIn(id: fbUser.uid, userData: userData as! [String : String])
+                    if let profileURL = fbUser.photoURL {
+                        let userData = [Constant.KeyType.provider.rawValue: credential.provider,
+                                        Constant.KeyType.email.rawValue: fbUser.email,
+                                        Constant.KeyType.userName.rawValue: fbUser.displayName,
+                                        Constant.KeyType.profileImage.rawValue: String(describing: profileURL)]
+                        self.userSignIn(id: fbUser.uid, userData: userData as! [String : String])
+
+                    }
+
                     //                    if let profilePic = FBSDKGraphRequest(graphPath: "me/picture", parameters: ["height": 300, "width": 300, "redirect": false], httpMethod: "GET") {
                     //                        profilePic.start(completionHandler: { (connection, result, error) in
                     //                            if error == nil {
