@@ -17,16 +17,16 @@ class Alert {
         self.viewController = viewController
     }
 
-    func addAlertWithCancel(alertMessage: String, message: String) {
+    func addAlertWithCancel(alertMessage: String, message: String, cancelHandler: @escaping ((UIAlertAction) -> Void)) {
         let alertController = UIAlertController(title: alertMessage, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: cancelHandler)
         alertController.addAction(action)
         viewController.present(alertController, animated: true, completion: nil)
     }
 
-    func addAlertWithAction(alertMessage: String, message: String, actionButton: String, handler: @escaping ((UIAlertAction) -> Void)) {
+    func addAlertWithAction(alertMessage: String, message: String, actionButton: String, cancelHandler: @escaping ((UIAlertAction) -> Void), handler: @escaping ((UIAlertAction) -> Void)) {
         let alertController = UIAlertController(title: alertMessage, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: cancelHandler)
         alertController.addAction(cancelAction)
         let handlerAction = UIAlertAction(title: actionButton, style: .destructive, handler: handler)
         alertController.addAction(handlerAction)

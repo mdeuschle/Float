@@ -35,7 +35,6 @@ extension ProfileVC: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "ProfileCell")
-        cell.accessoryType = .disclosureIndicator
         switch indexPath.row {
         case 0:
             cell.textLabel?.text = "Logout"
@@ -51,8 +50,11 @@ extension ProfileVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            Alert.init(viewController: self).addAlertWithAction(alertMessage: "Logout", message: "Are you sure you would like to logout?", actionButton: "Logout", handler: { logout in
+            Alert.init(viewController: self).addAlertWithAction(alertMessage: "Logout", message: "Are you sure you would like to logout?", actionButton: "Logout", cancelHandler: { reload in
+                tableView.reloadData()
+            }, handler: { logout in
                 let keychainResult = KeychainWrapper.standard.removeObject(forKey: Constant.KeyType.keyUID.rawValue)
+                tableView.reloadData()
                 print("*Removed keychain: \(keychainResult)")
                 do {
                     try FIRAuth.auth()?.signOut()
@@ -65,7 +67,9 @@ extension ProfileVC: UITableViewDelegate {
                 }
             })
         default:
-            Alert.init(viewController: self).addAlertWithCancel(alertMessage: "AlertTwo", message: "Hey Two")
+            Alert.init(viewController: self).addAlertWithCancel(alertMessage: "AlertTwo", message: "Hey Two", cancelHandler: { reload in
+                tableView.reloadData()
+            })
         }
     }
 }
