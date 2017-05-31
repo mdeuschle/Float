@@ -18,7 +18,13 @@ class ProfileVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setProfilePic()
+        createEditButton()
 
+
+    }
+
+    func setProfilePic() {
         DataService.shared.refUserCurrent.observe(.value, with: { snapShot in
             let value = snapShot.value as? NSDictionary
             let currentUser = value?[Constant.KeyType.userName.rawValue] as? String ?? ""
@@ -27,7 +33,6 @@ class ProfileVC: UIViewController {
                 do {
                     let data = try Data(contentsOf: url)
                     self.profileImageView.image = UIImage(data: data)
-
                 } catch {
                     print("Profile Image Error: \(error)")
                 }
@@ -36,6 +41,15 @@ class ProfileVC: UIViewController {
             }
             self.profileNameLabel.text = currentUser
         })
+    }
+
+    func createEditButton() {
+        let button = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(ProfileVC.editButtonTapped))
+        navigationItem.rightBarButtonItem = button
+    }
+
+    func editButtonTapped() {
+        print("Tap!")
     }
 }
 
