@@ -21,6 +21,7 @@ class DataService {
     private var _refPosts = dbBase.child("posts")
     private var _refUsers = dbBase.child("users")
     private var _refPostsImages = storageBase.child("post-pics")
+    private var _refProfileImages = storageBase.child("profile-pics")
 
     var refBase: FIRDatabaseReference {
         return _refBase
@@ -45,6 +46,10 @@ class DataService {
 
     var refPostsImages: FIRStorageReference {
         return _refPostsImages
+    }
+
+    var refProfileImages: FIRStorageReference {
+        return _refProfileImages
     }
 
 // MARK: - Functions

@@ -19,6 +19,7 @@ class Post {
     private var _postKey: String!
     private var _userName: String!
     private var _postRef: FIRDatabaseReference!
+    private var _profileImageURL: String!
 
     var caption: String {
         return _caption
@@ -37,6 +38,10 @@ class Post {
     }
     var userName: String {
         return _userName
+    }
+
+    var profileImageURL: String {
+        return _profileImageURL
     }
 
 // MARK: - Inits
@@ -58,6 +63,9 @@ class Post {
             self._userName = userName
         } else {
             self._userName = ""
+        }
+        if let profileImageURL = postData["profileImageURL"] as? String {
+            self._profileImageURL = profileImageURL
         }
         _postRef = DataService.shared.refPosts.child(_postKey)
     }

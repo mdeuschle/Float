@@ -18,11 +18,26 @@ class ProfileVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setProfilePic()
-        createEditButton()
+        displayProfile()
+        touchRecognizers()
     }
 
-    func setProfilePic() {
+    func touchRecognizers() {
+        let imageRecognizer = UITapGestureRecognizer(target: self, action: #selector(ProfileVC.editProfilePicture))
+        profileImageView.addGestureRecognizer(imageRecognizer)
+        let nameRecognizer = UITapGestureRecognizer(target: self, action: #selector(ProfileVC.editName))
+        profileNameLabel.addGestureRecognizer(nameRecognizer)
+    }
+
+    func editProfilePicture() {
+        print("Image Touched")
+    }
+
+    func editName() {
+        print("Name touched")
+    }
+
+    func displayProfile() {
         DataService.shared.refUserCurrent.observe(.value, with: { snapShot in
             let value = snapShot.value as? NSDictionary
             let currentUser = value?[Constant.KeyType.userName.rawValue] as? String ?? ""
@@ -33,7 +48,6 @@ class ProfileVC: UIViewController {
                     self.profileImageView.image = UIImage(data: data)
                 } catch {
                     self.profileImageView.image = #imageLiteral(resourceName: "defaultProfile")
-
                     print("Profile Image Error: \(error)")
                 }
             } else {
@@ -41,15 +55,6 @@ class ProfileVC: UIViewController {
             }
             self.profileNameLabel.text = currentUser
         })
-    }
-
-    func createEditButton() {
-        let button = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(ProfileVC.editButtonTapped))
-        navigationItem.rightBarButtonItem = button
-    }
-
-    func editButtonTapped() {
-        print("Tap!")
     }
 }
 
