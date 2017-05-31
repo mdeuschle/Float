@@ -23,13 +23,17 @@ class ProfileVC: UIViewController {
             let value = snapShot.value as? NSDictionary
             let currentUser = value?[Constant.KeyType.userName.rawValue] as? String ?? ""
             let profileUrlString = value?[Constant.KeyType.profileImage.rawValue] as? String ?? ""
+            if let url = URL(string: profileUrlString) {
+                do {
+                    let data = try Data(contentsOf: url)
+                    self.profileImageView.image = UIImage(data: data)
 
-            let url = URL(string: profileUrlString)
-            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-            self.profileImageView.image = UIImage(data: data!)
-
-            
-
+                } catch {
+                    print("Profile Image Error: \(error)")
+                }
+            } else {
+                print("Progile Image URL Error")
+            }
             self.profileNameLabel.text = currentUser
         })
     }
