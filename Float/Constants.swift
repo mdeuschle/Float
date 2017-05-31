@@ -17,6 +17,10 @@ struct Constant {
         case userName = "userName"
         case profileImage = "profileImage"
     }
+    enum UserType: String {
+        case firebase = "Firebase"
+        case facebook = "facebook.com"
+    }
     enum ErrorMessage: String {
         case password = "6 or more characters"
     }

@@ -20,8 +20,6 @@ class ProfileVC: UIViewController {
         super.viewDidLoad()
         setProfilePic()
         createEditButton()
-
-
     }
 
     func setProfilePic() {
@@ -34,10 +32,12 @@ class ProfileVC: UIViewController {
                     let data = try Data(contentsOf: url)
                     self.profileImageView.image = UIImage(data: data)
                 } catch {
+                    self.profileImageView.image = #imageLiteral(resourceName: "defaultProfile")
+
                     print("Profile Image Error: \(error)")
                 }
             } else {
-                print("Progile Image URL Error")
+                self.profileImageView.image = #imageLiteral(resourceName: "defaultProfile")
             }
             self.profileNameLabel.text = currentUser
         })
