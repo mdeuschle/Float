@@ -569,7 +569,9 @@
                             <constraint firstAttribute="trailing" secondItem="aTR-3B-XzD" secondAttribute="trailing" id="tLf-1O-uAr"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Profile" id="MfZ-oE-sIU"/>
+                    <navigationItem key="navigationItem" title="Profile" id="MfZ-oE-sIU">
+                        <barButtonItem key="backBarButtonItem" title=" " id="lm1-kM-OkT"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="profileImageView" destination="lqZ-Rm-3XB" id="0qk-CV-9YZ"/>
                         <outlet property="profileNameLabel" destination="mPp-aY-HOf" id="ujQ-DG-AKy"/>
@@ -581,7 +583,7 @@
             </objects>
             <point key="canvasLocation" x="3676" y="1069.1154422788607"/>
         </scene>
-        <!--Choose PicVC-->
+        <!--Post a pic-->
         <scene sceneID="NNM-5h-HcG">
             <objects>
                 <viewController id="8Lf-Mo-TZO" customClass="ChoosePicVC" customModule="Float" customModuleProvider="target" sceneMemberID="viewController">
@@ -593,17 +595,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post a picture" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qit-P3-ckX">
-                                <rect key="frame" x="135" y="88" width="105.5" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="i64-Du-Nve"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="sTS-GG-h7r">
-                                <rect key="frame" x="67" y="136" width="240" height="140.5"/>
+                                <rect key="frame" x="67" y="97" width="240" height="140.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zav-rp-XIp">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="140.5"/>
@@ -660,19 +653,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Qit-P3-ckX" firstAttribute="centerX" secondItem="6pN-4v-71Q" secondAttribute="centerX" id="RvO-J0-gaH"/>
+                            <constraint firstItem="sTS-GG-h7r" firstAttribute="top" secondItem="4aB-Jp-ZKn" secondAttribute="bottom" constant="33" id="G1k-rd-aW1"/>
                             <constraint firstItem="sTS-GG-h7r" firstAttribute="centerX" secondItem="6pN-4v-71Q" secondAttribute="centerX" id="amC-wb-TKv"/>
-                            <constraint firstItem="sTS-GG-h7r" firstAttribute="top" secondItem="Qit-P3-ckX" secondAttribute="bottom" constant="24" id="qwY-tI-GyZ"/>
-                            <constraint firstItem="Qit-P3-ckX" firstAttribute="top" secondItem="4aB-Jp-ZKn" secondAttribute="bottom" constant="24" id="ySd-1g-96K"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="9VZ-yZ-eBz">
+                    <navigationItem key="navigationItem" title="Post a pic" id="9VZ-yZ-eBz">
                         <barButtonItem key="backBarButtonItem" title=" " id="I1Q-7O-I55"/>
                     </navigationItem>
                     <connections>
                         <outlet property="cameraButton" destination="v88-dn-LEg" id="m54-fE-HuV"/>
                         <outlet property="choosePhotoButton" destination="l8b-pP-oiW" id="ef0-c2-j3k"/>
-                        <outlet property="choosePicLabel" destination="Qit-P3-ckX" id="bK9-g0-oOj"/>
                         <segue destination="rkM-65-re9" kind="show" identifier="SelectPhotosSegue" id="dgj-ij-CF3"/>
                     </connections>
                 </viewController>
@@ -801,6 +791,6 @@
         <image name="whiteUpArrow" width="44" height="41"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VE2-jW-4Bi"/>
+        <segue reference="wck-IO-l0J"/>
     </inferredMetricsTieBreakers>
 </document>

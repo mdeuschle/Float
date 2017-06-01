@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import SwiftKeychainWrapper
 
-class ProfileVC: UIViewController {
+class ProfileVC: UIViewController, EditProfileDelegate {
 
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var profileNameLabel: UILabel!
@@ -21,6 +21,10 @@ class ProfileVC: UIViewController {
         super.viewDidLoad()
         displayProfile()
         touchRecognizers()
+    }
+
+    func updateProfilePic(selectedImage: UIImage) {
+        profileImageView.image = selectedImage
     }
 
     func touchRecognizers() {
@@ -41,7 +45,8 @@ class ProfileVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constant.SegueIDs.editProfilePicSegue.rawValue {
             if let dvc = segue.destination as? ChoosePicVC {
-                dvc.choosePicLabelString = "Update My Profile Pic"
+                dvc.choosePicLabelString = "Edit my profile pic"
+                dvc.editProfileDelegate = self
             }
         }
     }
