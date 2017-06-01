@@ -510,7 +510,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u7Y-tW-cn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3676" y="287.40629685157421"/>
+            <point key="canvasLocation" x="2737" y="-525"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Bmq-UJ-XlK">
@@ -574,13 +574,14 @@
                         <outlet property="profileImageView" destination="lqZ-Rm-3XB" id="0qk-CV-9YZ"/>
                         <outlet property="profileNameLabel" destination="mPp-aY-HOf" id="ujQ-DG-AKy"/>
                         <outlet property="profileTableView" destination="aTR-3B-XzD" id="lqm-ff-0k5"/>
+                        <segue destination="8Lf-Mo-TZO" kind="show" identifier="EditProfilePicSegue" id="wck-IO-l0J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oPb-9N-Tnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3676" y="1069.1154422788607"/>
         </scene>
-        <!--Post an Image-->
+        <!--Choose PicVC-->
         <scene sceneID="NNM-5h-HcG">
             <objects>
                 <viewController id="8Lf-Mo-TZO" customClass="ChoosePicVC" customModule="Float" customModuleProvider="target" sceneMemberID="viewController">
@@ -589,11 +590,20 @@
                         <viewControllerLayoutGuide type="bottom" id="rys-ip-lWY"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6pN-4v-71Q">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Pic Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qit-P3-ckX">
+                                <rect key="frame" x="126.5" y="88" width="122" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="i64-Du-Nve"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="sTS-GG-h7r">
-                                <rect key="frame" x="67.5" y="40" width="240" height="140.5"/>
+                                <rect key="frame" x="67" y="136" width="240" height="140.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zav-rp-XIp">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="140.5"/>
@@ -650,22 +660,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Qit-P3-ckX" firstAttribute="centerX" secondItem="6pN-4v-71Q" secondAttribute="centerX" id="RvO-J0-gaH"/>
                             <constraint firstItem="sTS-GG-h7r" firstAttribute="centerX" secondItem="6pN-4v-71Q" secondAttribute="centerX" id="amC-wb-TKv"/>
-                            <constraint firstItem="sTS-GG-h7r" firstAttribute="top" secondItem="4aB-Jp-ZKn" secondAttribute="bottom" constant="40" id="vcR-2E-JMN"/>
+                            <constraint firstItem="sTS-GG-h7r" firstAttribute="top" secondItem="Qit-P3-ckX" secondAttribute="bottom" constant="24" id="qwY-tI-GyZ"/>
+                            <constraint firstItem="Qit-P3-ckX" firstAttribute="top" secondItem="4aB-Jp-ZKn" secondAttribute="bottom" constant="24" id="ySd-1g-96K"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Post an Image" id="9VZ-yZ-eBz">
+                    <navigationItem key="navigationItem" id="9VZ-yZ-eBz">
                         <barButtonItem key="backBarButtonItem" title=" " id="I1Q-7O-I55"/>
                     </navigationItem>
                     <connections>
                         <outlet property="cameraButton" destination="v88-dn-LEg" id="m54-fE-HuV"/>
                         <outlet property="choosePhotoButton" destination="l8b-pP-oiW" id="ef0-c2-j3k"/>
+                        <outlet property="choosePicLabel" destination="Qit-P3-ckX" id="bK9-g0-oOj"/>
                         <segue destination="rkM-65-re9" kind="show" identifier="SelectPhotosSegue" id="dgj-ij-CF3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EvX-OM-dTm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3676" y="-519.49025487256381"/>
+            <point key="canvasLocation" x="3676" y="287.40629685157421"/>
         </scene>
         <!--Select PicVC-->
         <scene sceneID="PQg-Ik-Ecl">
@@ -676,7 +689,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Sok-3w-b22"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GnX-6A-OiJ">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MEK-mh-hAA">
@@ -686,7 +699,7 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="An interesting title for your photo..." translatesAutoresizingMaskIntoConstraints="NO" id="hNU-4K-t8p">
-                                <rect key="frame" x="16" y="330" width="343" height="204"/>
+                                <rect key="frame" x="16" y="330" width="343" height="268"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.45878100399999999" green="0.45885068179999999" blue="0.45876574520000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -714,7 +727,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HMZ-hc-4FQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4572" y="-519.49025487256381"/>
+            <point key="canvasLocation" x="4572" y="288"/>
         </scene>
         <!--Picture-->
         <scene sceneID="U6A-1X-MG9">
@@ -737,7 +750,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6rU-ZF-bux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2736.8000000000002" y="-519.49025487256381"/>
+            <point key="canvasLocation" x="2737" y="288"/>
         </scene>
         <!--Home-->
         <scene sceneID="8zN-Nu-fA5">
@@ -756,7 +769,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cl1-rL-xN0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2736.8000000000002" y="287.40629685157421"/>
+            <point key="canvasLocation" x="1714" y="-524"/>
         </scene>
         <!--Profile-->
         <scene sceneID="SFP-Bj-IYr">
@@ -791,4 +804,7 @@
         <image name="whiteShare" width="31" height="27"/>
         <image name="whiteUpArrow" width="44" height="41"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="wck-IO-l0J"/>
+    </inferredMetricsTieBreakers>
 </document>

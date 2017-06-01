@@ -31,6 +31,7 @@ struct Constant {
     enum SegueIDs: String {
         case feedSegue = "FeedSegue"
         case selectPhotosSegue = "SelectPhotosSegue"
+        case editProfilePicSegue = "EditProfilePicSegue"
     }
     enum Notification: String {
         case tabSelected = "TabSelected"

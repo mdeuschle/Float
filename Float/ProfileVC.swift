@@ -30,11 +30,19 @@ class ProfileVC: UIViewController {
     }
 
     func editProfilePicture() {
-        print("Image Touched")
+        performSegue(withIdentifier: Constant.SegueIDs.editProfilePicSegue.rawValue, sender: self)
     }
 
     func editName() {
         print("Name touched")
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constant.SegueIDs.editProfilePicSegue.rawValue {
+            if let dvc = segue.destination as? ChoosePicVC {
+                dvc.choosePicLabelString = "Update My Profile Pic"
+            }
+        }
     }
 
     func displayProfile() {
