@@ -13,24 +13,18 @@ class ChoosePicVC: UIViewController, UINavigationControllerDelegate {
     @IBOutlet var choosePicLabel: UILabel!
     @IBOutlet var cameraButton: UIButton!
     @IBOutlet var choosePhotoButton: UIButton!
+
     var imagePicker: UIImagePickerController!
     var selectedImage: UIImage?
     var choosePicLabelString: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        stylizeNavController()
         setUpImagePicker()
         if let picTitle = choosePicLabelString {
             choosePicLabel.text = picTitle
         }
-    }
-
-    func stylizeNavController() {
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.view.backgroundColor = .clear
+        print("PARENT VC: \(String(describing: presentingViewController))")
     }
 
     func setUpImagePicker() {

@@ -15,6 +15,7 @@ class ProfileVC: UIViewController {
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var profileNameLabel: UILabel!
     @IBOutlet var profileTableView: UITableView!
+    var profileImage: UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()

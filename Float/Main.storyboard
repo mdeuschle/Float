@@ -593,8 +593,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Pic Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qit-P3-ckX">
-                                <rect key="frame" x="126.5" y="88" width="122" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post a picture" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qit-P3-ckX">
+                                <rect key="frame" x="135" y="88" width="105.5" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="24" id="i64-Du-Nve"/>
                                 </constraints>
@@ -693,13 +693,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MEK-mh-hAA">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="320"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="320" id="af5-TB-B4R"/>
+                                    <constraint firstAttribute="height" constant="300" id="vzw-NJ-wss"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="An interesting title for your photo..." translatesAutoresizingMaskIntoConstraints="NO" id="hNU-4K-t8p">
-                                <rect key="frame" x="16" y="330" width="343" height="268"/>
+                                <rect key="frame" x="16" y="374" width="343" height="224"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.45878100399999999" green="0.45885068179999999" blue="0.45876574520000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -711,13 +711,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MEK-mh-hAA" firstAttribute="top" secondItem="GnX-6A-OiJ" secondAttribute="top" id="Bmo-cl-sx7"/>
-                            <constraint firstAttribute="trailing" secondItem="MEK-mh-hAA" secondAttribute="trailing" id="NNp-s2-Zlr"/>
-                            <constraint firstItem="MEK-mh-hAA" firstAttribute="leading" secondItem="GnX-6A-OiJ" secondAttribute="leading" id="he7-31-Li6"/>
-                            <constraint firstItem="hNU-4K-t8p" firstAttribute="trailing" secondItem="GnX-6A-OiJ" secondAttribute="trailingMargin" id="kSC-E3-ee6"/>
-                            <constraint firstItem="Sok-3w-b22" firstAttribute="top" secondItem="hNU-4K-t8p" secondAttribute="bottom" constant="20" id="obK-76-Nsv"/>
-                            <constraint firstItem="hNU-4K-t8p" firstAttribute="leading" secondItem="GnX-6A-OiJ" secondAttribute="leadingMargin" id="tlz-Nc-0sx"/>
-                            <constraint firstItem="hNU-4K-t8p" firstAttribute="top" secondItem="MEK-mh-hAA" secondAttribute="bottom" constant="10" id="xcr-EA-ki5"/>
+                            <constraint firstItem="hNU-4K-t8p" firstAttribute="leading" secondItem="GnX-6A-OiJ" secondAttribute="leadingMargin" id="BAT-us-0C3"/>
+                            <constraint firstItem="hNU-4K-t8p" firstAttribute="trailing" secondItem="GnX-6A-OiJ" secondAttribute="trailingMargin" id="GIZ-Is-rrt"/>
+                            <constraint firstItem="MEK-mh-hAA" firstAttribute="leading" secondItem="GnX-6A-OiJ" secondAttribute="leading" id="Lrr-hf-Wdt"/>
+                            <constraint firstItem="MEK-mh-hAA" firstAttribute="top" secondItem="fWb-i6-xo9" secondAttribute="bottom" id="Nl4-Oc-jLT"/>
+                            <constraint firstAttribute="trailing" secondItem="MEK-mh-hAA" secondAttribute="trailing" id="Zur-bA-1zB"/>
+                            <constraint firstItem="Sok-3w-b22" firstAttribute="top" secondItem="hNU-4K-t8p" secondAttribute="bottom" constant="20" id="tYp-Yw-RBc"/>
+                            <constraint firstItem="hNU-4K-t8p" firstAttribute="top" secondItem="MEK-mh-hAA" secondAttribute="bottom" constant="10" id="xGv-1k-sQn"/>
                         </constraints>
                     </view>
                     <connections>
@@ -727,7 +727,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HMZ-hc-4FQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4572" y="288"/>
+            <point key="canvasLocation" x="4572" y="287.40629685157421"/>
         </scene>
         <!--Picture-->
         <scene sceneID="U6A-1X-MG9">
@@ -735,13 +735,9 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HTI-or-ujf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Picture" id="ZeM-Nr-xxz"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="uBz-r5-ISk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uBz-r5-ISk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -805,6 +801,6 @@
         <image name="whiteUpArrow" width="44" height="41"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wck-IO-l0J"/>
+        <segue reference="VE2-jW-4Bi"/>
     </inferredMetricsTieBreakers>
 </document>

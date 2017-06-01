@@ -13,6 +13,7 @@ class SelectPicVC: UIViewController {
 
     @IBOutlet var selectPicImageView: UIImageView!
     @IBOutlet var selectPicTextView: UITextView!
+    
     var postImage: UIImage?
     var isImageSelected = false
     var currentUserName = ""
