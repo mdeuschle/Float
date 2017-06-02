@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0CC71A23E7429EFF5E0699A1 /* Pods_Float.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3344971BD2031DF07B540A5 /* Pods_Float.framework */; };
+		A8115FC61EE0ECEA0036A1A0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8115FC51EE0ECE90036A1A0 /* User.swift */; };
 		A84AFC041E5A89C900A16BC0 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A84AFC031E5A89C900A16BC0 /* Post.swift */; };
 		A855F76A1EA3EEE5004C18B2 /* ChoosePicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855F7691EA3EEE5004C18B2 /* ChoosePicVC.swift */; };
 		A855F76C1EA45C22004C18B2 /* NavigationControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A855F76B1EA45C22004C18B2 /* NavigationControllerHelper.swift */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		00B5746871C122CEE4AC1B1D /* Pods-Float.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Float.release.xcconfig"; path = "Pods/Target Support Files/Pods-Float/Pods-Float.release.xcconfig"; sourceTree = "<group>"; };
 		16CA19C1A164298EAE9C9289 /* Pods-Float.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Float.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Float/Pods-Float.debug.xcconfig"; sourceTree = "<group>"; };
+		A8115FC51EE0ECE90036A1A0 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A84AFC031E5A89C900A16BC0 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		A855F7691EA3EEE5004C18B2 /* ChoosePicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoosePicVC.swift; sourceTree = "<group>"; };
 		A855F76B1EA45C22004C18B2 /* NavigationControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllerHelper.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				A84AFC031E5A89C900A16BC0 /* Post.swift */,
+				A8115FC51EE0ECE90036A1A0 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				A8A852DD1E3E5EBE002A15E1 /* AppDelegate.swift in Sources */,
 				A855F76C1EA45C22004C18B2 /* NavigationControllerHelper.swift in Sources */,
 				A8A853151E3E9004002A15E1 /* UIColor+Hex.swift in Sources */,
+				A8115FC61EE0ECEA0036A1A0 /* User.swift in Sources */,
 				A855F76A1EA3EEE5004C18B2 /* ChoosePicVC.swift in Sources */,
 				A8A8531E1E3EAFD7002A15E1 /* MainFeedCell.swift in Sources */,
 				A8A853171E3E96FB002A15E1 /* LoginVC.swift in Sources */,

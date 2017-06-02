@@ -39,7 +39,6 @@ class Post {
     var userName: String {
         return _userName
     }
-
     var profileImageURL: String {
         return _profileImageURL
     }
