@@ -70,8 +70,8 @@ extension ChoosePicVC: UIImagePickerControllerDelegate {
             print("Image not found")
         }
         imagePicker.dismiss(animated: false) {
-            self.navigationController?.popViewController(animated: true)
-//            self.performSegue(withIdentifier: Constant.SegueIDs.selectPhotosSegue.rawValue, sender: self)
+//            self.navigationController?.popViewController(animated: true)
+            self.performSegue(withIdentifier: Constant.SegueIDs.selectPhotosSegue.rawValue, sender: self)
         }
     }
 }

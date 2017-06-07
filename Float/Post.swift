@@ -18,6 +18,7 @@ class Post {
     private var _downVotes: Int!
     private var _postKey: String!
     private var _userName: String!
+    private var _timeStamp: String!
     private var _postRef: FIRDatabaseReference!
     private var _profileImageURL: String!
 
@@ -38,6 +39,9 @@ class Post {
     }
     var userName: String {
         return _userName
+    }
+    var timeStamp: String {
+        return _timeStamp
     }
     var profileImageURL: String {
         return _profileImageURL
@@ -62,6 +66,9 @@ class Post {
             self._userName = userName
         } else {
             self._userName = ""
+        }
+        if let timeStamp = postData["timeStamp"] as? String {
+            self._timeStamp = timeStamp
         }
         if let profileImageURL = postData["profileImageURL"] as? String {
             self._profileImageURL = profileImageURL
@@ -88,10 +95,6 @@ class Post {
         _postRef.child("downVotes").setValue(_downVotes)
     }
 }
-
-
-
-
 
 
 
