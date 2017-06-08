@@ -117,7 +117,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                         let userData = [Constant.KeyType.provider.rawValue: emailUser.providerID,
                                         Constant.KeyType.email.rawValue: email,
                                         Constant.KeyType.userName.rawValue: email,
-                                        Constant.KeyType.profileImage.rawValue: ""]
+                                        Constant.KeyType.profileImage.rawValue: Constant.URL.defaultProfileImage.rawValue]
                         self.userSignIn(id: emailUser.uid, userData: userData)
                     }
                 } else {
@@ -130,7 +130,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                             } else {
                                 print("New user created")
                                 let userData = [Constant.KeyType.provider.rawValue: emailUser.providerID, Constant.KeyType.email.rawValue: email, Constant.KeyType.userName.rawValue: email,
-                                                Constant.KeyType.profileImage.rawValue: ""]
+                                                Constant.KeyType.profileImage.rawValue: Constant.URL.defaultProfileImage.rawValue]
                                 self.userSignIn(id: emailUser.uid, userData: userData)
                             }
                         } else {

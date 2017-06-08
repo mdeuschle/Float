@@ -530,12 +530,6 @@
                                     <constraint firstAttribute="width" secondItem="lqZ-Rm-3XB" secondAttribute="height" multiplier="1:1" id="9vq-yN-Zig"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jack London" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mPp-aY-HOf">
-                                <rect key="frame" x="16" y="254" width="343" height="25.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aTR-3B-XzD">
                                 <rect key="frame" x="0.0" y="299.5" width="375" height="318.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -554,27 +548,36 @@
                                     <outlet property="delegate" destination="lKt-pZ-b02" id="Hxt-Xb-N6e"/>
                                 </connections>
                             </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Jack London" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6SW-VY-9Ce">
+                                <rect key="frame" x="26" y="244" width="323" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="qpg-5L-jUk"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mPp-aY-HOf" firstAttribute="leading" secondItem="eB2-fu-zE5" secondAttribute="leadingMargin" id="3oh-WG-Ogk"/>
-                            <constraint firstItem="aTR-3B-XzD" firstAttribute="top" secondItem="mPp-aY-HOf" secondAttribute="bottom" constant="20" id="CvH-ml-Lxy"/>
                             <constraint firstItem="aTR-3B-XzD" firstAttribute="leading" secondItem="eB2-fu-zE5" secondAttribute="leading" id="EGN-zT-yI6"/>
                             <constraint firstItem="lqZ-Rm-3XB" firstAttribute="leading" secondItem="eB2-fu-zE5" secondAttribute="leadingMargin" constant="96" id="H2X-qe-FWw"/>
+                            <constraint firstItem="6SW-VY-9Ce" firstAttribute="leading" secondItem="eB2-fu-zE5" secondAttribute="leadingMargin" constant="10" id="OuH-4B-hqn"/>
+                            <constraint firstItem="aTR-3B-XzD" firstAttribute="top" secondItem="6SW-VY-9Ce" secondAttribute="bottom" constant="15" id="ULu-GW-c0e"/>
                             <constraint firstItem="lqZ-Rm-3XB" firstAttribute="top" secondItem="7aR-qP-JG4" secondAttribute="bottom" constant="20" id="UTC-1M-GKH"/>
-                            <constraint firstItem="mPp-aY-HOf" firstAttribute="trailing" secondItem="eB2-fu-zE5" secondAttribute="trailingMargin" id="V1E-HB-Gb9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lqZ-Rm-3XB" secondAttribute="trailing" constant="97" id="VqE-m3-Ffq"/>
-                            <constraint firstItem="mPp-aY-HOf" firstAttribute="top" secondItem="lqZ-Rm-3XB" secondAttribute="bottom" constant="20" id="hdi-Yw-X1h"/>
+                            <constraint firstItem="6SW-VY-9Ce" firstAttribute="top" secondItem="lqZ-Rm-3XB" secondAttribute="bottom" constant="10" id="a1f-0A-WqE"/>
                             <constraint firstItem="xHw-3c-LVh" firstAttribute="top" secondItem="aTR-3B-XzD" secondAttribute="bottom" id="rll-eI-2EI"/>
                             <constraint firstAttribute="trailing" secondItem="aTR-3B-XzD" secondAttribute="trailing" id="tLf-1O-uAr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6SW-VY-9Ce" secondAttribute="trailing" constant="10" id="tif-AL-C4W"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="MfZ-oE-sIU">
                         <barButtonItem key="backBarButtonItem" title=" " id="lm1-kM-OkT"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="nameTextField" destination="6SW-VY-9Ce" id="YXp-Z8-g1P"/>
                         <outlet property="profileImageView" destination="lqZ-Rm-3XB" id="0qk-CV-9YZ"/>
-                        <outlet property="profileNameLabel" destination="mPp-aY-HOf" id="ujQ-DG-AKy"/>
                         <outlet property="profileTableView" destination="aTR-3B-XzD" id="lqm-ff-0k5"/>
                         <segue destination="8Lf-Mo-TZO" kind="show" identifier="EditProfilePicSegue" id="wck-IO-l0J"/>
                     </connections>

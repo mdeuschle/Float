@@ -13,14 +13,27 @@ import SwiftKeychainWrapper
 class ProfileVC: UIViewController, EditProfileDelegate {
 
     @IBOutlet var profileImageView: UIImageView!
-    @IBOutlet var profileNameLabel: UILabel!
     @IBOutlet var profileTableView: UITableView!
+    @IBOutlet var nameTextField: UITextField!
+
     var profileImage: UIImage?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         displayProfile()
         touchRecognizers()
+        navigationItem.rightBarButtonItem = editButtonItem
+    }
+
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        if editing {
+            print("EDITING")
+            // user just tapped the Edit button (it now says Done)
+        } else {
+            print("DONE")
+            // user just tapped the Done button (it now says Edit)
+        }
     }
 
     func updateProfilePic(selectedImage: UIImage) {
@@ -30,16 +43,10 @@ class ProfileVC: UIViewController, EditProfileDelegate {
     func touchRecognizers() {
         let imageRecognizer = UITapGestureRecognizer(target: self, action: #selector(ProfileVC.editProfilePicture))
         profileImageView.addGestureRecognizer(imageRecognizer)
-        let nameRecognizer = UITapGestureRecognizer(target: self, action: #selector(ProfileVC.editName))
-        profileNameLabel.addGestureRecognizer(nameRecognizer)
     }
 
     func editProfilePicture() {
         performSegue(withIdentifier: Constant.SegueIDs.editProfilePicSegue.rawValue, sender: self)
-    }
-
-    func editName() {
-        print("Name touched")
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -67,7 +74,7 @@ class ProfileVC: UIViewController, EditProfileDelegate {
             } else {
                 self.profileImageView.image = #imageLiteral(resourceName: "defaultProfile")
             }
-            self.profileNameLabel.text = currentUser
+            self.nameTextField.text = currentUser
         })
     }
 }

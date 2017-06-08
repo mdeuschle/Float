@@ -36,6 +36,9 @@ struct Constant {
     enum Notification: String {
         case tabSelected = "TabSelected"
     }
+    enum URL: String {
+        case defaultProfileImage = "https://firebasestorage.googleapis.com/v0/b/float-3aae5.appspot.com/o/profile-pics%2FplaceHolder.jpg?alt=media&token=7f5a2247-8d48-4fd4-986b-0b56d296133c"
+    }
 
     struct FontHelper {
         static func americanTypewriter(size: CGFloat) -> UIFont {
