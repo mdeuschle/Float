@@ -266,7 +266,7 @@
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 min ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyD-Eo-NEu">
                                                                             <rect key="frame" x="26" y="0.0" width="55.5" height="18.5"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                            <color key="textColor" red="0.81137818100000003" green="0.84608370070000005" blue="0.86077272890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <color key="textColor" red="0.66557365655899048" green="0.69725227355957031" blue="0.71190434694290161" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
@@ -725,7 +725,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HTI-or-ujf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Picture" id="ZeM-Nr-xxz"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="uBz-r5-ISk">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uBz-r5-ISk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

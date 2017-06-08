@@ -83,7 +83,7 @@ class SelectPicVC: UIViewController {
                 "upVotes": 0 as AnyObject,
                 "downVotes": 0 as AnyObject,
                 "currentUser": currentUserName as AnyObject,
-                "timeStamp": [".sv": "timestamp"] as AnyObject
+                "timeStamp": DateHelper.convertDateToString() as AnyObject
             ]
             DataService.shared.refPosts.childByAutoId().setValue(postDic)
             selectPicTextView.text = ""

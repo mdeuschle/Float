@@ -42,6 +42,7 @@ class MainFeedCell: UITableViewCell {
         postTitleLabel.text = post.caption
         let totalVotes = post.upVotes - post.downVotes
         voteCountLabel.text = "\(totalVotes)"
+        timeStampLabel.text = DateHelper.calcuateTimeStamp(dateString: post.timeStamp)
         if img != nil {
             self.mainImage.image = img
         } else {
