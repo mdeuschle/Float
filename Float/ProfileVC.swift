@@ -23,17 +23,25 @@ class ProfileVC: UIViewController, EditProfileDelegate {
         displayProfile()
         touchRecognizers()
         navigationItem.rightBarButtonItem = editButtonItem
+        enableUserInteration(isEditing: false)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        enableUserInteration(isEditing: false)
     }
 
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         if editing {
-            print("EDITING")
-            // user just tapped the Edit button (it now says Done)
+            enableUserInteration(isEditing: true)
         } else {
-            print("DONE")
-            // user just tapped the Done button (it now says Edit)
+            enableUserInteration(isEditing: false)
         }
+    }
+
+    func enableUserInteration(isEditing: Bool) {
+        profileImageView.isUserInteractionEnabled = isEditing
+        nameTextField.isUserInteractionEnabled = isEditing
     }
 
     func updateProfilePic(selectedImage: UIImage) {
