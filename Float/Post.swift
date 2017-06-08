@@ -16,6 +16,7 @@ class Post {
     private var _imageURL: String!
     private var _upVotes: Int!
     private var _downVotes: Int!
+    private var _isFavorite = false
     private var _postKey: String!
     private var _userName: String!
     private var _timeStamp: String!
@@ -33,6 +34,9 @@ class Post {
     }
     var downVotes: Int {
         return _downVotes
+    }
+    var isFavorite: Bool {
+        return _isFavorite
     }
     var postKey: String {
         return _postKey
@@ -61,6 +65,9 @@ class Post {
         }
         if let downVotes = postData["downVotes"] as? Int {
             self._downVotes = downVotes
+        }
+        if let isFavorite = postData["favorite"] as? Bool {
+            self._isFavorite = isFavorite
         }
         if let userName = postData["userName"] as? String {
             self._userName = userName
@@ -93,6 +100,14 @@ class Post {
             _downVotes = downVotes - 1
         }
         _postRef.child("downVotes").setValue(_downVotes)
+    }
+    
+    func adjustFavorites(isFavorite: Bool) {
+        if isFavorite {
+            _isFavorite = true
+        } else {
+            _isFavorite = false
+        }
     }
 }
 
