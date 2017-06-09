@@ -17,6 +17,7 @@ class ProfileVC: UIViewController, EditProfileDelegate, UITextFieldDelegate {
     @IBOutlet var nameTextField: UITextField!
 
     var profileImage: UIImage?
+    var isImageSelected = false
 
     override func viewDidLoad() {
         super.viewDidLoad()

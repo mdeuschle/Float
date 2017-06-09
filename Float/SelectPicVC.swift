@@ -26,6 +26,7 @@ class SelectPicVC: UIViewController {
         if let img = postImage {
             selectPicImageView.image = img
         }
+        print("DATE: \(DateHelper.convertDateToString())")
     }
 
     func notifications() {
