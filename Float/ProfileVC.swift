@@ -36,6 +36,7 @@ class ProfileVC: UIViewController, EditProfileDelegate {
             enableUserInteration(isEditing: true)
         } else {
             enableUserInteration(isEditing: false)
+            updateName()
         }
     }
 
@@ -55,6 +56,22 @@ class ProfileVC: UIViewController, EditProfileDelegate {
 
     func editProfilePicture() {
         performSegue(withIdentifier: Constant.SegueIDs.editProfilePicSegue.rawValue, sender: self)
+    }
+
+    func updateName() {
+        if let name = nameTextField.text {
+            DataService.shared.refUserCurrent.updateChildValues([Constant.KeyType.userName.rawValue: name], withCompletionBlock: { (error, ref) in
+                if error != nil {
+                    print("ERROR: \(error.debugDescription)")
+                } else {
+                    print("REF: \(ref)")
+                }
+            })
+
+
+
+//            DataService.shared.refUserCurrent.updateChildValues([Constant.KeyType.userName.rawValue: name])
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
