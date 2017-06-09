@@ -109,6 +109,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
 
     func userLogin() {
+
         if let email = emailTextField.text, let password = passwordTextField.text {
             FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
                 if error == nil {

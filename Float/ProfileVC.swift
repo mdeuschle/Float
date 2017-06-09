@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import SwiftKeychainWrapper
 
-class ProfileVC: UIViewController, EditProfileDelegate {
+class ProfileVC: UIViewController, EditProfileDelegate, UITextFieldDelegate {
 
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var profileTableView: UITableView!
@@ -24,10 +24,7 @@ class ProfileVC: UIViewController, EditProfileDelegate {
         touchRecognizers()
         navigationItem.rightBarButtonItem = editButtonItem
         enableUserInteration(isEditing: false)
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        enableUserInteration(isEditing: false)
+        nameTextField.delegate = self
     }
 
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -38,6 +35,13 @@ class ProfileVC: UIViewController, EditProfileDelegate {
             enableUserInteration(isEditing: false)
             updateName()
         }
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        enableUserInteration(isEditing: false)
+        updateName()
+        setEditing(false, animated: true)
+        return true
     }
 
     func enableUserInteration(isEditing: Bool) {
