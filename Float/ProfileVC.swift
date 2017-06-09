@@ -72,10 +72,6 @@ class ProfileVC: UIViewController, EditProfileDelegate, UITextFieldDelegate {
                     print("REF: \(ref)")
                 }
             })
-
-
-
-//            DataService.shared.refUserCurrent.updateChildValues([Constant.KeyType.userName.rawValue: name])
         }
     }
 
@@ -91,20 +87,16 @@ class ProfileVC: UIViewController, EditProfileDelegate, UITextFieldDelegate {
     func displayProfile() {
         DataService.shared.refUserCurrent.observe(.value, with: { snapShot in
             let value = snapShot.value as? NSDictionary
-            let currentUser = value?[Constant.KeyType.userName.rawValue] as? String ?? ""
-            let profileUrlString = value?[Constant.KeyType.profileImage.rawValue] as? String ?? ""
-            if let url = URL(string: profileUrlString) {
+            let profileImageURL = value?[Constant.KeyType.profileImage.rawValue] as? String ?? ""
+            if let url = URL(string: profileImageURL) {
                 do {
                     let data = try Data(contentsOf: url)
                     self.profileImageView.image = UIImage(data: data)
                 } catch {
-                    self.profileImageView.image = #imageLiteral(resourceName: "defaultProfile")
-                    print("Profile Image Error: \(error)")
+                    print("PROFILE IMAGE ERROR: \(error)")
                 }
-            } else {
-                self.profileImageView.image = #imageLiteral(resourceName: "defaultProfile")
             }
-            self.nameTextField.text = currentUser
+            self.nameTextField.text = value?[Constant.KeyType.userName.rawValue] as? String ?? ""
         })
     }
 }
