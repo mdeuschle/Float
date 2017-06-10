@@ -21,7 +21,7 @@ class ProfileVC: UIViewController, EditProfileDelegate, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayProfile()
+        DataService.shared.displayProfile(profileImageView: profileImageView, nameTextField: nameTextField)
         touchRecognizers()
         navigationItem.rightBarButtonItem = editButtonItem
         enableUserInteration(isEditing: false)
@@ -82,22 +82,6 @@ class ProfileVC: UIViewController, EditProfileDelegate, UITextFieldDelegate {
                 dvc.editProfileDelegate = self
             }
         }
-    }
-
-    func displayProfile() {
-        DataService.shared.refUserCurrent.observe(.value, with: { snapShot in
-            let value = snapShot.value as? NSDictionary
-            let profileImageURL = value?[Constant.KeyType.profileImage.rawValue] as? String ?? ""
-            if let url = URL(string: profileImageURL) {
-                do {
-                    let data = try Data(contentsOf: url)
-                    self.profileImageView.image = UIImage(data: data)
-                } catch {
-                    print("PROFILE IMAGE ERROR: \(error)")
-                }
-            }
-            self.nameTextField.text = value?[Constant.KeyType.userName.rawValue] as? String ?? ""
-        })
     }
 }
 

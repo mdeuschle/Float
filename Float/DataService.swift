@@ -15,7 +15,7 @@ let storageBase = FIRStorage.storage().reference()
 
 class DataService {
 
-// MARK: - Properties
+    // MARK: - Properties
     static let shared = DataService()
     private var _refBase = dbBase
     private var _refPosts = dbBase.child("posts")
@@ -52,8 +52,41 @@ class DataService {
         return _refProfileImages
     }
 
-// MARK: - Functions
+    // MARK: - Functions
     func createFirebaseDBUser(uid: String, userData: [String: String]) {
         refUsers.child(uid).updateChildValues(userData)
     }
+
+    func displayProfile(profileImageView: UIImageView, nameTextField: UITextField) {
+        DataService.shared.refUserCurrent.observe(.value, with: { snapShot in
+            let value = snapShot.value as? NSDictionary
+            let profileImageURL = value?[Constant.KeyType.profileImage.rawValue] as? String ?? ""
+            if let url = URL(string: profileImageURL) {
+                do {
+                    let data = try Data(contentsOf: url)
+                    profileImageView.image = UIImage(data: data)
+                } catch {
+                    print("PROFILE IMAGE ERROR: \(error)")
+                }
+            }
+            nameTextField.text = value?[Constant.KeyType.userName.rawValue] as? String ?? ""
+        })
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
