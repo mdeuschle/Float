@@ -8,16 +8,10 @@
 
 import UIKit
 
-protocol EditProfileDelegate {
-    func updateProfilePic(selectedImage: UIImage)
-}
-
 class ChoosePicVC: UIViewController, UINavigationControllerDelegate {
 
     @IBOutlet var cameraButton: UIButton!
     @IBOutlet var choosePhotoButton: UIButton!
-
-    var editProfileDelegate: EditProfileDelegate?
 
     var imagePicker: UIImagePickerController!
     var selectedImage: UIImage?
@@ -63,14 +57,10 @@ extension ChoosePicVC: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             selectedImage = image
-            if let delegate = editProfileDelegate {
-                delegate.updateProfilePic(selectedImage: image)
-            }
         } else {
             print("Image not found")
         }
         imagePicker.dismiss(animated: false) {
-//            self.navigationController?.popViewController(animated: true)
             self.performSegue(withIdentifier: Constant.SegueIDs.selectPhotosSegue.rawValue, sender: self)
         }
     }

@@ -16,6 +16,7 @@ class MainFeedVC: UIViewController {
     
     var posts: [Post] = []
     static var imageCache = NSCache<NSString, UIImage>()
+    static var profileImageCache = NSCache<NSString, UIImage>()
     var post: Post!
 
     override func viewDidLoad() {
@@ -60,7 +61,7 @@ class MainFeedVC: UIViewController {
     }
 
     @IBAction func logOutTapped(_ sender: Any) {
-        let keychainResult = KeychainWrapper.standard.removeObject(forKey: Constant.KeyType.keyUID.rawValue)
+        let keychainResult = KeychainWrapper.standard.removeObject(forKey: Constant.UserKeyType.keyUID.rawValue)
         print("*Removed keychain: \(keychainResult)")
         do {
             try FIRAuth.auth()?.signOut()
@@ -83,8 +84,9 @@ extension MainFeedVC: UITableViewDataSource {
             return MainFeedCell()
         }
         let post = posts[indexPath.row]
-        if let img = MainFeedVC.imageCache.object(forKey: post.imageURL as NSString) {
-            cell.configCell(post: post, img: img)
+        if let img = MainFeedVC.imageCache.object(forKey: post.imageURL as NSString), let profileImg = MainFeedVC.profileImageCache.object(forKey: post.profileImageURL as NSString) {
+            print("PROFILE IMAGE: \(profileImg)")
+            cell.configCell(post: post, img: img, profileImg: profileImg)
         } else {
             cell.configCell(post: post)
         }

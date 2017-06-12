@@ -36,7 +36,7 @@ class DataService {
     }
 
     var refUserCurrent: FIRDatabaseReference {
-        guard let uid = KeychainWrapper.standard.string(forKey: Constant.KeyType.keyUID.rawValue) else {
+        guard let uid = KeychainWrapper.standard.string(forKey: Constant.UserKeyType.keyUID.rawValue) else {
             let noUser = refUsers.child("")
             return noUser
         }
@@ -60,7 +60,7 @@ class DataService {
     func displayProfile(profileImageView: UIImageView, nameTextField: UITextField) {
         DataService.shared.refUserCurrent.observe(.value, with: { snapShot in
             let value = snapShot.value as? NSDictionary
-            let profileImageURL = value?[Constant.KeyType.profileImage.rawValue] as? String ?? ""
+            let profileImageURL = value?[Constant.UserKeyType.profileImage.rawValue] as? String ?? ""
             if let url = URL(string: profileImageURL) {
                 do {
                     let data = try Data(contentsOf: url)
@@ -69,7 +69,22 @@ class DataService {
                     print("PROFILE IMAGE ERROR: \(error)")
                 }
             }
-            nameTextField.text = value?[Constant.KeyType.userName.rawValue] as? String ?? ""
+            nameTextField.text = value?[Constant.UserKeyType.userName.rawValue] as? String ?? ""
+        })
+    }
+
+    func getProfileImage(handler: @escaping (_ data: Data) -> ()) {
+        DataService.shared.refUserCurrent.observe(.value, with: { snapShot in
+            let value = snapShot.value as? NSDictionary
+            let profileImageURL = value?[Constant.UserKeyType.profileImage.rawValue] as? String ?? ""
+            if let url = URL(string: profileImageURL) {
+                do {
+                    let data = try Data(contentsOf: url)
+                    handler(data)
+                } catch {
+                    print("PROFILE IMAGE ERROR: \(error)")
+                }
+            }
         })
     }
 }

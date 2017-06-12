@@ -31,7 +31,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        if let _ = KeychainWrapper.standard.string(forKey: Constant.KeyType.keyUID.rawValue) {
+        if let _ = KeychainWrapper.standard.string(forKey: Constant.UserKeyType.keyUID.rawValue) {
             performSegue(withIdentifier: Constant.SegueIDs.feedSegue.rawValue, sender: nil)
         }
     }
@@ -100,7 +100,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 
     func userSignIn(id: String, userData: [String: String]) {
         DataService.shared.createFirebaseDBUser(uid: id, userData: userData)
-        KeychainWrapper.standard.set(id, forKey: Constant.KeyType.keyUID.rawValue)
+        KeychainWrapper.standard.set(id, forKey: Constant.UserKeyType.keyUID.rawValue)
         clearTextFields()
         appLogoImage.isHidden = false
         appTaglineLabel.isHidden = false
@@ -109,16 +109,15 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
 
     func userLogin() {
-
         if let email = emailTextField.text, let password = passwordTextField.text {
             FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
                 if error == nil {
                     print("User email authenciated with Firebase")
                     if let emailUser = user {
-                        let userData = [Constant.KeyType.provider.rawValue: emailUser.providerID,
-                                        Constant.KeyType.email.rawValue: email,
-                                        Constant.KeyType.userName.rawValue: email,
-                                        Constant.KeyType.profileImage.rawValue: Constant.URL.defaultProfileImage.rawValue]
+                        let userData = [Constant.UserKeyType.provider.rawValue: emailUser.providerID,
+                                        Constant.UserKeyType.email.rawValue: email,
+                                        Constant.UserKeyType.userName.rawValue: email,
+                                        Constant.UserKeyType.profileImage.rawValue: Constant.URL.defaultProfileImage.rawValue]
                         self.userSignIn(id: emailUser.uid, userData: userData)
                     }
                 } else {
@@ -130,8 +129,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                                 }
                             } else {
                                 print("New user created")
-                                let userData = [Constant.KeyType.provider.rawValue: emailUser.providerID, Constant.KeyType.email.rawValue: email, Constant.KeyType.userName.rawValue: email,
-                                                Constant.KeyType.profileImage.rawValue: Constant.URL.defaultProfileImage.rawValue]
+                                let userData = [Constant.UserKeyType.provider.rawValue: emailUser.providerID, Constant.UserKeyType.email.rawValue: email, Constant.UserKeyType.userName.rawValue: email,
+                                                Constant.UserKeyType.profileImage.rawValue: Constant.URL.defaultProfileImage.rawValue]
                                 self.userSignIn(id: emailUser.uid, userData: userData)
                             }
                         } else {
@@ -154,12 +153,11 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 } else {
                     print("Successfully authenticated with Firebase \(fbUser.debugDescription)")
                     if let profileURL = fbUser.photoURL {
-                        let userData = [Constant.KeyType.provider.rawValue: credential.provider,
-                                        Constant.KeyType.email.rawValue: fbUser.email,
-                                        Constant.KeyType.userName.rawValue: fbUser.displayName,
-                                        Constant.KeyType.profileImage.rawValue: String(describing: profileURL)]
+                        let userData = [Constant.UserKeyType.provider.rawValue: credential.provider,
+                                        Constant.UserKeyType.email.rawValue: fbUser.email,
+                                        Constant.UserKeyType.userName.rawValue: fbUser.displayName,
+                                        Constant.UserKeyType.profileImage.rawValue: String(describing: profileURL)]
                         self.userSignIn(id: fbUser.uid, userData: userData as! [String : String])
-
                     }
                 }
             }

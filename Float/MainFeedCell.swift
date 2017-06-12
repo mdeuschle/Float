@@ -37,17 +37,17 @@ class MainFeedCell: UITableViewCell {
         favoritesButton.addTarget(self, action: #selector(MainFeedCell.favoriteTapped), for: .touchUpInside)
     }
     
-    func configCell(post: Post, img: UIImage? = nil) {
+    func configCell(post: Post, img: UIImage? = nil, profileImg: UIImage? = nil) {
         self.post = post
-        upVoteRef = DataService.shared.refUserCurrent.child("upVotes").child(post.postKey)
-        downVoteRef = DataService.shared.refUserCurrent.child("downVotes").child(post.postKey)
-        favoriteRef = DataService.shared.refUserCurrent.child("favorite").child(post.postKey)
+        upVoteRef = DataService.shared.refUserCurrent.child(Constant.PostKeyType.upVotes.rawValue).child(post.postKey)
+        downVoteRef = DataService.shared.refUserCurrent.child(Constant.PostKeyType.downVotes.rawValue).child(post.postKey)
+        favoriteRef = DataService.shared.refUserCurrent.child(Constant.PostKeyType.favorite.rawValue).child(post.postKey)
         postTitleLabel.text = post.caption
         let totalVotes = post.upVotes - post.downVotes
         voteCountLabel.text = "\(totalVotes)"
         timeStampLabel.text = DateHelper.calcuateTimeStamp(dateString: post.timeStamp)
         if img != nil {
-            self.mainImage.image = img
+            mainImage.image = img
         } else {
             let ref = FIRStorage.storage().reference(forURL: post.imageURL)
             ref.data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) in
@@ -61,6 +61,24 @@ class MainFeedCell: UITableViewCell {
                         }
                     }
                     print("Image doanloaded from FB Storage")
+                }
+            })
+        }
+        if profileImg != nil {
+            profileImage.image = profileImg
+        } else {
+            let ref = FIRStorage.storage().reference(forURL: post.profileImageURL)
+            ref.data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) in
+                if error != nil {
+                    print("Error downloading profile image to FB Storage \(String(describing: error))")
+                } else {
+                    if let imageData = data {
+                        if let img = UIImage(data: imageData) {
+                            self.profileImage.image = img
+                            MainFeedVC.profileImageCache.setObject(img, forKey: post.profileImageURL as NSString)
+                        }
+                    }
+                    print("Profile Image doanloaded from FB Storage")
                 }
             })
         }

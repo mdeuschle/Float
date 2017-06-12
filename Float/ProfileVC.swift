@@ -10,14 +10,13 @@ import UIKit
 import Firebase
 import SwiftKeychainWrapper
 
-class ProfileVC: UIViewController, EditProfileDelegate, UITextFieldDelegate {
+class ProfileVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var profileTableView: UITableView!
     @IBOutlet var nameTextField: UITextField!
 
     var profileImage: UIImage?
-    var isImageSelected = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +64,7 @@ class ProfileVC: UIViewController, EditProfileDelegate, UITextFieldDelegate {
 
     func updateName() {
         if let name = nameTextField.text {
-            DataService.shared.refUserCurrent.updateChildValues([Constant.KeyType.userName.rawValue: name], withCompletionBlock: { (error, ref) in
+            DataService.shared.refUserCurrent.updateChildValues([Constant.UserKeyType.userName.rawValue: name], withCompletionBlock: { (error, ref) in
                 if error != nil {
                     print("ERROR: \(error.debugDescription)")
                 } else {
@@ -78,8 +77,7 @@ class ProfileVC: UIViewController, EditProfileDelegate, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constant.SegueIDs.editProfilePicSegue.rawValue {
             if let dvc = segue.destination as? ChoosePicVC {
-                dvc.choosePicLabelString = "Edit my profile pic"
-                dvc.editProfileDelegate = self
+                dvc.choosePicLabelString = "Upload New Profile"
             }
         }
     }
@@ -111,7 +109,7 @@ extension ProfileVC: UITableViewDelegate {
             Alert.init(viewController: self).addAlertWithAction(alertMessage: "Logout", message: "Are you sure you would like to logout?", actionButton: "Logout", cancelHandler: { reload in
                 tableView.reloadData()
             }, handler: { logout in
-                let keychainResult = KeychainWrapper.standard.removeObject(forKey: Constant.KeyType.keyUID.rawValue)
+                let keychainResult = KeychainWrapper.standard.removeObject(forKey: Constant.UserKeyType.keyUID.rawValue)
                 tableView.reloadData()
                 print("*Removed keychain: \(keychainResult)")
                 do {

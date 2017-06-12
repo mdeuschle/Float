@@ -688,7 +688,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MEK-mh-hAA">
                                 <rect key="frame" x="0.0" y="64" width="375" height="300"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="vzw-NJ-wss"/>
+                                    <constraint firstAttribute="height" constant="300" id="QQg-Dw-2ZA"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="An interesting title for your photo..." translatesAutoresizingMaskIntoConstraints="NO" id="hNU-4K-t8p">
@@ -704,13 +704,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="hNU-4K-t8p" firstAttribute="leading" secondItem="GnX-6A-OiJ" secondAttribute="leadingMargin" id="BAT-us-0C3"/>
-                            <constraint firstItem="hNU-4K-t8p" firstAttribute="trailing" secondItem="GnX-6A-OiJ" secondAttribute="trailingMargin" id="GIZ-Is-rrt"/>
-                            <constraint firstItem="MEK-mh-hAA" firstAttribute="leading" secondItem="GnX-6A-OiJ" secondAttribute="leading" id="Lrr-hf-Wdt"/>
-                            <constraint firstItem="MEK-mh-hAA" firstAttribute="top" secondItem="fWb-i6-xo9" secondAttribute="bottom" id="Nl4-Oc-jLT"/>
-                            <constraint firstAttribute="trailing" secondItem="MEK-mh-hAA" secondAttribute="trailing" id="Zur-bA-1zB"/>
-                            <constraint firstItem="Sok-3w-b22" firstAttribute="top" secondItem="hNU-4K-t8p" secondAttribute="bottom" constant="20" id="tYp-Yw-RBc"/>
-                            <constraint firstItem="hNU-4K-t8p" firstAttribute="top" secondItem="MEK-mh-hAA" secondAttribute="bottom" constant="10" id="xGv-1k-sQn"/>
+                            <constraint firstItem="hNU-4K-t8p" firstAttribute="trailing" secondItem="GnX-6A-OiJ" secondAttribute="trailingMargin" id="Eab-Qw-UET"/>
+                            <constraint firstItem="hNU-4K-t8p" firstAttribute="leading" secondItem="GnX-6A-OiJ" secondAttribute="leadingMargin" id="Jb1-C0-fNP"/>
+                            <constraint firstItem="hNU-4K-t8p" firstAttribute="top" secondItem="MEK-mh-hAA" secondAttribute="bottom" constant="10" id="Ng1-bZ-oKu"/>
+                            <constraint firstAttribute="trailing" secondItem="MEK-mh-hAA" secondAttribute="trailing" id="cLi-wa-9L7"/>
+                            <constraint firstItem="Sok-3w-b22" firstAttribute="top" secondItem="hNU-4K-t8p" secondAttribute="bottom" constant="20" id="h5U-PX-bkB"/>
+                            <constraint firstItem="MEK-mh-hAA" firstAttribute="leading" secondItem="GnX-6A-OiJ" secondAttribute="leading" id="jgi-EE-05r"/>
+                            <constraint firstItem="MEK-mh-hAA" firstAttribute="top" secondItem="fWb-i6-xo9" secondAttribute="bottom" id="zTr-y7-nDD"/>
                         </constraints>
                     </view>
                     <connections>

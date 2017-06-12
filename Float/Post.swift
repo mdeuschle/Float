@@ -54,30 +54,30 @@ class Post {
 // MARK: - Inits
     init(postKey: String, postData: [String: AnyObject]) {
         self._postKey = postKey
-        if let caption = postData["caption"] as? String {
+        if let caption = postData[Constant.PostKeyType.caption.rawValue] as? String {
             self._caption = caption
         }
-        if let imageURL = postData["imageURL"] as? String {
+        if let imageURL = postData[Constant.PostKeyType.imageURL.rawValue] as? String {
             self._imageURL = imageURL
         }
-        if let upVotes = postData["upVotes"] as? Int {
+        if let upVotes = postData[Constant.PostKeyType.upVotes.rawValue] as? Int {
             self._upVotes = upVotes
         }
-        if let downVotes = postData["downVotes"] as? Int {
+        if let downVotes = postData[Constant.PostKeyType.downVotes.rawValue] as? Int {
             self._downVotes = downVotes
         }
-        if let isFavorite = postData["favorite"] as? Bool {
+        if let isFavorite = postData[Constant.PostKeyType.favorite.rawValue] as? Bool {
             self._isFavorite = isFavorite
         }
-        if let userName = postData["userName"] as? String {
+        if let userName = postData[Constant.PostKeyType.userName.rawValue] as? String {
             self._userName = userName
         } else {
             self._userName = ""
         }
-        if let timeStamp = postData["timeStamp"] as? String {
+        if let timeStamp = postData[Constant.PostKeyType.timeStamp.rawValue] as? String {
             self._timeStamp = timeStamp
         }
-        if let profileImageURL = postData["profileImageURL"] as? String {
+        if let profileImageURL = postData[Constant.PostKeyType.profileImageURL.rawValue] as? String {
             self._profileImageURL = profileImageURL
         }
         _postRef = DataService.shared.refPosts.child(_postKey)
@@ -90,7 +90,7 @@ class Post {
         } else {
             _upVotes = upVotes - 1
         }
-        _postRef.child("upVotes").setValue(_upVotes)
+        _postRef.child(Constant.PostKeyType.upVotes.rawValue).setValue(_upVotes)
     }
 
     func adjustDownVotes(isDownVoted: Bool) {
@@ -99,7 +99,7 @@ class Post {
         } else {
             _downVotes = downVotes - 1
         }
-        _postRef.child("downVotes").setValue(_downVotes)
+        _postRef.child(Constant.PostKeyType.downVotes.rawValue).setValue(_downVotes)
     }
     
     func adjustFavorites(isFavorite: Bool) {

@@ -10,12 +10,22 @@ import Foundation
 import UIKit
 
 struct Constant {
-    enum KeyType: String {
+    enum UserKeyType: String {
         case keyUID = "uid"
         case provider = "provider"
         case email = "email"
         case userName = "userName"
         case profileImage = "profileImage"
+    }
+    enum PostKeyType: String {
+        case imageURL = "imageURL"
+        case caption = "caption"
+        case upVotes = "upVotes"
+        case downVotes = "downVotes"
+        case favorite = "favorite"
+        case userName = "userName"
+        case timeStamp = "timeStamp"
+        case profileImageURL = "profileImageURL"
     }
     enum UserType: String {
         case firebase = "Firebase"
