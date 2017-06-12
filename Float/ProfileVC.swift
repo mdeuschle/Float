@@ -77,7 +77,7 @@ class ProfileVC: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constant.SegueIDs.editProfilePicSegue.rawValue {
             if let dvc = segue.destination as? ChoosePicVC {
-                dvc.choosePicLabelString = "Upload New Profile"
+                dvc.choosePicLabelString = Constant.ViewControllerTitle.uploadNewProfile.rawValue
             }
         }
     }
@@ -90,7 +90,7 @@ extension ProfileVC: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "ProfileCell")
+        let cell = UITableViewCell(style: .default, reuseIdentifier: Constant.ReusableCellIDs.profileCell.rawValue)
         switch indexPath.row {
         case 0:
             cell.textLabel?.text = "Logout"

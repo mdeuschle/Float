@@ -20,7 +20,7 @@ class SelectPicVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Post Image"
+        self.title = Constant.ViewControllerTitle.postImage.rawValue
         notifications()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "POST", style: .plain, target: self, action: #selector(SelectPicVC.postButtonTapped))
         if let img = postImage {
