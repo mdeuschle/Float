@@ -42,6 +42,12 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         facebookButton.setTitle("SIGN UP VIA FACEBOOK", for: .normal)
     }
 
+    func hideImages(isHidden: Bool, appLogo: UIImageView, appLabel: UILabel, skipButton: UIButton) {
+        appLogo.isHidden = isHidden
+        appLabel.isHidden = isHidden
+        skipButton.isHidden = isHidden
+    }
+
     func stylizeErrorLabel(text: String) {
         errorLabel.text = text
         if text == Constant.ErrorMessage.password.rawValue {
@@ -83,18 +89,14 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        appLogoImage.isHidden = false
-        appTaglineLabel.isHidden = false
-        skipButton.isHidden = false
+        hideImages(isHidden: false, appLogo: appLogoImage, appLabel: appTaglineLabel, skipButton: skipButton)
         view.endEditing(true)
         stylizeErrorLabel(text: Constant.ErrorMessage.password.rawValue)
         facebookButton.setTitle("SIGN UP VIA FACEBOOK", for: .normal)
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        appLogoImage.isHidden = true
-        appTaglineLabel.isHidden = true
-        skipButton.isHidden = true
+        hideImages(isHidden: true, appLogo: appLogoImage, appLabel: appTaglineLabel, skipButton: skipButton)
         facebookButton.setTitle("LOGIN", for: .normal)
     }
 
@@ -153,6 +155,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 } else {
                     print("Successfully authenticated with Firebase \(fbUser.debugDescription)")
                     if let profileURL = fbUser.photoURL {
+                        self.addProfilePic(profileURL: profileURL, uid: fbUser.uid)
                         let userData = [Constant.UserKeyType.provider.rawValue: credential.provider,
                                         Constant.UserKeyType.email.rawValue: fbUser.email,
                                         Constant.UserKeyType.userName.rawValue: fbUser.displayName,
@@ -163,6 +166,36 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             }
         })
     }
+
+    //    DataService.shared.refUserCurrent.key
+
+
+    func addProfilePic(profileURL: URL, uid: String) {
+        do {
+            let data = try Data(contentsOf: profileURL)
+            guard let img = UIImage(data: data) else {
+                return
+            }
+            if let imageData = UIImageJPEGRepresentation(img, 0.2) {
+                let metaData = FIRStorageMetadata()
+                metaData.contentType = "image/jpeg"
+                DataService.shared.refProfileImages.child(uid).put(imageData, metadata: metaData) { metaData, error in
+                    if error != nil {
+                        print("UNABLE TO DOWNLOAD FB Profile Pic")
+                    } else {
+                        print("UPLoaded FB Profile Pic to FireBase Storage")
+                        if let downloadURL = metaData?.downloadURL()?.absoluteString {
+                            DataService.shared.refUserCurrent.childByAutoId().setValue(downloadURL)
+                        }
+                    }
+                }
+            }
+        } catch {
+            print("DATA ERROR \(error)")
+        }
+
+    }
+
 
     @IBAction func skipButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: Constant.SegueIDs.feedSegue.rawValue, sender: nil)
