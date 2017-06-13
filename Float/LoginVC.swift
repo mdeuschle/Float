@@ -110,11 +110,10 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         performSegue(withIdentifier: Constant.SegueIDs.feedSegue.rawValue, sender: nil)
     }
 
-    func createUser(id: String, userType: String, userName: String, profileImage: String) -> [String: String] {
+    func buildUserDic(id: String, userType: String, userName: String) -> [String: String] {
         return [Constant.UserKeyType.provider.rawValue: id,
                 Constant.UserKeyType.email.rawValue: userType,
-                Constant.UserKeyType.userName.rawValue: userName,
-                Constant.UserKeyType.profileImage.rawValue: profileImage]
+                Constant.UserKeyType.userName.rawValue: userName]
     }
 
     func userLogin() {
@@ -123,19 +122,20 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 if error == nil {
                     print("User email authenciated with Firebase")
                     if let emailUser = user {
-                        let userData = self.createUser(id: emailUser.providerID, userType: email, userName: email, profileImage: Constant.URL.defaultProfileImage.rawValue)
+                        let userData = self.buildUserDic(id: emailUser.providerID, userType: email, userName: email)
                         self.userSignIn(id: emailUser.uid, userData: userData)
                     }
                 } else {
                     FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
-                        if let emailUser = user {
+                        if let emailUser = user, let profileURL = URL(string: Constant.URL.defaultProfileImage.rawValue) {
                             if error != nil {
                                 if let err = error {
                                     self.stylizeErrorLabel(text: err.localizedDescription)
                                 }
                             } else {
                                 print("New user created")
-                                let userData = self.createUser(id: emailUser.providerID, userType: email, userName: email, profileImage: Constant.URL.defaultProfileImage.rawValue)
+                                self.uploadProfilePic(profileURL: profileURL, uid: emailUser.uid)
+                                let userData = self.buildUserDic(id: emailUser.providerID, userType: email, userName: email)
                                 self.userSignIn(id: emailUser.uid, userData: userData)
                             }
                         } else {
@@ -158,8 +158,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 } else {
                     print("Successfully authenticated with Firebase \(fbUser.debugDescription)")
                     if let profileURL = fbUser.photoURL {
-                        self.addProfilePic(profileURL: profileURL, uid: fbUser.uid)
-                        let userData = self.createUser(id: credential.provider, userType: fbUser.email ?? "", userName: fbUser.displayName ?? "", profileImage: String(describing: profileURL))
+                        self.uploadProfilePic(profileURL: profileURL, uid: fbUser.uid)
+                        let userData = self.buildUserDic(id: credential.provider, userType: fbUser.email ?? "", userName: fbUser.displayName ?? "")
                         self.userSignIn(id: fbUser.uid, userData: userData)
                     }
                 }
@@ -167,7 +167,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         })
     }
 
-    func addProfilePic(profileURL: URL, uid: String) {
+    func uploadProfilePic(profileURL: URL, uid: String) {
         do {
             let data = try Data(contentsOf: profileURL)
             guard let img = UIImage(data: data) else {
@@ -191,7 +191,6 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             print("DATA ERROR \(error)")
         }
     }
-
 
     @IBAction func skipButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: Constant.SegueIDs.feedSegue.rawValue, sender: nil)
