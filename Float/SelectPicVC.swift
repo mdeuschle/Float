@@ -49,51 +49,78 @@ class SelectPicVC: UIViewController {
         }
     }
 
+    //    func postButtonTapped() {
+    //        DataService.shared.getProfileImage { (data) in
+    //            guard let profileImg = UIImage(data: data) else {
+    //                return
+    //            }
+    //            if let profileImageData = UIImageJPEGRepresentation(profileImg, 0.2) {
+    //                let profileImageUID = NSUUID().uuidString
+    //                let profileMetaData = FIRStorageMetadata()
+    //                profileMetaData.contentType = "image/jpeg"
+    //                DataService.shared.refProfileImages.child(profileImageUID).put(profileImageData, metadata: profileMetaData) { meta, err in
+    //                    if err != nil {
+    //                        print("NO PROFILE PIC")
+    //                    } else {
+    //                        print("UPLOAD PROFILE PIC")
+    //                        guard let profileURL = meta?.downloadURL()?.absoluteString else {
+    //                            print("UNABLE TO DOWNLOAD PROFILE URL")
+    //                            return
+    //                        }
+    //                        guard let img = self.postImage else {
+    //                            print("NO IMAGE?")
+    //                            return
+    //                        }
+    //                        if let imageData = UIImageJPEGRepresentation(img, 0.2) {
+    //                            let imageUID = NSUUID().uuidString
+    //                            let metaData = FIRStorageMetadata()
+    //                            metaData.contentType = "image/jpeg"
+    //                            DataService.shared.refPostsImages.child(imageUID).put(imageData, metadata: metaData) { metaData, error in
+    //                                if error != nil {
+    //                                    print("Unable to upload to Firebase")
+    //                                } else {
+    //                                    print("Uploaded to FB Storage")
+    //                                    if let downloadURL = metaData?.downloadURL()?.absoluteString {
+    //                                        self.postToFireBase(imageURL: downloadURL, profileURL: profileURL)
+    //                                    }
+    //                                }
+    //                            }
+    //                        }
+    //                        if let navigation = self.navigationController {
+    //                            navigation.popViewController(animated: true)
+    //                        }
+    //                        self.tabBarController?.selectedIndex = 0
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
+
     func postButtonTapped() {
-        DataService.shared.getProfileImage { (data) in
-            guard let profileImg = UIImage(data: data) else {
-                return
-            }
-            if let profileImageData = UIImageJPEGRepresentation(profileImg, 0.2) {
-                let profileImageUID = NSUUID().uuidString
-                let profileMetaData = FIRStorageMetadata()
-                profileMetaData.contentType = "image/jpeg"
-                DataService.shared.refProfileImages.child(profileImageUID).put(profileImageData, metadata: profileMetaData) { meta, err in
-                    if err != nil {
-                        print("NO PROFILE PIC")
-                    } else {
-                        print("UPLOAD PROFILE PIC")
-                        guard let profileURL = meta?.downloadURL()?.absoluteString else {
-                            print("UNABLE TO DOWNLOAD PROFILE URL")
-                            return
-                        }
-                        guard let img = self.postImage else {
-                            print("NO IMAGE?")
-                            return
-                        }
-                        if let imageData = UIImageJPEGRepresentation(img, 0.2) {
-                            let imageUID = NSUUID().uuidString
-                            let metaData = FIRStorageMetadata()
-                            metaData.contentType = "image/jpeg"
-                            DataService.shared.refPostsImages.child(imageUID).put(imageData, metadata: metaData) { metaData, error in
-                                if error != nil {
-                                    print("Unable to upload to Firebase")
-                                } else {
-                                    print("Uploaded to FB Storage")
-                                    if let downloadURL = metaData?.downloadURL()?.absoluteString {
-                                        self.postToFireBase(imageURL: downloadURL, profileURL: profileURL)
-                                    }
-                                }
-                            }
-                        }
-                        if let navigation = self.navigationController {
-                            navigation.popViewController(animated: true)
-                        }
-                        self.tabBarController?.selectedIndex = 0
+        guard let img = self.postImage else {
+            print("NO IMAGE")
+            return
+        }
+        if let imageData = UIImageJPEGRepresentation(img, 0.2) {
+            let imageUID = NSUUID().uuidString
+            let metaData = FIRStorageMetadata()
+            metaData.contentType = "image/jpeg"
+            DataService.shared.refProfileImages.child(imageUID).put(imageData, metadata: metaData) {
+                metaData, error in
+                if error != nil {
+                    print("Unable to upload to Firebase")
+                } else {
+                    print("Upload to Firebase storage")
+                    if let downloadURL = metaData?.downloadURL()?.absoluteString {
+                        self.postToFireBase(imageURL: downloadURL, profileURL: downloadURL)
                     }
                 }
             }
         }
+        if let navigation = self.navigationController {
+            navigation.popViewController(animated: true)
+        }
+        self.tabBarController?.selectedIndex = 0
     }
 
     func postToFireBase(imageURL: String, profileURL: String) {

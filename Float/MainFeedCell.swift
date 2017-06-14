@@ -36,7 +36,7 @@ class MainFeedCell: UITableViewCell {
         downVoteButton.addTarget(self, action: #selector(MainFeedCell.downVoteTapped), for: .touchUpInside)
         favoritesButton.addTarget(self, action: #selector(MainFeedCell.favoriteTapped), for: .touchUpInside)
     }
-    
+
     func configCell(post: Post, img: UIImage? = nil, profileImg: UIImage? = nil) {
         self.post = post
         upVoteRef = DataService.shared.refUserCurrent.child(Constant.PostKeyType.upVotes.rawValue).child(post.postKey)
@@ -49,19 +49,12 @@ class MainFeedCell: UITableViewCell {
         if img != nil {
             mainImage.image = img
         } else {
-            let ref = FIRStorage.storage().reference(forURL: post.imageURL)
-            ref.data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) in
-                if error != nil {
-                    print("Error downloading image to FB Storage \(String(describing: error))")
-                } else {
-                    if let imageData = data {
-                        if let img = UIImage(data: imageData) {
-                            self.mainImage.image = img
-                            MainFeedVC.imageCache.setObject(img, forKey: post.imageURL as NSString)
-                        }
-                    }
-                    print("Image doanloaded from FB Storage")
+            DataService.shared.getImagesFromFirebase(url: post.imageURL, handler: { (data) in
+                if let img = UIImage(data: data) {
+                    self.mainImage.image = img
+                    MainFeedVC.imageCache.setObject(img, forKey: post.imageURL as NSString)
                 }
+                print("Image doanloaded from FB Storage")
             })
         }
         if profileImg != nil {

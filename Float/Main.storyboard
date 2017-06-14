@@ -241,7 +241,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0Ab-PD-6Zn">
                                                     <rect key="frame" x="20" y="319" width="335" height="40"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileImage6" translatesAutoresizingMaskIntoConstraints="NO" id="wE1-VI-irG">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileImage6" translatesAutoresizingMaskIntoConstraints="NO" id="wE1-VI-irG">
                                                             <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="40" id="ZAi-1t-8UH"/>

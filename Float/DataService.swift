@@ -73,6 +73,36 @@ class DataService {
         })
     }
 
+    func getImagesFromFirebase(url: String, handler: @escaping (_ data: Data) -> ()) {
+        let ref = FIRStorage.storage().reference(forURL: url)
+        ref.data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) in
+            if error != nil {
+                print("Error downloading image to FB Storage \(String(describing: error))")
+            } else {
+                if let imageData = data {
+                    handler(imageData)
+                }
+                print("Image doanloaded from FB Storage")
+            }
+        })
+    }
+
+    //            let ref = FIRStorage.storage().reference(forURL: post.imageURL)
+    //            ref.data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) in
+    //                if error != nil {
+    //                    print("Error downloading image to FB Storage \(String(describing: error))")
+    //                } else {
+    //                    if let imageData = data {
+    //                        if let img = UIImage(data: imageData) {
+    //                            self.mainImage.image = img
+    //                            MainFeedVC.imageCache.setObject(img, forKey: post.imageURL as NSString)
+    //                        }
+    //                    }
+    //                    print("Image doanloaded from FB Storage")
+    //                }
+    //            })
+
+
     func getProfileImage(handler: @escaping (_ data: Data) -> ()) {
         DataService.shared.refUserCurrent.observe(.value, with: { snapShot in
             let value = snapShot.value as? NSDictionary
