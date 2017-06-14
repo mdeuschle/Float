@@ -105,14 +105,25 @@ class SelectPicVC: UIViewController {
             let imageUID = NSUUID().uuidString
             let metaData = FIRStorageMetadata()
             metaData.contentType = "image/jpeg"
-            DataService.shared.refProfileImages.child(imageUID).put(imageData, metadata: metaData) {
+            DataService.shared.refPostsImages.child(imageUID).put(imageData, metadata: metaData) {
                 metaData, error in
                 if error != nil {
                     print("Unable to upload to Firebase")
                 } else {
                     print("Upload to Firebase storage")
                     if let downloadURL = metaData?.downloadURL()?.absoluteString {
-                        self.postToFireBase(imageURL: downloadURL, profileURL: downloadURL)
+                        DataService.shared.refProfileImages.child(DataService.shared.refUserCurrent.key).downloadURL(completion: { profileURL, err in
+                            if err != nil {
+                                print("Unable to download Profile Pick from Firebase")
+                            } else {
+                                print("Posted from Firebase")
+                                if let profileString = profileURL?.absoluteString {
+                                    print("PROFILE URL: \(profileString)")
+                                    self.postToFireBase(imageURL: downloadURL, profileURL: profileString)
+
+                                }
+                            }
+                        })
                     }
                 }
             }
