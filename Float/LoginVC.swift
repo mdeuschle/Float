@@ -37,9 +37,9 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
 
     func isHidden(_ shouldHide: Bool) {
-            appLogoImage.isHidden = shouldHide
-            appTaglineLabel.isHidden = shouldHide
-            skipButton.isHidden = shouldHide
+        appLogoImage.isHidden = shouldHide
+        appTaglineLabel.isHidden = shouldHide
+        skipButton.isHidden = shouldHide
     }
 
     func notifications() {
@@ -77,8 +77,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         isHidden(true)
-        facebookButton.setTitle("LOGIN", for: .normal)
-
+        facebookButton.setTitle(Constant.ButtonTitle.login.rawValue, for: .normal)
     }
 
     func userSignIn(id: String, userData: [String: String]) {
@@ -88,12 +87,12 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         passwordTextField.clearText()
         appLogoImage.isHidden = false
         appTaglineLabel.isHidden = false
-        facebookButton.setTitle("SIGN UP VIA FACEBOOK", for: .normal)
+        facebookButton.setTitle(Constant.ButtonTitle.facebook.rawValue, for: .normal)
         performSegue(withIdentifier: Constant.SegueIDs.feedSegue.rawValue, sender: nil)
     }
 
-    func buildUserDic(id: String, userType: String, userName: String) -> [String: String] {
-        return [Constant.UserKeyType.provider.rawValue: id,
+    func buildUserDic(provider: String, userType: String, userName: String) -> [String: String] {
+        return [Constant.UserKeyType.provider.rawValue: provider,
                 Constant.UserKeyType.email.rawValue: userType,
                 Constant.UserKeyType.userName.rawValue: userName]
     }
@@ -104,20 +103,18 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 if error == nil {
                     print("User email authenciated with Firebase")
                     if let emailUser = user {
-                        let userData = self.buildUserDic(id: emailUser.providerID, userType: email, userName: email)
+                        let userData = self.buildUserDic(provider: emailUser.providerID, userType: email, userName: email)
                         self.userSignIn(id: emailUser.uid, userData: userData)
                     }
                 } else {
                     FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
                         if let emailUser = user, let profileURL = URL(string: Constant.URL.defaultProfileImage.rawValue) {
                             if error != nil {
-                                if let err = error {
-                                    self.errorLabel.stylizeError(text: err.localizedDescription)
-                                }
+                                self.errorLabel.stylizeError(text: error!.localizedDescription)
                             } else {
                                 print("New user created")
                                 self.uploadProfilePic(profileURL: profileURL, uid: emailUser.uid)
-                                let userData = self.buildUserDic(id: emailUser.providerID, userType: email, userName: email)
+                                let userData = self.buildUserDic(provider: emailUser.providerID, userType: email, userName: email)
                                 self.userSignIn(id: emailUser.uid, userData: userData)
                             }
                         } else {
@@ -141,7 +138,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     print("Successfully authenticated with Firebase \(fbUser.debugDescription)")
                     if let profileURL = fbUser.photoURL {
                         self.uploadProfilePic(profileURL: profileURL, uid: fbUser.uid)
-                        let userData = self.buildUserDic(id: credential.provider, userType: fbUser.email ?? "", userName: fbUser.displayName ?? "")
+                        let userData = self.buildUserDic(provider: credential.provider, userType: fbUser.email ?? "", userName: fbUser.displayName ?? "")
                         self.userSignIn(id: fbUser.uid, userData: userData)
                     }
                 }
@@ -157,12 +154,12 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             }
             if let imageData = UIImageJPEGRepresentation(img, 0.2) {
                 let metaData = FIRStorageMetadata()
-                metaData.contentType = "image/jpeg"
+                metaData.contentType = Constant.ContentType.jpeg.rawValue
                 DataService.shared.refProfileImages.child(uid).put(imageData, metadata: metaData) { metaData, error in
                     if error != nil {
-                        print("UNABLE TO DOWNLOAD FB Profile Pic")
+                        print("Unable to upload default profile pic to firebase")
                     } else {
-                        print("UPLoaded FB Profile Pic to FireBase Storage")
+                        print("uploaded fb profile to firebase")
                         if let downloadURL = metaData?.downloadURL()?.absoluteString {
                             DataService.shared.refUserCurrent.childByAutoId().setValue(downloadURL)
                         }
@@ -170,7 +167,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 }
             }
         } catch {
-            print("DATA ERROR \(error)")
+            print("UPLOAD PIC DATA ERROR \(error)")
         }
     }
 
@@ -179,7 +176,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func facebookButtonTapped(_ sender: Any) {
-        if facebookButton.titleLabel?.text == "SIGN UP VIA FACEBOOK" {
+        if facebookButton.titleLabel?.text == Constant.ButtonTitle.facebook.rawValue {
             let fbLogin = FBSDKLoginManager()
             fbLogin.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
                 if let res = result {

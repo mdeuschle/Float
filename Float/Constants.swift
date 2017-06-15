@@ -29,7 +29,10 @@ struct Constant {
     }
     enum ButtonTitle: String {
         case facebook = "SIGN UP VIA FACEBOOK"
-        
+        case login = "LOGIN"
+    }
+    enum ContentType: String {
+        case jpeg = "image/jpeg"
     }
 
     enum UserType: String {
