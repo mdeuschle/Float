@@ -27,6 +27,11 @@ struct Constant {
         case timeStamp = "timeStamp"
         case profileImageURL = "profileImageURL"
     }
+    enum ButtonTitle: String {
+        case facebook = "SIGN UP VIA FACEBOOK"
+        
+    }
+
     enum UserType: String {
         case firebase = "Firebase"
         case facebook = "facebook.com"

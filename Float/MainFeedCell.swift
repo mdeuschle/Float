@@ -55,81 +55,25 @@ class MainFeedCell: UITableViewCell {
                     self.mainImage.image = img
                     MainFeedVC.imageCache.setObject(img, forKey: post.imageURL as NSString)
                 }
-                let profURL = DataService.shared.refProfileImages.child(DataService.shared.refUserCurrent.key)
-
-                DataService.shared.getImagesFromFirebase(url: "\(profURL)", handler: { (profileURL) in
-                    if let profileImg = UIImage(data: profileURL) {
-                        print("WHOO!")
-                        self.profileImage.image = profileImg
-                        MainFeedVC.profileImageCache.setObject(profileImg, forKey: "\(profURL)" as NSString)
-                    }
-                })
-
-
-
-                print("POST URL: \(post.imageURL)")
-                print("PROFILE URL: \(profURL)")
-                print("Post Image downloaded from FB Storage!!")
-
-                if profileImg != nil {
-                    print("Profile downloaded from cache")
-                    self.profileImage.image = profileImg
-                } else {
-                    DataService.shared.getProfileImage(handler: { (data) in
-                        if let img = UIImage(data: data) {
-                            self.profileImage.image = img
-                            MainFeedVC.profileImageCache.setObject(img, forKey: DataService.shared.refUserCurrent.key as NSString)
-                        }
-                        print("Profile Image downloaded from FB Storage")
-                    })
-                    
-                }
-
-
-
-
-
-
-
-
             })
         }
-
-
-
-
-        //        if profileImg != nil {
-        //            print("Profile image downloaded from cache")
-        //
-        //            profileImage.image = profileImg
-        //        } else {
-        //            DataService.shared.getImagesFromFirebase(url: DataService.shared.refUserCurrent.key, handler: { (data) in
-        //                if let img = UIImage(data: data) {
-        //                    self.profileImage.image = img
-        //                    MainFeedVC.profileImageCache.setObject(img, forKey: DataService.shared.refUserCurrent.key as NSString)
-        //                }
-        //                print("Profile Image downloaded from FB Storage")
-        //            })
-
-
-
-
-
-        //            let ref = FIRStorage.storage().reference(forURL: post.profileImageURL)
-        //            ref.data(withMaxSize: 2 * 1024 * 1024, completion: { (data, error) in
-        //                if error != nil {
-        //                    print("Error downloading profile image to FB Storage \(String(describing: error))")
-        //                } else {
-        //                    if let imageData = data {
-        //                        if let img = UIImage(data: imageData) {
-        //                            self.profileImage.image = img
-        //                            MainFeedVC.profileImageCache.setObject(img, forKey: post.profileImageURL as NSString)
-        //                        }
-        //                    }
-        //                    print("Profile Image doanloaded from FB Storage")
-        //                }
-        //            })
-        //        }
+        if profileImg != nil {
+            print("Profile image downloaded from cache")
+            profileImage.image = img
+        } else {
+            DataService.shared.refProfileImages.child("\(DataService.shared.refUserCurrent.key)").downloadURL { (profileURL, err) in
+                if let err = err {
+                    print("OOPS: \(err.localizedDescription)")
+                } else {
+                    DataService.shared.getImagesFromFirebase(url: "\(String(describing: profileURL))", handler: { (data) in
+                        if let img = UIImage(data: data) {
+                            self.profileImage.image = img
+                            MainFeedVC.profileImageCache.setObject(img, forKey: "\(String(describing: profileURL))" as NSString)
+                        }
+                    })
+                }
+            }
+        }
         upVoteRef.observe(.value, with: { upVote in
             if let _ = upVote.value as? NSNull {
                 self.upVoteButton.setImage(#imageLiteral(resourceName: "whiteUpArrow"), for: .normal)

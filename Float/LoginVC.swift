@@ -24,9 +24,9 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        stylizeViews()
+        facebookButton.stylizeFacebook()
         notifications()
-        stylizeErrorLabel(text: Constant.ErrorMessage.password.rawValue)
+        errorLabel.stylizeError()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -36,30 +36,10 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         }
     }
 
-    func stylizeViews() {
-        facebookButton.layer.borderWidth = 2.0
-        facebookButton.layer.borderColor = UIColor.accentColor().cgColor
-        facebookButton.setTitle("SIGN UP VIA FACEBOOK", for: .normal)
-    }
-
-    func hideImages(isHidden: Bool, appLogo: UIImageView, appLabel: UILabel, skipButton: UIButton) {
-        appLogo.isHidden = isHidden
-        appLabel.isHidden = isHidden
-        skipButton.isHidden = isHidden
-    }
-
-    func stylizeErrorLabel(text: String) {
-        errorLabel.text = text
-        if text == Constant.ErrorMessage.password.rawValue {
-            errorLabel.textColor = .dividerColor()
-        } else {
-            errorLabel.textColor = .magenta
-        }
-    }
-
-    func clearTextFields() {
-        emailTextField.text = ""
-        passwordTextField.text = ""
+    func isHidden(_ shouldHide: Bool) {
+            appLogoImage.isHidden = shouldHide
+            appTaglineLabel.isHidden = shouldHide
+            skipButton.isHidden = shouldHide
     }
 
     func notifications() {
@@ -89,21 +69,23 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        hideImages(isHidden: false, appLogo: appLogoImage, appLabel: appTaglineLabel, skipButton: skipButton)
+        isHidden(false)
         view.endEditing(true)
-        stylizeErrorLabel(text: Constant.ErrorMessage.password.rawValue)
-        facebookButton.setTitle("SIGN UP VIA FACEBOOK", for: .normal)
+        errorLabel.stylizeError(text: Constant.ErrorMessage.password.rawValue)
+        facebookButton.setTitle(Constant.ButtonTitle.facebook.rawValue, for: .normal)
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        hideImages(isHidden: true, appLogo: appLogoImage, appLabel: appTaglineLabel, skipButton: skipButton)
+        isHidden(true)
         facebookButton.setTitle("LOGIN", for: .normal)
+
     }
 
     func userSignIn(id: String, userData: [String: String]) {
         DataService.shared.createFirebaseDBUser(uid: id, userData: userData)
         KeychainWrapper.standard.set(id, forKey: Constant.UserKeyType.keyUID.rawValue)
-        clearTextFields()
+        emailTextField.clearText()
+        passwordTextField.clearText()
         appLogoImage.isHidden = false
         appTaglineLabel.isHidden = false
         facebookButton.setTitle("SIGN UP VIA FACEBOOK", for: .normal)
@@ -130,7 +112,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                         if let emailUser = user, let profileURL = URL(string: Constant.URL.defaultProfileImage.rawValue) {
                             if error != nil {
                                 if let err = error {
-                                    self.stylizeErrorLabel(text: err.localizedDescription)
+                                    self.errorLabel.stylizeError(text: err.localizedDescription)
                                 }
                             } else {
                                 print("New user created")
@@ -140,7 +122,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                             }
                         } else {
                             if let err = error {
-                                self.stylizeErrorLabel(text: err.localizedDescription)
+                                self.errorLabel.stylizeError(text: err.localizedDescription)
                             }
                         }
                     })

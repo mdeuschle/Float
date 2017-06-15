@@ -49,7 +49,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 or more characters" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aV0-NJ-XnO">
-                                <rect key="frame" x="36" y="484" width="343" height="17"/>
+                                <rect key="frame" x="36" y="484" width="303" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.81137818100000003" green="0.84608370070000005" blue="0.86077272890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -152,6 +152,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="cVB-Pe-X90" firstAttribute="leading" secondItem="zFb-if-jor" secondAttribute="leading" id="1NP-Bz-W7F"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="aV0-NJ-XnO" secondAttribute="trailing" constant="20" id="8WN-2Z-L87"/>
                             <constraint firstItem="gsY-Xy-P2R" firstAttribute="top" secondItem="cVB-Pe-X90" secondAttribute="bottom" constant="20" id="8aj-Sn-pMn"/>
                             <constraint firstItem="cGo-so-I6c" firstAttribute="top" secondItem="ES9-bB-bSj" secondAttribute="top" id="DF5-S2-o6r"/>
                             <constraint firstItem="ezr-mF-A8X" firstAttribute="leading" secondItem="ES9-bB-bSj" secondAttribute="leading" id="EXj-Uq-gyg"/>
@@ -159,7 +160,6 @@
                             <constraint firstItem="A65-T0-p7y" firstAttribute="leading" secondItem="zFb-if-jor" secondAttribute="leading" id="Gac-hH-S0N"/>
                             <constraint firstItem="A65-T0-p7y" firstAttribute="trailing" secondItem="zFb-if-jor" secondAttribute="trailing" id="LD9-68-Kxg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zFb-if-jor" secondAttribute="trailing" constant="20" id="Mpq-8A-5R8"/>
-                            <constraint firstItem="aV0-NJ-XnO" firstAttribute="trailing" secondItem="ES9-bB-bSj" secondAttribute="trailingMargin" constant="20" id="N5W-ol-htr"/>
                             <constraint firstItem="aV0-NJ-XnO" firstAttribute="leading" secondItem="F6f-Rm-Klf" secondAttribute="leading" id="NpC-TV-UbR"/>
                             <constraint firstAttribute="trailing" secondItem="cGo-so-I6c" secondAttribute="trailing" id="Xjl-nN-9wW"/>
                             <constraint firstItem="cVB-Pe-X90" firstAttribute="trailing" secondItem="zFb-if-jor" secondAttribute="trailing" id="ae6-nc-mal"/>
@@ -187,7 +187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="563-W0-Oj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="826" y="287"/>
+            <point key="canvasLocation" x="824.79999999999995" y="286.50674662668666"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qdr-g4-13Q">
