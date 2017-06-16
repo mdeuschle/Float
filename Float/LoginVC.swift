@@ -12,7 +12,7 @@ import FBSDKLoginKit
 import Firebase
 import SwiftKeychainWrapper
 
-class LoginVC: UIViewController, UITextFieldDelegate {
+class LoginVC: UIViewController {
 
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -63,21 +63,11 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         }
     }
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        userLogin()
-        return true
-    }
-
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         isHidden(false)
         view.endEditing(true)
         errorLabel.stylizeError(text: Constant.ErrorMessage.password.rawValue)
         facebookButton.setTitle(Constant.ButtonTitle.facebook.rawValue, for: .normal)
-    }
-
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        isHidden(true)
-        facebookButton.setTitle(Constant.ButtonTitle.login.rawValue, for: .normal)
     }
 
     func userSignIn(id: String, userData: [String: String]) {
@@ -197,3 +187,19 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         }
     }
 }
+
+extension LoginVC: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        userLogin()
+        return true
+    }
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        isHidden(true)
+        facebookButton.setTitle(Constant.ButtonTitle.login.rawValue, for: .normal)
+    }
+}
+
+
+
