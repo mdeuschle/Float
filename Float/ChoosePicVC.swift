@@ -32,7 +32,8 @@ class ChoosePicVC: UIViewController, UINavigationControllerDelegate {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Constant.SegueIDs.selectPhotosSegue.rawValue {
+        if segue.identifier == SegueID.selectPhotosSegue.rawValue {
+            //        if segue.identifier == Constant.SegueIDs.selectPhotosSegue.rawValue {
             if let dvc = segue.destination as? SelectPicVC {
                 dvc.postImage = selectedImage
             }
@@ -58,10 +59,13 @@ extension ChoosePicVC: UIImagePickerControllerDelegate {
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             selectedImage = image
         } else {
+            Alert(viewController: self).addAlertWithCancel(alertMessage: "Oh no!", message: "Image Not Found", cancelHandler: { (action) in
+            })
             print("Image not found")
         }
         imagePicker.dismiss(animated: false) {
-            self.performSegue(withIdentifier: Constant.SegueIDs.selectPhotosSegue.rawValue, sender: self)
+            self.performSegue(withIdentifier: SegueID.selectPhotosSegue.rawValue, sender: self)
+            //            self.performSegue(withIdentifier: Constant.SegueIDs.selectPhotosSegue.rawValue, sender: self)
         }
     }
 }

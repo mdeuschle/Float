@@ -17,7 +17,7 @@ class Alert {
         self.viewController = viewController
     }
 
-    func addAlertWithCancel(alertMessage: String, message: String, cancelHandler: @escaping ((UIAlertAction) -> Void)) {
+    func addAlertWithCancel(alertMessage: String = "Oh no!", message: String = "Sorry :-(. Not sure what happened....please try again.", cancelHandler: @escaping ((UIAlertAction) -> Void)) {
         let alertController = UIAlertController(title: alertMessage, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel, handler: cancelHandler)
         alertController.addAction(action)

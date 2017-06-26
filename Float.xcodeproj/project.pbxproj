@@ -29,10 +29,14 @@
 		A8A8532B1E44357D002A15E1 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A8532A1E44357D002A15E1 /* DataService.swift */; };
 		A8A8532F1E4435DB002A15E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A8532E1E4435DB002A15E1 /* Constants.swift */; };
 		A8D09FD31EE7895E007FBC6F /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D09FD21EE7895E007FBC6F /* DateHelper.swift */; };
-		A8D4BBBB1EA29521004C10C9 /* MotionEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8D4BBBA1EA29521004C10C9 /* MotionEffect.swift */; };
 		A8E9E2051ED40DFF004D3BFC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E9E2041ED40DFF004D3BFC /* TabBarController.swift */; };
 		A8E9E20D1ED8AA8B004D3BFC /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E9E20C1ED8AA8B004D3BFC /* Alert.swift */; };
 		A8EBC1821E8884F000B23B4A /* SelectPicVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EBC1811E8884F000B23B4A /* SelectPicVC.swift */; };
+		A8EEB84E1EFF144400E11005 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8EEB84D1EFF144400E11005 /* Photo.swift */; };
+		A8F011391EFCB24D00E65876 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F011381EFCB24D00E65876 /* ImageHelper.swift */; };
+		A8F0113B1EFCB7C400E65876 /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F0113A1EFCB7C400E65876 /* FirebaseModel.swift */; };
+		A8F0113D1EFCB8A100E65876 /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F0113C1EFCB8A100E65876 /* CurrentUser.swift */; };
+		A8F0113F1EFCB99600E65876 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8F0113E1EFCB99600E65876 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,10 +86,15 @@
 		A8A8532A1E44357D002A15E1 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		A8A8532E1E4435DB002A15E1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A8D09FD21EE7895E007FBC6F /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
-		A8D4BBBA1EA29521004C10C9 /* MotionEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionEffect.swift; sourceTree = "<group>"; };
 		A8E9E2041ED40DFF004D3BFC /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		A8E9E20C1ED8AA8B004D3BFC /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		A8EBC1811E8884F000B23B4A /* SelectPicVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPicVC.swift; sourceTree = "<group>"; };
+		A8EEB84D1EFF144400E11005 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		A8F011381EFCB24D00E65876 /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		A8F0113A1EFCB7C400E65876 /* FirebaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseModel.swift; sourceTree = "<group>"; };
+		A8F0113C1EFCB8A100E65876 /* CurrentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		A8F0113E1EFCB99600E65876 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A8F011401EFDDCAD00E65876 /* Float.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Float.entitlements; sourceTree = "<group>"; };
 		D3344971BD2031DF07B540A5 /* Pods_Float.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Float.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -148,6 +157,7 @@
 		A8A852DB1E3E5EBE002A15E1 /* Float */ = {
 			isa = PBXGroup;
 			children = (
+				A8F011401EFDDCAD00E65876 /* Float.entitlements */,
 				A8A853111E3E5F9C002A15E1 /* Model */,
 				A8A853101E3E5F95002A15E1 /* View */,
 				A8A8530E1E3E5F6B002A15E1 /* Controller */,
@@ -214,10 +224,10 @@
 		A8A853101E3E5F95002A15E1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A8F011381EFCB24D00E65876 /* ImageHelper.swift */,
 				A8E9E20C1ED8AA8B004D3BFC /* Alert.swift */,
 				A88254511EF320FA00BED6C8 /* ButtonHelper.swift */,
 				A8A8531D1E3EAFD7002A15E1 /* MainFeedCell.swift */,
-				A8D4BBBA1EA29521004C10C9 /* MotionEffect.swift */,
 				A855F76B1EA45C22004C18B2 /* NavigationControllerHelper.swift */,
 				A882544F1EF313D400BED6C8 /* TextFieldHelper.swift */,
 				A8A853141E3E9004002A15E1 /* UIColor+Hex.swift */,
@@ -230,6 +240,10 @@
 			isa = PBXGroup;
 			children = (
 				A84AFC031E5A89C900A16BC0 /* Post.swift */,
+				A8F0113A1EFCB7C400E65876 /* FirebaseModel.swift */,
+				A8F0113C1EFCB8A100E65876 /* CurrentUser.swift */,
+				A8F0113E1EFCB99600E65876 /* User.swift */,
+				A8EEB84D1EFF144400E11005 /* Photo.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -324,6 +338,11 @@
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = 3DKZWJ5854;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					A8A852EC1E3E5EBF002A15E1 = {
 						CreatedOnToolsVersion = 8.2;
@@ -442,17 +461,21 @@
 			files = (
 				A855F7701EA86106004C18B2 /* ProfileVC.swift in Sources */,
 				A88254541EF327C800BED6C8 /* LabelHelper.swift in Sources */,
+				A8F0113D1EFCB8A100E65876 /* CurrentUser.swift in Sources */,
 				A8E9E2051ED40DFF004D3BFC /* TabBarController.swift in Sources */,
-				A8D4BBBB1EA29521004C10C9 /* MotionEffect.swift in Sources */,
 				A8EBC1821E8884F000B23B4A /* SelectPicVC.swift in Sources */,
 				A8A852DD1E3E5EBE002A15E1 /* AppDelegate.swift in Sources */,
+				A8F0113B1EFCB7C400E65876 /* FirebaseModel.swift in Sources */,
 				A855F76C1EA45C22004C18B2 /* NavigationControllerHelper.swift in Sources */,
 				A8A853151E3E9004002A15E1 /* UIColor+Hex.swift in Sources */,
 				A855F76A1EA3EEE5004C18B2 /* ChoosePicVC.swift in Sources */,
+				A8F0113F1EFCB99600E65876 /* User.swift in Sources */,
 				A8A8531E1E3EAFD7002A15E1 /* MainFeedCell.swift in Sources */,
 				A8D09FD31EE7895E007FBC6F /* DateHelper.swift in Sources */,
+				A8F011391EFCB24D00E65876 /* ImageHelper.swift in Sources */,
 				A8A853171E3E96FB002A15E1 /* LoginVC.swift in Sources */,
 				A88254521EF320FA00BED6C8 /* ButtonHelper.swift in Sources */,
+				A8EEB84E1EFF144400E11005 /* Photo.swift in Sources */,
 				A88254501EF313D400BED6C8 /* TextFieldHelper.swift in Sources */,
 				A8A8531B1E3EAB88002A15E1 /* MainFeedVC.swift in Sources */,
 				A8A8532B1E44357D002A15E1 /* DataService.swift in Sources */,
@@ -604,6 +627,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Float/Float.entitlements;
 				DEVELOPMENT_TEAM = 3DKZWJ5854;
 				INFOPLIST_FILE = Float/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -619,6 +643,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Float/Float.entitlements;
 				DEVELOPMENT_TEAM = 3DKZWJ5854;
 				INFOPLIST_FILE = Float/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

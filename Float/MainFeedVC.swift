@@ -49,11 +49,11 @@ class MainFeedVC: UIViewController {
             if let snapshots = snapshots.children.allObjects as? [FIRDataSnapshot] {
                 for snap in snapshots {
                     print("SNAP: \(snap)")
-                    if let postDic = snap.value as? [String: AnyObject] {
-                        let key = snap.key
-                        let post = Post(postKey: key, postData: postDic)
-                        self.posts.append(post)
-                    }
+//                    if let postDic = snap.value as? [String: AnyObject] {
+//                        let key = snap.key
+//                        let post = Post(postKey: key, postData: postDic)
+//                        self.posts.append(post)
+//                    }
                 }
             }
             self.feedTableView.reloadData()
@@ -84,12 +84,12 @@ extension MainFeedVC: UITableViewDataSource {
             return MainFeedCell()
         }
         let post = posts[indexPath.row]
-        if let img = MainFeedVC.imageCache.object(forKey: post.imageURL as NSString), let profileImg = MainFeedVC.profileImageCache.object(forKey: post.profileImageURL as NSString) {
-            print("PROFILE IMAGE: \(profileImg)")
-            cell.configCell(post: post, img: img, profileImg: profileImg)
-        } else {
-            cell.configCell(post: post)
-        }
+//        if let img = MainFeedVC.imageCache.object(forKey: post.imageURL as NSString), let profileImg = MainFeedVC.profileImageCache.object(forKey: post.profileImageURL as NSString) {
+//            print("PROFILE IMAGE: \(profileImg)")
+//            cell.configCell(post: post, img: img, profileImg: profileImg)
+//        } else {
+//            cell.configCell(post: post)
+//        }
         return cell
     }
 }
