@@ -27,13 +27,13 @@ enum FirebaseUserKeys: String {
 }
 
 enum FirebasePostKeys: String {
-    case image = "image"
     case caption = "caption"
     case owner = "owner"
     case upVotes = "upVotes"
     case downVotes = "downVotes"
     case timeStamp = "timeStamp"
     case isFavorite = "isFavorite"
+    case imageURL = "imageURL"
 }
 
 enum SegueID: String {

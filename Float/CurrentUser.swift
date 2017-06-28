@@ -37,8 +37,8 @@ class CurrentUser {
         return User.pathFor(uid: self.uid)
     }
 
-    func setOwner(partyKey: String) {
-        let reference = createFirebaseReference(components: [self.path(), FirebaseUserKeys.posts.rawValue, partyKey])
+    func setOwner(postKey: String) {
+        let reference = createFirebaseReference(components: [self.path(), FirebaseUserKeys.posts.rawValue, postKey])
         reference?.setValue(true)
     }
 }

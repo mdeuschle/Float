@@ -83,7 +83,7 @@ extension MainFeedVC: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.ReusableCellIDs.feedCell.rawValue) as? MainFeedCell else {
             return MainFeedCell()
         }
-        let post = posts[indexPath.row]
+//        let post = posts[indexPath.row]
 //        if let img = MainFeedVC.imageCache.object(forKey: post.imageURL as NSString), let profileImg = MainFeedVC.profileImageCache.object(forKey: post.profileImageURL as NSString) {
 //            print("PROFILE IMAGE: \(profileImg)")
 //            cell.configCell(post: post, img: img, profileImg: profileImg)

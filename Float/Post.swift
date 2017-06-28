@@ -35,7 +35,7 @@ class Post: FirebaseModel {
         if let snapshotValue = snapshot.value as? [String: Any],
             let owner = snapshotValue[FirebasePostKeys.owner.rawValue] as? String,
             let caption = snapshotValue[FirebasePostKeys.caption.rawValue] as? String,
-            let imageURL = snapshotValue[FirebasePostKeys.image.rawValue] as? String,
+            let imageURL = snapshotValue[FirebasePostKeys.imageURL.rawValue] as? String,
             let upVotes = snapshotValue[FirebasePostKeys.upVotes.rawValue] as? Int,
             let downVotes = snapshotValue[FirebasePostKeys.downVotes.rawValue] as? Int,
             let isFavorite = snapshotValue[FirebasePostKeys.isFavorite.rawValue] as? Bool,
@@ -59,7 +59,11 @@ class Post: FirebaseModel {
     func toDictionary() -> [String: Any] {
         return [
             FirebasePostKeys.owner.rawValue: self.owner,
-            FirebasePostKeys.caption.rawValue: self.caption
+            FirebasePostKeys.caption.rawValue: self.caption,
+            FirebasePostKeys.upVotes.rawValue: self.upVotes,
+            FirebasePostKeys.downVotes.rawValue: self.downVotes,
+            FirebasePostKeys.isFavorite.rawValue: self.isFavorite,
+            FirebasePostKeys.timeStamp.rawValue: self.timeStamp
         ]
     }
 
@@ -85,7 +89,7 @@ class Post: FirebaseModel {
     }
 
     static func addPicture(imageKey: String, postKey: String) {
-        if let reference = createFirebaseReference(components: [Post.pathFor(key: postKey), FirebasePostKeys.image.rawValue, imageKey]) {
+        if let reference = createFirebaseReference(components: [Post.pathFor(key: postKey), FirebasePostKeys.imageURL.rawValue, imageKey]) {
             reference.setValue(true)
         }
     }

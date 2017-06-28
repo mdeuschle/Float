@@ -34,6 +34,7 @@ class SelectPicVC: UIViewController {
     }
 
     func postButtonTapped() {
+
         guard let img = self.postImage else {
             print("NO IMAGE")
             return
@@ -46,25 +47,21 @@ class SelectPicVC: UIViewController {
         let firebaseImage = Photo(key: UUID().uuidString)
         currentUser.addPicture(image: img, firebasePhoto: firebaseImage)
 
-        let post = Post(owner: currentUser.uid, caption: selectPicTextView.text ?? "", postKey: nil, upVotes: 0, downVotes: 0, isFavorite: false, timeStamp: DateHelper.convertDateToString())
+        let post = Post(owner: currentUser.uid, caption: self.selectPicTextView.text ?? "", postKey: nil, upVotes: 0, downVotes: 0, isFavorite: false, timeStamp: DateHelper.convertDateToString())
+
         post.createInFirebase()
+
         if let key = post.firebaseReference?.key {
-            currentUser.setOwner(partyKey: key)
+            currentUser.setOwner(postKey: key)
         } else {
             fatalError("Post Key Should Exist")
         }
-
-
-
-
+        self.selectPicTextView.text = ""
 
 //        if let navigation = self.navigationController {
 //            navigation.popViewController(animated: true)
 //        }
 //        self.tabBarController?.selectedIndex = 0
-
-
-
 
         //        guard let img = self.postImage else {
         //            print("NO IMAGE")
